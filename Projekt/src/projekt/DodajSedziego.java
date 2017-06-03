@@ -4,10 +4,12 @@ package projekt;
 
 public class DodajSedziego extends javax.swing.JFrame {
 
+    String sport;
     MenuGlowne menu;
-    public DodajSedziego(MenuGlowne m) {
+    public DodajSedziego(MenuGlowne m, String s) {
         initComponents();
         menu =m;
+        sport = s;
     }
 
     @SuppressWarnings("unchecked")
@@ -75,11 +77,11 @@ public class DodajSedziego extends javax.swing.JFrame {
 
     private void btn_DodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DodajActionPerformed
         menu.sedzia_dodawany = new Sedzia(this.tf_Imie.getText(), this.tf_Nazwisko.getText());
-        if(menu.)
+        if(sport.matches("Siatkowka"))
             menu.wstawSedziegoSiatkowka();
-        if()
+        else if(sport.matches("Dwa_Ognie"))
             menu.wstawSedziegoDwa_Ognie();
-        if()
+        else if(sport.matches("Przeciaganie_Liny"))
             menu.wstawSedziegoPrzeciaganieLiny();
         this.setVisible(false);
         // TODO add your handling code here:

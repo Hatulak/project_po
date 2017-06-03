@@ -53,12 +53,10 @@ public class MenuGlowne extends javax.swing.JFrame {
         this.sedziowiePrzeciaganie_Liny_model.addRow(new Object[]{sedzia_dodawany.getImie(), sedzia_dodawany.getNazwisko()});
     }
     
-    
     public void wstawDruzyne(){
         this.druzyny_model.addRow(new Object[]{druzyna_dodawana.getNazwa()});
             
     } 
-    
     
     
     
@@ -75,6 +73,7 @@ public class MenuGlowne extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tSedziowieSiatkowka = new javax.swing.JTable();
         btnDodajSedziegoSiatkowka = new javax.swing.JButton();
+        btnUsunSedziegoSiatkowka = new javax.swing.JButton();
         pMeczeSiatkowka = new javax.swing.JPanel();
         pTabelaSiatkowka = new javax.swing.JPanel();
         tpDwa_Ognie = new javax.swing.JTabbedPane();
@@ -82,6 +81,7 @@ public class MenuGlowne extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         tSedziowieDwa_Ognie = new javax.swing.JTable();
         btnDodajSedziegoDwa_Ognie = new javax.swing.JButton();
+        btnUsunSedziegoDwa_Ognie = new javax.swing.JButton();
         pMeczeDwa_Ognie = new javax.swing.JPanel();
         pTabelaDwa_Ognie = new javax.swing.JPanel();
         tpPrzeciaganie_Liny = new javax.swing.JTabbedPane();
@@ -89,12 +89,14 @@ public class MenuGlowne extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         tSedziowiePrzeciaganie_Liny = new javax.swing.JTable();
         btnDodajSedziegoPrzeciaganie_Liny = new javax.swing.JButton();
+        btnUsunSedziegoPrzeciaganie_Liny = new javax.swing.JButton();
         pMeczePrzeciaganie_Liny = new javax.swing.JPanel();
         pTabelaPrzeciaganie_Liny = new javax.swing.JPanel();
         pDruzyny = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tDruzyny = new javax.swing.JTable();
         btnDodajDruzyne = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -109,21 +111,33 @@ public class MenuGlowne extends javax.swing.JFrame {
             }
         });
 
+        btnUsunSedziegoSiatkowka.setText("Usun Sedziego");
+        btnUsunSedziegoSiatkowka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsunSedziegoSiatkowkaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pSedziowieSiatkowkaLayout = new javax.swing.GroupLayout(pSedziowieSiatkowka);
         pSedziowieSiatkowka.setLayout(pSedziowieSiatkowkaLayout);
         pSedziowieSiatkowkaLayout.setHorizontalGroup(
             pSedziowieSiatkowkaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pSedziowieSiatkowkaLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(btnDodajSedziegoSiatkowka)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pSedziowieSiatkowkaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnDodajSedziegoSiatkowka, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnUsunSedziegoSiatkowka, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         pSedziowieSiatkowkaLayout.setVerticalGroup(
             pSedziowieSiatkowkaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pSedziowieSiatkowkaLayout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(btnDodajSedziegoSiatkowka)
+                .addGap(18, 18, 18)
+                .addComponent(btnUsunSedziegoSiatkowka)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
         );
@@ -169,13 +183,22 @@ public class MenuGlowne extends javax.swing.JFrame {
             }
         });
 
+        btnUsunSedziegoDwa_Ognie.setText("Usun Sędziego");
+        btnUsunSedziegoDwa_Ognie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsunSedziegoDwa_OgnieActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pSedziowieDwa_OgnieLayout = new javax.swing.GroupLayout(pSedziowieDwa_Ognie);
         pSedziowieDwa_Ognie.setLayout(pSedziowieDwa_OgnieLayout);
         pSedziowieDwa_OgnieLayout.setHorizontalGroup(
             pSedziowieDwa_OgnieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pSedziowieDwa_OgnieLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(btnDodajSedziegoDwa_Ognie)
+                .addGroup(pSedziowieDwa_OgnieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnDodajSedziegoDwa_Ognie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnUsunSedziegoDwa_Ognie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -184,8 +207,10 @@ public class MenuGlowne extends javax.swing.JFrame {
             .addGroup(pSedziowieDwa_OgnieLayout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(btnDodajSedziegoDwa_Ognie)
+                .addGap(18, 18, 18)
+                .addComponent(btnUsunSedziegoDwa_Ognie)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
         );
 
         tpDwa_Ognie.addTab("Sędziowie", pSedziowieDwa_Ognie);
@@ -229,13 +254,22 @@ public class MenuGlowne extends javax.swing.JFrame {
             }
         });
 
+        btnUsunSedziegoPrzeciaganie_Liny.setText("Usuń Sędziego");
+        btnUsunSedziegoPrzeciaganie_Liny.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsunSedziegoPrzeciaganie_LinyActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pSedziowiePrzeciaganie_LinyLayout = new javax.swing.GroupLayout(pSedziowiePrzeciaganie_Liny);
         pSedziowiePrzeciaganie_Liny.setLayout(pSedziowiePrzeciaganie_LinyLayout);
         pSedziowiePrzeciaganie_LinyLayout.setHorizontalGroup(
             pSedziowiePrzeciaganie_LinyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pSedziowiePrzeciaganie_LinyLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(btnDodajSedziegoPrzeciaganie_Liny)
+                .addGroup(pSedziowiePrzeciaganie_LinyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnDodajSedziegoPrzeciaganie_Liny, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnUsunSedziegoPrzeciaganie_Liny, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -244,8 +278,10 @@ public class MenuGlowne extends javax.swing.JFrame {
             .addGroup(pSedziowiePrzeciaganie_LinyLayout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(btnDodajSedziegoPrzeciaganie_Liny)
+                .addGap(18, 18, 18)
+                .addComponent(btnUsunSedziegoPrzeciaganie_Liny)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
         );
 
         tpPrzeciaganie_Liny.addTab("Sędziowie", pSedziowiePrzeciaganie_Liny);
@@ -289,22 +325,33 @@ public class MenuGlowne extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Usuń Drużynę");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pDruzynyLayout = new javax.swing.GroupLayout(pDruzyny);
         pDruzyny.setLayout(pDruzynyLayout);
         pDruzynyLayout.setHorizontalGroup(
             pDruzynyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pDruzynyLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(btnDodajDruzyne)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGroup(pDruzynyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnDodajDruzyne, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pDruzynyLayout.setVerticalGroup(
             pDruzynyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
             .addGroup(pDruzynyLayout.createSequentialGroup()
                 .addGap(56, 56, 56)
                 .addComponent(btnDodajDruzyne)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -327,28 +374,48 @@ public class MenuGlowne extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDodajSedziegoSiatkowkaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajSedziegoSiatkowkaActionPerformed
-       DodajSedziego fDodajSedziegoSiatkowka = new DodajSedziego(this);
+       DodajSedziego fDodajSedziegoSiatkowka = new DodajSedziego(this, "Siatkowka");
        fDodajSedziegoSiatkowka.setVisible(true);
-        // TODO add your handling code here:
     }//GEN-LAST:event_btnDodajSedziegoSiatkowkaActionPerformed
 
     private void btnDodajDruzyneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajDruzyneActionPerformed
            DodajDruzyne fDodajDruzyne = new DodajDruzyne(this);
            fDodajDruzyne.setVisible(true);
-        // TODO add your handling code here:
     }//GEN-LAST:event_btnDodajDruzyneActionPerformed
 
     private void btnDodajSedziegoDwa_OgnieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajSedziegoDwa_OgnieActionPerformed
-       DodajSedziego fDodajSedziegoDwa_Ognie = new DodajSedziego(this);
+       DodajSedziego fDodajSedziegoDwa_Ognie = new DodajSedziego(this, "Dwa_Ognie");
        fDodajSedziegoDwa_Ognie.setVisible(true);
-       // TODO add your handling code here:
     }//GEN-LAST:event_btnDodajSedziegoDwa_OgnieActionPerformed
 
     private void btnDodajSedziegoPrzeciaganie_LinyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajSedziegoPrzeciaganie_LinyActionPerformed
-        DodajSedziego fDodajSedziegoPrzeciaganie_Liny = new DodajSedziego(this);
+        DodajSedziego fDodajSedziegoPrzeciaganie_Liny = new DodajSedziego(this, "Przeciaganie_Liny");
        fDodajSedziegoPrzeciaganie_Liny.setVisible(true);
-        // TODO add your handling code here:
     }//GEN-LAST:event_btnDodajSedziegoPrzeciaganie_LinyActionPerformed
+
+    private void btnUsunSedziegoSiatkowkaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsunSedziegoSiatkowkaActionPerformed
+        if(tSedziowieSiatkowka.getSelectedRow() != -1){
+            sedziowieSiatkowka_model.removeRow(tSedziowieSiatkowka.getSelectedRow());
+        }
+    }//GEN-LAST:event_btnUsunSedziegoSiatkowkaActionPerformed
+
+    private void btnUsunSedziegoDwa_OgnieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsunSedziegoDwa_OgnieActionPerformed
+        if(tSedziowieDwa_Ognie.getSelectedRow() != -1){
+            sedziowieDwa_Ognie_model.removeRow(tSedziowieDwa_Ognie.getSelectedRow());
+        }
+    }//GEN-LAST:event_btnUsunSedziegoDwa_OgnieActionPerformed
+
+    private void btnUsunSedziegoPrzeciaganie_LinyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsunSedziegoPrzeciaganie_LinyActionPerformed
+        if(tSedziowiePrzeciaganie_Liny.getSelectedRow() != -1){
+            sedziowiePrzeciaganie_Liny_model.removeRow(tSedziowiePrzeciaganie_Liny.getSelectedRow());
+        }
+    }//GEN-LAST:event_btnUsunSedziegoPrzeciaganie_LinyActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(tDruzyny.getSelectedRow() != -1){
+            druzyny_model.removeRow(tDruzyny.getSelectedRow());
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -390,6 +457,10 @@ public class MenuGlowne extends javax.swing.JFrame {
     private javax.swing.JButton btnDodajSedziegoDwa_Ognie;
     private javax.swing.JButton btnDodajSedziegoPrzeciaganie_Liny;
     private javax.swing.JButton btnDodajSedziegoSiatkowka;
+    private javax.swing.JButton btnUsunSedziegoDwa_Ognie;
+    private javax.swing.JButton btnUsunSedziegoPrzeciaganie_Liny;
+    private javax.swing.JButton btnUsunSedziegoSiatkowka;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
