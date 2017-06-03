@@ -75,7 +75,12 @@ public class DodajSedziego extends javax.swing.JFrame {
 
     private void btn_DodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DodajActionPerformed
         menu.sedzia_dodawany = new Sedzia(this.tf_Imie.getText(), this.tf_Nazwisko.getText());
-        menu.wstawSedziego();
+        if(menu.)
+            menu.wstawSedziegoSiatkowka();
+        if()
+            menu.wstawSedziegoDwa_Ognie();
+        if()
+            menu.wstawSedziegoPrzeciaganieLiny();
         this.setVisible(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_DodajActionPerformed

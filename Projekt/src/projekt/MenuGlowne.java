@@ -10,8 +10,31 @@ public class MenuGlowne extends javax.swing.JFrame {
     public Druzyna druzyna_dodawana;
     
     
-    public DefaultTableModel sedziowie_model = new DefaultTableModel(0,0);
-    public DefaultTableModel druzyny_model = new DefaultTableModel(0,0);
+    public DefaultTableModel sedziowieSiatkowka_model = new DefaultTableModel(0,0){
+        @Override
+        public boolean isCellEditable(int rzad, int kolumna){
+            return false;
+        }
+    };
+    public DefaultTableModel sedziowieDwa_Ognie_model = new DefaultTableModel(0,0){
+        @Override
+        public boolean isCellEditable(int rzad, int kolumna){
+            return false;
+        }
+    };
+    public DefaultTableModel sedziowiePrzeciaganie_Liny_model = new DefaultTableModel(0,0){
+        @Override
+        public boolean isCellEditable(int rzad, int kolumna){
+            return false;
+        }
+    };
+    
+    public DefaultTableModel druzyny_model = new DefaultTableModel(0,0){
+        @Override
+        public boolean isCellEditable(int rzad, int kolumna){
+            return false;
+        }
+    };
     
     
     
@@ -20,9 +43,16 @@ public class MenuGlowne extends javax.swing.JFrame {
         initComponents();
     }
 
-    public void wstawSedziego(){
-        this.sedziowie_model.addRow(new Object[]{sedzia_dodawany.getImie(), sedzia_dodawany.getNazwisko()});
+    public void wstawSedziegoSiatkowka(){
+        this.sedziowieSiatkowka_model.addRow(new Object[]{sedzia_dodawany.getImie(), sedzia_dodawany.getNazwisko()});
     }
+    public void wstawSedziegoDwa_Ognie(){
+        this.sedziowieDwa_Ognie_model.addRow(new Object[]{sedzia_dodawany.getImie(), sedzia_dodawany.getNazwisko()});
+    }
+    public void wstawSedziegoPrzeciaganieLiny(){
+        this.sedziowiePrzeciaganie_Liny_model.addRow(new Object[]{sedzia_dodawany.getImie(), sedzia_dodawany.getNazwisko()});
+    }
+    
     
     public void wstawDruzyne(){
         this.druzyny_model.addRow(new Object[]{druzyna_dodawana.getNazwa()});
@@ -41,12 +71,26 @@ public class MenuGlowne extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         tpSiatkowka = new javax.swing.JTabbedPane();
-        pSedziowieSiat = new javax.swing.JPanel();
+        pSedziowieSiatkowka = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tSedziowie = new javax.swing.JTable();
-        btnDodajSedziego = new javax.swing.JButton();
-        pMeczeSiat = new javax.swing.JPanel();
-        pTabelaSiat = new javax.swing.JPanel();
+        tSedziowieSiatkowka = new javax.swing.JTable();
+        btnDodajSedziegoSiatkowka = new javax.swing.JButton();
+        pMeczeSiatkowka = new javax.swing.JPanel();
+        pTabelaSiatkowka = new javax.swing.JPanel();
+        tpDwa_Ognie = new javax.swing.JTabbedPane();
+        pSedziowieDwa_Ognie = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tSedziowieDwa_Ognie = new javax.swing.JTable();
+        btnDodajSedziegoDwa_Ognie = new javax.swing.JButton();
+        pMeczeDwa_Ognie = new javax.swing.JPanel();
+        pTabelaDwa_Ognie = new javax.swing.JPanel();
+        tpPrzeciaganie_Liny = new javax.swing.JTabbedPane();
+        pSedziowiePrzeciaganie_Liny = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tSedziowiePrzeciaganie_Liny = new javax.swing.JTable();
+        btnDodajSedziegoPrzeciaganie_Liny = new javax.swing.JButton();
+        pMeczePrzeciaganie_Liny = new javax.swing.JPanel();
+        pTabelaPrzeciaganie_Liny = new javax.swing.JPanel();
         pDruzyny = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tDruzyny = new javax.swing.JTable();
@@ -54,65 +98,185 @@ public class MenuGlowne extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        sedziowie_model.setColumnIdentifiers(new Object[]{"Imie","Nazwisko"});
-        tSedziowie.setModel(sedziowie_model);
-        jScrollPane3.setViewportView(tSedziowie);
+        sedziowieSiatkowka_model.setColumnIdentifiers(new Object[]{"Imie","Nazwisko"});
+        tSedziowieSiatkowka.setModel(sedziowieSiatkowka_model);
+        jScrollPane3.setViewportView(tSedziowieSiatkowka);
 
-        btnDodajSedziego.setText("Dodaj Sędziego");
-        btnDodajSedziego.addActionListener(new java.awt.event.ActionListener() {
+        btnDodajSedziegoSiatkowka.setText("Dodaj Sędziego");
+        btnDodajSedziegoSiatkowka.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDodajSedziegoActionPerformed(evt);
+                btnDodajSedziegoSiatkowkaActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout pSedziowieSiatLayout = new javax.swing.GroupLayout(pSedziowieSiat);
-        pSedziowieSiat.setLayout(pSedziowieSiatLayout);
-        pSedziowieSiatLayout.setHorizontalGroup(
-            pSedziowieSiatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pSedziowieSiatLayout.createSequentialGroup()
+        javax.swing.GroupLayout pSedziowieSiatkowkaLayout = new javax.swing.GroupLayout(pSedziowieSiatkowka);
+        pSedziowieSiatkowka.setLayout(pSedziowieSiatkowkaLayout);
+        pSedziowieSiatkowkaLayout.setHorizontalGroup(
+            pSedziowieSiatkowkaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pSedziowieSiatkowkaLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(btnDodajSedziego)
+                .addComponent(btnDodajSedziegoSiatkowka)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        pSedziowieSiatLayout.setVerticalGroup(
-            pSedziowieSiatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pSedziowieSiatLayout.createSequentialGroup()
+        pSedziowieSiatkowkaLayout.setVerticalGroup(
+            pSedziowieSiatkowkaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pSedziowieSiatkowkaLayout.createSequentialGroup()
                 .addGap(53, 53, 53)
-                .addComponent(btnDodajSedziego)
+                .addComponent(btnDodajSedziegoSiatkowka)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
         );
 
-        tpSiatkowka.addTab("Sędziowie", pSedziowieSiat);
+        tpSiatkowka.addTab("Sędziowie", pSedziowieSiatkowka);
 
-        javax.swing.GroupLayout pMeczeSiatLayout = new javax.swing.GroupLayout(pMeczeSiat);
-        pMeczeSiat.setLayout(pMeczeSiatLayout);
-        pMeczeSiatLayout.setHorizontalGroup(
-            pMeczeSiatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pMeczeSiatkowkaLayout = new javax.swing.GroupLayout(pMeczeSiatkowka);
+        pMeczeSiatkowka.setLayout(pMeczeSiatkowkaLayout);
+        pMeczeSiatkowkaLayout.setHorizontalGroup(
+            pMeczeSiatkowkaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 568, Short.MAX_VALUE)
         );
-        pMeczeSiatLayout.setVerticalGroup(
-            pMeczeSiatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pMeczeSiatkowkaLayout.setVerticalGroup(
+            pMeczeSiatkowkaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 464, Short.MAX_VALUE)
         );
 
-        tpSiatkowka.addTab("Mecze", pMeczeSiat);
+        tpSiatkowka.addTab("Mecze", pMeczeSiatkowka);
 
-        javax.swing.GroupLayout pTabelaSiatLayout = new javax.swing.GroupLayout(pTabelaSiat);
-        pTabelaSiat.setLayout(pTabelaSiatLayout);
-        pTabelaSiatLayout.setHorizontalGroup(
-            pTabelaSiatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pTabelaSiatkowkaLayout = new javax.swing.GroupLayout(pTabelaSiatkowka);
+        pTabelaSiatkowka.setLayout(pTabelaSiatkowkaLayout);
+        pTabelaSiatkowkaLayout.setHorizontalGroup(
+            pTabelaSiatkowkaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 568, Short.MAX_VALUE)
         );
-        pTabelaSiatLayout.setVerticalGroup(
-            pTabelaSiatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pTabelaSiatkowkaLayout.setVerticalGroup(
+            pTabelaSiatkowkaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 464, Short.MAX_VALUE)
         );
 
-        tpSiatkowka.addTab("Tabela Wyników", pTabelaSiat);
+        tpSiatkowka.addTab("Tabela Wyników", pTabelaSiatkowka);
 
         jTabbedPane1.addTab("Siatkówka", tpSiatkowka);
+
+        sedziowieDwa_Ognie_model.setColumnIdentifiers(new Object[]{"Imie","Nazwisko"});
+        tSedziowieDwa_Ognie.setModel(sedziowieDwa_Ognie_model);
+        jScrollPane4.setViewportView(tSedziowieDwa_Ognie);
+
+        btnDodajSedziegoDwa_Ognie.setText("Dodaj Sędziego");
+        btnDodajSedziegoDwa_Ognie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDodajSedziegoDwa_OgnieActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pSedziowieDwa_OgnieLayout = new javax.swing.GroupLayout(pSedziowieDwa_Ognie);
+        pSedziowieDwa_Ognie.setLayout(pSedziowieDwa_OgnieLayout);
+        pSedziowieDwa_OgnieLayout.setHorizontalGroup(
+            pSedziowieDwa_OgnieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pSedziowieDwa_OgnieLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(btnDodajSedziegoDwa_Ognie)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        pSedziowieDwa_OgnieLayout.setVerticalGroup(
+            pSedziowieDwa_OgnieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pSedziowieDwa_OgnieLayout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(btnDodajSedziegoDwa_Ognie)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
+        );
+
+        tpDwa_Ognie.addTab("Sędziowie", pSedziowieDwa_Ognie);
+
+        javax.swing.GroupLayout pMeczeDwa_OgnieLayout = new javax.swing.GroupLayout(pMeczeDwa_Ognie);
+        pMeczeDwa_Ognie.setLayout(pMeczeDwa_OgnieLayout);
+        pMeczeDwa_OgnieLayout.setHorizontalGroup(
+            pMeczeDwa_OgnieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 568, Short.MAX_VALUE)
+        );
+        pMeczeDwa_OgnieLayout.setVerticalGroup(
+            pMeczeDwa_OgnieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 462, Short.MAX_VALUE)
+        );
+
+        tpDwa_Ognie.addTab("Mecze", pMeczeDwa_Ognie);
+
+        javax.swing.GroupLayout pTabelaDwa_OgnieLayout = new javax.swing.GroupLayout(pTabelaDwa_Ognie);
+        pTabelaDwa_Ognie.setLayout(pTabelaDwa_OgnieLayout);
+        pTabelaDwa_OgnieLayout.setHorizontalGroup(
+            pTabelaDwa_OgnieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 568, Short.MAX_VALUE)
+        );
+        pTabelaDwa_OgnieLayout.setVerticalGroup(
+            pTabelaDwa_OgnieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 462, Short.MAX_VALUE)
+        );
+
+        tpDwa_Ognie.addTab("Tabela Wyników", pTabelaDwa_Ognie);
+
+        jTabbedPane1.addTab("Dwa ognie", tpDwa_Ognie);
+
+        sedziowiePrzeciaganie_Liny_model.setColumnIdentifiers(new Object[]{"Imie","Nazwisko"});
+        tSedziowiePrzeciaganie_Liny.setModel(sedziowiePrzeciaganie_Liny_model);
+        jScrollPane5.setViewportView(tSedziowiePrzeciaganie_Liny);
+
+        btnDodajSedziegoPrzeciaganie_Liny.setText("Dodaj Sędziego");
+        btnDodajSedziegoPrzeciaganie_Liny.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDodajSedziegoPrzeciaganie_LinyActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pSedziowiePrzeciaganie_LinyLayout = new javax.swing.GroupLayout(pSedziowiePrzeciaganie_Liny);
+        pSedziowiePrzeciaganie_Liny.setLayout(pSedziowiePrzeciaganie_LinyLayout);
+        pSedziowiePrzeciaganie_LinyLayout.setHorizontalGroup(
+            pSedziowiePrzeciaganie_LinyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pSedziowiePrzeciaganie_LinyLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(btnDodajSedziegoPrzeciaganie_Liny)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        pSedziowiePrzeciaganie_LinyLayout.setVerticalGroup(
+            pSedziowiePrzeciaganie_LinyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pSedziowiePrzeciaganie_LinyLayout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(btnDodajSedziegoPrzeciaganie_Liny)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
+        );
+
+        tpPrzeciaganie_Liny.addTab("Sędziowie", pSedziowiePrzeciaganie_Liny);
+
+        javax.swing.GroupLayout pMeczePrzeciaganie_LinyLayout = new javax.swing.GroupLayout(pMeczePrzeciaganie_Liny);
+        pMeczePrzeciaganie_Liny.setLayout(pMeczePrzeciaganie_LinyLayout);
+        pMeczePrzeciaganie_LinyLayout.setHorizontalGroup(
+            pMeczePrzeciaganie_LinyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 568, Short.MAX_VALUE)
+        );
+        pMeczePrzeciaganie_LinyLayout.setVerticalGroup(
+            pMeczePrzeciaganie_LinyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 462, Short.MAX_VALUE)
+        );
+
+        tpPrzeciaganie_Liny.addTab("Mecze", pMeczePrzeciaganie_Liny);
+
+        javax.swing.GroupLayout pTabelaPrzeciaganie_LinyLayout = new javax.swing.GroupLayout(pTabelaPrzeciaganie_Liny);
+        pTabelaPrzeciaganie_Liny.setLayout(pTabelaPrzeciaganie_LinyLayout);
+        pTabelaPrzeciaganie_LinyLayout.setHorizontalGroup(
+            pTabelaPrzeciaganie_LinyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 568, Short.MAX_VALUE)
+        );
+        pTabelaPrzeciaganie_LinyLayout.setVerticalGroup(
+            pTabelaPrzeciaganie_LinyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 462, Short.MAX_VALUE)
+        );
+
+        tpPrzeciaganie_Liny.addTab("Tabela Wyników", pTabelaPrzeciaganie_Liny);
+
+        jTabbedPane1.addTab("Przeciąganie liny", tpPrzeciaganie_Liny);
 
         druzyny_model.setColumnIdentifiers(new Object[]{"Nazwa drużyny"});
         tDruzyny.setModel(druzyny_model);
@@ -137,7 +301,7 @@ public class MenuGlowne extends javax.swing.JFrame {
         );
         pDruzynyLayout.setVerticalGroup(
             pDruzynyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
             .addGroup(pDruzynyLayout.createSequentialGroup()
                 .addGap(56, 56, 56)
                 .addComponent(btnDodajDruzyne)
@@ -162,17 +326,29 @@ public class MenuGlowne extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnDodajSedziegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajSedziegoActionPerformed
-       DodajSedziego fDodajSedziego = new DodajSedziego(this);
-       fDodajSedziego.setVisible(true);
+    private void btnDodajSedziegoSiatkowkaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajSedziegoSiatkowkaActionPerformed
+       DodajSedziego fDodajSedziegoSiatkowka = new DodajSedziego(this);
+       fDodajSedziegoSiatkowka.setVisible(true);
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnDodajSedziegoActionPerformed
+    }//GEN-LAST:event_btnDodajSedziegoSiatkowkaActionPerformed
 
     private void btnDodajDruzyneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajDruzyneActionPerformed
            DodajDruzyne fDodajDruzyne = new DodajDruzyne(this);
            fDodajDruzyne.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDodajDruzyneActionPerformed
+
+    private void btnDodajSedziegoDwa_OgnieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajSedziegoDwa_OgnieActionPerformed
+       DodajSedziego fDodajSedziegoDwa_Ognie = new DodajSedziego(this);
+       fDodajSedziegoDwa_Ognie.setVisible(true);
+       // TODO add your handling code here:
+    }//GEN-LAST:event_btnDodajSedziegoDwa_OgnieActionPerformed
+
+    private void btnDodajSedziegoPrzeciaganie_LinyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajSedziegoPrzeciaganie_LinyActionPerformed
+        DodajSedziego fDodajSedziegoPrzeciaganie_Liny = new DodajSedziego(this);
+       fDodajSedziegoPrzeciaganie_Liny.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDodajSedziegoPrzeciaganie_LinyActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,17 +387,30 @@ public class MenuGlowne extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDodajDruzyne;
-    private javax.swing.JButton btnDodajSedziego;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton btnDodajSedziegoDwa_Ognie;
+    private javax.swing.JButton btnDodajSedziegoPrzeciaganie_Liny;
+    private javax.swing.JButton btnDodajSedziegoSiatkowka;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JPanel pDruzyny;
-    private javax.swing.JPanel pMeczeSiat;
-    private javax.swing.JPanel pSedziowieSiat;
-    private javax.swing.JPanel pTabelaSiat;
+    private javax.swing.JPanel pMeczeDwa_Ognie;
+    private javax.swing.JPanel pMeczePrzeciaganie_Liny;
+    private javax.swing.JPanel pMeczeSiatkowka;
+    private javax.swing.JPanel pSedziowieDwa_Ognie;
+    private javax.swing.JPanel pSedziowiePrzeciaganie_Liny;
+    private javax.swing.JPanel pSedziowieSiatkowka;
+    private javax.swing.JPanel pTabelaDwa_Ognie;
+    private javax.swing.JPanel pTabelaPrzeciaganie_Liny;
+    private javax.swing.JPanel pTabelaSiatkowka;
     private javax.swing.JTable tDruzyny;
-    private javax.swing.JTable tSedziowie;
+    private javax.swing.JTable tSedziowieDwa_Ognie;
+    private javax.swing.JTable tSedziowiePrzeciaganie_Liny;
+    private javax.swing.JTable tSedziowieSiatkowka;
+    private javax.swing.JTabbedPane tpDwa_Ognie;
+    private javax.swing.JTabbedPane tpPrzeciaganie_Liny;
     private javax.swing.JTabbedPane tpSiatkowka;
     // End of variables declaration//GEN-END:variables
 }
