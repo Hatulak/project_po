@@ -8,7 +8,9 @@ import java.util.LinkedList;
 
 public class Rozgrywki {
     public LinkedList<Druzyna> druzyny = new LinkedList<>();
-    public Dyscyplina turniejSiatkowki,turniejDwa_Ognie,turniejLina;
+    public Dyscyplina turniejSiatkowki = new Dyscyplina("Siatkowka");
+    public Dyscyplina turniejDwa_Ognie = new Dyscyplina("Dwa_Ognie");
+    public Dyscyplina turniejLina = new Dyscyplina("Przeciaganie_Liny");
     
 
     public void dodajDruzyne(Druzyna team){	

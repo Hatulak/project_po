@@ -19,7 +19,9 @@ public class Dyscyplina {
     private Mecz polfinal_2;
     private Mecz mecz_final;
 
-
+    public Dyscyplina(String s){
+        nazwa = s;
+    }
 
     public void dodajSedziego(Sedzia sedzia){
         sedziowie.add(sedzia);
@@ -68,17 +70,17 @@ public class Dyscyplina {
     	}
     }
     public void wygenerujMecze(LinkedList<Druzyna> druzyny){
-        Mecz mecz;
     	for (int i = 0; i < druzyny.size() ; i++ ){
             for (int j = i+1;  j< druzyny.size(); j++){
                 Druzyna team1 = druzyny.get(i);
                 Druzyna team2 = druzyny.get(j);
-                if (nazwa.matches("Siatk�wka"))
-                    mecz = new Siatkowka(team1,team2,sedziowie);
-                if (nazwa.matches("Dwa_Ognie"))
-                    mecz = new Dwa_Ognie(team1,team2,sedziowie);
-                if (nazwa.matches("Przeciaganie_Liny"))
-                    mecz= new Przeciaganie_Liny(team1,team2,sedziowie);
+                if (nazwa.matches("Siatkowka"))
+                    lista_meczy.add(new Siatkowka(team1,team2,sedziowie));
+                else if (nazwa.matches("Dwa_Ognie"))
+                    lista_meczy.add(new Dwa_Ognie(team1,team2,sedziowie));
+                else if (nazwa.matches("Przeciaganie_Liny"))
+                    lista_meczy.add(new Przeciaganie_Liny(team1,team2,sedziowie));
+                
                 }
             }
         }

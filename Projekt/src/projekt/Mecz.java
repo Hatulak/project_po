@@ -9,7 +9,12 @@ public abstract class Mecz {
     public Druzyna getZwyciezca() {
         return zwyciezca;
     }
-
+    public Druzyna getTeam1() {
+        return team1;
+    }
+    public Druzyna getTeam2() {
+        return team2;
+    }
     public Druzyna getPrzegramy() {
 
         String nazwa_wygranego;
@@ -26,6 +31,7 @@ public abstract class Mecz {
         return  przegrany;
     }
 
+    
     public Mecz(Druzyna team1, Druzyna team2){
         this.team1 = team1;
         this.team2 = team2;

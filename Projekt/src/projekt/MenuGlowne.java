@@ -2,10 +2,13 @@
 package projekt;
 
 import javax.swing.table.DefaultTableModel;
+import java.util.LinkedList;
 
 
 public class MenuGlowne extends javax.swing.JFrame {
-
+    public Rozgrywki rozgrywki = new Rozgrywki();
+    
+    
     public Sedzia sedzia_dodawany;
     public Druzyna druzyna_dodawana;
     
@@ -36,7 +39,12 @@ public class MenuGlowne extends javax.swing.JFrame {
         }
     };
     
-    
+    public DefaultTableModel meczeSiatkowka_model = new DefaultTableModel(0,0){
+        @Override
+        public boolean isCellEditable(int rzad, int kolumna){
+            return false;
+        }
+    };
     
     
     public MenuGlowne() {
@@ -44,16 +52,20 @@ public class MenuGlowne extends javax.swing.JFrame {
     }
 
     public void wstawSedziegoSiatkowka(){
+        rozgrywki.turniejSiatkowki.dodajSedziego(new Sedzia(sedzia_dodawany.getImie(),sedzia_dodawany.getNazwisko()));
         this.sedziowieSiatkowka_model.addRow(new Object[]{sedzia_dodawany.getImie(), sedzia_dodawany.getNazwisko()});
     }
     public void wstawSedziegoDwa_Ognie(){
+        rozgrywki.turniejDwa_Ognie.dodajSedziego(new Sedzia(sedzia_dodawany.getImie(),sedzia_dodawany.getNazwisko()));
         this.sedziowieDwa_Ognie_model.addRow(new Object[]{sedzia_dodawany.getImie(), sedzia_dodawany.getNazwisko()});
     }
     public void wstawSedziegoPrzeciaganieLiny(){
+        rozgrywki.turniejLina.dodajSedziego(new Sedzia(sedzia_dodawany.getImie(),sedzia_dodawany.getNazwisko()));
         this.sedziowiePrzeciaganie_Liny_model.addRow(new Object[]{sedzia_dodawany.getImie(), sedzia_dodawany.getNazwisko()});
     }
     
     public void wstawDruzyne(){
+        rozgrywki.dodajDruzyne(druzyna_dodawana);
         this.druzyny_model.addRow(new Object[]{druzyna_dodawana.getNazwa()});
             
     } 
@@ -75,6 +87,10 @@ public class MenuGlowne extends javax.swing.JFrame {
         btnDodajSedziegoSiatkowka = new javax.swing.JButton();
         btnUsunSedziegoSiatkowka = new javax.swing.JButton();
         pMeczeSiatkowka = new javax.swing.JPanel();
+        btnWygenerujMeczeSiatkowka = new javax.swing.JButton();
+        btnDodajWynikSiatkowka = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tMeczeSiatkowka = new javax.swing.JTable();
         pTabelaSiatkowka = new javax.swing.JPanel();
         tpDwa_Ognie = new javax.swing.JTabbedPane();
         pSedziowieDwa_Ognie = new javax.swing.JPanel();
@@ -134,7 +150,7 @@ public class MenuGlowne extends javax.swing.JFrame {
         pSedziowieSiatkowkaLayout.setVerticalGroup(
             pSedziowieSiatkowkaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pSedziowieSiatkowkaLayout.createSequentialGroup()
-                .addGap(53, 53, 53)
+                .addGap(50, 50, 50)
                 .addComponent(btnDodajSedziegoSiatkowka)
                 .addGap(18, 18, 18)
                 .addComponent(btnUsunSedziegoSiatkowka)
@@ -144,15 +160,41 @@ public class MenuGlowne extends javax.swing.JFrame {
 
         tpSiatkowka.addTab("Sędziowie", pSedziowieSiatkowka);
 
+        btnWygenerujMeczeSiatkowka.setText("Wygeneruj Mecze");
+        btnWygenerujMeczeSiatkowka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnWygenerujMeczeSiatkowkaActionPerformed(evt);
+            }
+        });
+
+        btnDodajWynikSiatkowka.setText("Dodaj Wynik");
+
+        meczeSiatkowka_model.setColumnIdentifiers(new Object[]{"Drużyna 1", "Drużyna 2"});
+        tMeczeSiatkowka.setModel(meczeSiatkowka_model);
+        tMeczeSiatkowka.setToolTipText("");
+        jScrollPane1.setViewportView(tMeczeSiatkowka);
+
         javax.swing.GroupLayout pMeczeSiatkowkaLayout = new javax.swing.GroupLayout(pMeczeSiatkowka);
         pMeczeSiatkowka.setLayout(pMeczeSiatkowkaLayout);
         pMeczeSiatkowkaLayout.setHorizontalGroup(
             pMeczeSiatkowkaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 568, Short.MAX_VALUE)
+            .addGroup(pMeczeSiatkowkaLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(pMeczeSiatkowkaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnWygenerujMeczeSiatkowka, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                    .addComponent(btnDodajWynikSiatkowka, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE))
         );
         pMeczeSiatkowkaLayout.setVerticalGroup(
             pMeczeSiatkowkaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 464, Short.MAX_VALUE)
+            .addGroup(pMeczeSiatkowkaLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(btnWygenerujMeczeSiatkowka)
+                .addGap(18, 18, 18)
+                .addComponent(btnDodajWynikSiatkowka)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
         );
 
         tpSiatkowka.addTab("Mecze", pMeczeSiatkowka);
@@ -205,7 +247,7 @@ public class MenuGlowne extends javax.swing.JFrame {
         pSedziowieDwa_OgnieLayout.setVerticalGroup(
             pSedziowieDwa_OgnieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pSedziowieDwa_OgnieLayout.createSequentialGroup()
-                .addGap(53, 53, 53)
+                .addGap(50, 50, 50)
                 .addComponent(btnDodajSedziegoDwa_Ognie)
                 .addGap(18, 18, 18)
                 .addComponent(btnUsunSedziegoDwa_Ognie)
@@ -276,7 +318,7 @@ public class MenuGlowne extends javax.swing.JFrame {
         pSedziowiePrzeciaganie_LinyLayout.setVerticalGroup(
             pSedziowiePrzeciaganie_LinyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pSedziowiePrzeciaganie_LinyLayout.createSequentialGroup()
-                .addGap(53, 53, 53)
+                .addGap(50, 50, 50)
                 .addComponent(btnDodajSedziegoPrzeciaganie_Liny)
                 .addGap(18, 18, 18)
                 .addComponent(btnUsunSedziegoPrzeciaganie_Liny)
@@ -348,7 +390,7 @@ public class MenuGlowne extends javax.swing.JFrame {
             pDruzynyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
             .addGroup(pDruzynyLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
+                .addGap(50, 50, 50)
                 .addComponent(btnDodajDruzyne)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
@@ -417,6 +459,22 @@ public class MenuGlowne extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnWygenerujMeczeSiatkowkaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWygenerujMeczeSiatkowkaActionPerformed
+        rozgrywki.getTurniejSiatkowki().wygenerujMecze(rozgrywki.getDruzyny());
+        
+        LinkedList<Mecz> lista = rozgrywki.turniejSiatkowki.getLista_meczy();
+        
+        for(int i=0; i < lista.size(); i++){
+            for(int j=i+1; j < lista.size(); j++){
+                String nazwa1 = lista.get(i).getTeam1().getNazwa();
+                String nazwa2 = lista.get(j).getTeam2().getNazwa();
+            
+                this.meczeSiatkowka_model.addRow(new Object[]{nazwa1,nazwa2});
+            }
+        }
+    }//GEN-LAST:event_btnWygenerujMeczeSiatkowkaActionPerformed
+
+    
     /**
      * @param args the command line arguments
      */
@@ -457,10 +515,13 @@ public class MenuGlowne extends javax.swing.JFrame {
     private javax.swing.JButton btnDodajSedziegoDwa_Ognie;
     private javax.swing.JButton btnDodajSedziegoPrzeciaganie_Liny;
     private javax.swing.JButton btnDodajSedziegoSiatkowka;
+    private javax.swing.JButton btnDodajWynikSiatkowka;
     private javax.swing.JButton btnUsunSedziegoDwa_Ognie;
     private javax.swing.JButton btnUsunSedziegoPrzeciaganie_Liny;
     private javax.swing.JButton btnUsunSedziegoSiatkowka;
+    private javax.swing.JButton btnWygenerujMeczeSiatkowka;
     private javax.swing.JButton jButton1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -477,6 +538,7 @@ public class MenuGlowne extends javax.swing.JFrame {
     private javax.swing.JPanel pTabelaPrzeciaganie_Liny;
     private javax.swing.JPanel pTabelaSiatkowka;
     private javax.swing.JTable tDruzyny;
+    private javax.swing.JTable tMeczeSiatkowka;
     private javax.swing.JTable tSedziowieDwa_Ognie;
     private javax.swing.JTable tSedziowiePrzeciaganie_Liny;
     private javax.swing.JTable tSedziowieSiatkowka;
