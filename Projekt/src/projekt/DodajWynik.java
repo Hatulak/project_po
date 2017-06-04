@@ -14,12 +14,10 @@ public class DodajWynik extends javax.swing.JFrame {
     String team1n,team2n;
     MenuGlowne menu;
     public DodajWynik(MenuGlowne m, String nazwa_sportu, String team1nazwa, String team2nazwa) {
-        initComponents();
         menu = m;
         team1n = team1nazwa;
         team2n = team2nazwa;
-        
-        
+        initComponents();       
     }
 
     
