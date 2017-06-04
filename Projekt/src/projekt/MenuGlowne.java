@@ -168,6 +168,11 @@ public class MenuGlowne extends javax.swing.JFrame {
         });
 
         btnDodajWynikSiatkowka.setText("Dodaj Wynik");
+        btnDodajWynikSiatkowka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDodajWynikSiatkowkaActionPerformed(evt);
+            }
+        });
 
         meczeSiatkowka_model.setColumnIdentifiers(new Object[]{"Drużyna 1", "Drużyna 2"});
         tMeczeSiatkowka.setModel(meczeSiatkowka_model);
@@ -482,6 +487,11 @@ public class MenuGlowne extends javax.swing.JFrame {
         PrzegladDruzyny fPrzeglad = new PrzegladDruzyny(this,druzyny_model.getValueAt(tDruzyny.getSelectedRow(),NORMAL).toString());
         fPrzeglad.setVisible(true); 
     }//GEN-LAST:event_tDruzynyMouseClicked
+
+    private void btnDodajWynikSiatkowkaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajWynikSiatkowkaActionPerformed
+       DodajWynik fDodajwynik = new DodajWynik(this, "Siatkowka",(String) tMeczeSiatkowka.getModel().getValueAt(tMeczeSiatkowka.getSelectedRow(), 0 ),(String) tMeczeSiatkowka.getModel().getValueAt(tMeczeSiatkowka.getSelectedRow(), 1 ));
+       fDodajwynik.setVisible(true);
+    }//GEN-LAST:event_btnDodajWynikSiatkowkaActionPerformed
 
     
     /**

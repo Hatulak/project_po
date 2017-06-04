@@ -1,6 +1,8 @@
 
 package projekt;
 
+import java.awt.event.KeyEvent;
+
 
 public class DodajSedziego extends javax.swing.JFrame {
 
@@ -22,7 +24,7 @@ public class DodajSedziego extends javax.swing.JFrame {
         tf_Imie = new javax.swing.JTextField();
         tf_Nazwisko = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Imie");
 
@@ -34,7 +36,6 @@ public class DodajSedziego extends javax.swing.JFrame {
                 btn_DodajActionPerformed(evt);
             }
         });
-        
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
