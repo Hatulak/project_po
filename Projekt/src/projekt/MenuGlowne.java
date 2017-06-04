@@ -113,7 +113,6 @@ public class MenuGlowne extends javax.swing.JFrame {
         tDruzyny = new javax.swing.JTable();
         btnDodajDruzyne = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        bPrzeglad = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -359,6 +358,11 @@ public class MenuGlowne extends javax.swing.JFrame {
 
         druzyny_model.setColumnIdentifiers(new Object[]{"Nazwa drużyny"});
         tDruzyny.setModel(druzyny_model);
+        tDruzyny.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tDruzynyMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tDruzyny);
 
         btnDodajDruzyne.setText("Dodaj Drużynę");
@@ -375,25 +379,16 @@ public class MenuGlowne extends javax.swing.JFrame {
             }
         });
 
-        bPrzeglad.setText("Przegląd Drużyny");
-        bPrzeglad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bPrzegladActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout pDruzynyLayout = new javax.swing.GroupLayout(pDruzyny);
         pDruzyny.setLayout(pDruzynyLayout);
         pDruzynyLayout.setHorizontalGroup(
             pDruzynyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pDruzynyLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addGroup(pDruzynyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pDruzynyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnDodajDruzyne, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(bPrzeglad))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addGroup(pDruzynyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnDodajDruzyne, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pDruzynyLayout.setVerticalGroup(
@@ -404,8 +399,6 @@ public class MenuGlowne extends javax.swing.JFrame {
                 .addComponent(btnDodajDruzyne)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(bPrzeglad)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -485,10 +478,10 @@ public class MenuGlowne extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnWygenerujMeczeSiatkowkaActionPerformed
 
-    private void bPrzegladActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPrzegladActionPerformed
+    private void tDruzynyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tDruzynyMouseClicked
         PrzegladDruzyny fPrzeglad = new PrzegladDruzyny(this,druzyny_model.getValueAt(tDruzyny.getSelectedRow(),NORMAL).toString());
-        fPrzeglad.setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_bPrzegladActionPerformed
+        fPrzeglad.setVisible(true); 
+    }//GEN-LAST:event_tDruzynyMouseClicked
 
     
     /**
@@ -527,7 +520,6 @@ public class MenuGlowne extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bPrzeglad;
     private javax.swing.JButton btnDodajDruzyne;
     private javax.swing.JButton btnDodajSedziegoDwa_Ognie;
     private javax.swing.JButton btnDodajSedziegoPrzeciaganie_Liny;
