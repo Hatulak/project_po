@@ -10,14 +10,46 @@ package projekt;
  * @author Przemysław
  */
 public class DodajWynik extends javax.swing.JFrame {
-
+    String sport;
+    Mecz spotkanie;
     String team1n,team2n;
     MenuGlowne menu;
     public DodajWynik(MenuGlowne m, String nazwa_sportu, String team1nazwa, String team2nazwa) {
         menu = m;
+        sport = nazwa_sportu;
         team1n = team1nazwa;
         team2n = team2nazwa;
-        initComponents();       
+        initComponents();    
+        if(nazwa_sportu.matches("Siatkowka")){
+            for (Mecz mecz : menu.rozgrywki.getTurniejSiatkowki().getLista_meczy()) {
+                String nazwa1 = mecz.getTeam1().getNazwa();
+                String nazwa2 = mecz.getTeam2().getNazwa();
+                if (  (team1n.matches(nazwa1) && team2n.matches(nazwa2))  ||  (team1n.matches(nazwa2) && (team2n.matches(nazwa1)))  ){
+                    spotkanie = mecz;
+                    break;
+                }      
+            }
+        }
+        else if(nazwa_sportu.matches("Dwa_Ognie")){
+            for (Mecz mecz : menu.rozgrywki.getTurniejDwa_Ognie().getLista_meczy()) {
+                String nazwa1 = mecz.getTeam1().getNazwa();
+                String nazwa2 = mecz.getTeam2().getNazwa();
+                if (  (team1n.matches(nazwa1) && team2n.matches(nazwa2))  ||  (team1n.matches(nazwa2) && (team2n.matches(nazwa1)))  ){
+                    spotkanie = mecz;
+                    break;
+                }      
+            }
+        }
+        else if(nazwa_sportu.matches("Przeciaganie_Liny")){
+            for (Mecz mecz : menu.rozgrywki.getTurniejLina().getLista_meczy()) {
+                String nazwa1 = mecz.getTeam1().getNazwa();
+                String nazwa2 = mecz.getTeam2().getNazwa();
+                if (  (team1n.matches(nazwa1) && team2n.matches(nazwa2))  ||  (team1n.matches(nazwa2) && (team2n.matches(nazwa1)))  ){
+                    spotkanie = mecz;
+                    break;
+                }      
+            }
+        }
     }
 
     
@@ -85,10 +117,38 @@ public class DodajWynik extends javax.swing.JFrame {
 
     private void btnTeam1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTeam1ActionPerformed
         // LEWY
+        if(team1n.matches(spotkanie.getTeam1().getNazwa())) spotkanie.dodajWynik(spotkanie.getTeam1());
+        else spotkanie.dodajWynik(spotkanie.getTeam2());
+        
+        if(sport.matches("Siatkowka")){
+            menu.meczeSiatkowka_model.setValueAt(spotkanie.zwyciezca.getNazwa(), menu.tMeczeSiatkowka.getSelectedRow(), 3);
+        }
+        else if(sport.matches("Dwa_Ognie")){
+            //nie ma jeszcze dwa ognie mecze
+        }
+        else if(sport.matches("Przeciaganie_Liny")){
+            //nie ma jeszcze liny mecze
+        }
+        
+        this.setVisible(false);
     }//GEN-LAST:event_btnTeam1ActionPerformed
 
     private void btnTeam2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTeam2ActionPerformed
         // PRAWY
+        if(team2n.matches(spotkanie.getTeam1().getNazwa())) spotkanie.dodajWynik(spotkanie.getTeam1());
+        else spotkanie.dodajWynik(spotkanie.getTeam2());
+        
+        if(sport.matches("Siatkowka")){
+            menu.meczeSiatkowka_model.setValueAt(spotkanie.zwyciezca.getNazwa(), menu.tMeczeSiatkowka.getSelectedRow(), 3);
+        }
+        else if(sport.matches("Dwa_Ognie")){
+            //nie ma jeszcze dwa ognie mecze
+        }
+        else if(sport.matches("Przeciaganie_Liny")){
+            //nie ma jeszcze liny mecze
+        }
+        
+        this.setVisible(false);
     }//GEN-LAST:event_btnTeam2ActionPerformed
 
     

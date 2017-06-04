@@ -194,7 +194,8 @@
                         <Property name="toolTipText" type="java.lang.String" value=""/>
                       </Properties>
                       <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="meczeSiatkowka_model.setColumnIdentifiers(new Object[]{&quot;Dru&#x17c;yna 1&quot;, &quot;Dru&#x17c;yna 2&quot;});"/>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="meczeSiatkowka_model.setColumnIdentifiers(new Object[]{&quot;Dru&#x17c;yna 1&quot;, &quot;Dru&#x17c;yna 2&quot;, &quot;Zwyciezca&quot;});"/>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                       </AuxValues>
                     </Component>
                   </SubComponents>

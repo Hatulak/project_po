@@ -174,7 +174,7 @@ public class MenuGlowne extends javax.swing.JFrame {
             }
         });
 
-        meczeSiatkowka_model.setColumnIdentifiers(new Object[]{"Drużyna 1", "Drużyna 2"});
+        meczeSiatkowka_model.setColumnIdentifiers(new Object[]{"Drużyna 1", "Drużyna 2", "Zwyciezca"});
         tMeczeSiatkowka.setModel(meczeSiatkowka_model);
         tMeczeSiatkowka.setToolTipText("");
         jScrollPane1.setViewportView(tMeczeSiatkowka);
@@ -557,7 +557,7 @@ public class MenuGlowne extends javax.swing.JFrame {
     private javax.swing.JPanel pTabelaPrzeciaganie_Liny;
     private javax.swing.JPanel pTabelaSiatkowka;
     private javax.swing.JTable tDruzyny;
-    private javax.swing.JTable tMeczeSiatkowka;
+    public javax.swing.JTable tMeczeSiatkowka;
     private javax.swing.JTable tSedziowieDwa_Ognie;
     private javax.swing.JTable tSedziowiePrzeciaganie_Liny;
     private javax.swing.JTable tSedziowieSiatkowka;
