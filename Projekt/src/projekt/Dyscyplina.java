@@ -12,15 +12,18 @@ import java.util.Random;
 
 public class Dyscyplina {
     private String nazwa;
-    private LinkedList<Sedzia> sedziowie = new LinkedList<>();
-    private HashMap<Druzyna, Integer> tabela_wynikow = new HashMap<>();
-    private LinkedList<Mecz> lista_meczy = new LinkedList<>();
+    private LinkedList<Sedzia> sedziowie;
+    private HashMap<Druzyna, Integer> tabela_wynikow;
+    private LinkedList<Mecz> lista_meczy;
     private Mecz polfinal_1;
     private Mecz polfinal_2;
     private Mecz mecz_final;
 
     public Dyscyplina(String s){
         nazwa = s;
+        sedziowie = new LinkedList<>();
+        tabela_wynikow = new HashMap<>();
+        lista_meczy = new LinkedList<>();
     }
 
     public void dodajSedziego(Sedzia sedzia){

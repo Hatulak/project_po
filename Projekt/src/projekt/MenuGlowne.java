@@ -465,12 +465,11 @@ public class MenuGlowne extends javax.swing.JFrame {
         LinkedList<Mecz> lista = rozgrywki.turniejSiatkowki.getLista_meczy();
         
         for(int i=0; i < lista.size(); i++){
-            for(int j=i+1; j < lista.size(); j++){
                 String nazwa1 = lista.get(i).getTeam1().getNazwa();
-                String nazwa2 = lista.get(j).getTeam2().getNazwa();
+                String nazwa2 = lista.get(i).getTeam2().getNazwa();
             
                 this.meczeSiatkowka_model.addRow(new Object[]{nazwa1,nazwa2});
-            }
+            
         }
     }//GEN-LAST:event_btnWygenerujMeczeSiatkowkaActionPerformed
 
