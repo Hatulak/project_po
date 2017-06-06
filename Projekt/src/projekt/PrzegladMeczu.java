@@ -5,17 +5,76 @@
  */
 package projekt;
 
+import java.util.LinkedList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Kuba
  */
 public class PrzegladMeczu extends javax.swing.JFrame {
+    
+    DefaultTableModel tabelaSedziow_model = new DefaultTableModel(0,0){
+    @Override
+        public boolean isCellEditable(int rzad, int kolumna){
+            return false;
+        }
+    };
+    
     MenuGlowne menu;
-    String team1,team2;
-    public PrzegladMeczu(MenuGlowne m, String team1, String team2) {
+    String team1,team2, nazwa_sportu, tekst, nazwa_zwyciezcy;
+    List<Sedzia> lista_sedziow = new LinkedList<>();
+   
+    public PrzegladMeczu(MenuGlowne m, String team1, String team2, String sport) {
+        nazwa_sportu = sport;
         menu=m;
         this.team1=team1;
         this.team2=team2;
+        tabelaSedziow_model.setColumnIdentifiers(new Object[]{"Imie", "Nazwisko"});
+        
+        if(sport.matches("Siatkowka")){
+            tekst = "Sedziowie";
+            for( Mecz mecz : menu.rozgrywki.getTurniejSiatkowki().getLista_meczy()){
+                Siatkowka _mecz = (Siatkowka)mecz;
+                if( (mecz.getTeam1().getNazwa().matches(team1) && mecz.getTeam2().getNazwa().matches(team2) ) || (mecz.getTeam1().getNazwa().matches(team2) && mecz.getTeam2().getNazwa().matches(team1) )   ){
+                    lista_sedziow = _mecz.getSedziowie();
+                    if(_mecz.getZwyciezca() != null) nazwa_zwyciezcy = _mecz.getZwyciezca().getNazwa();
+                    else nazwa_zwyciezcy = "Brak";
+                }
+            }
+        }
+        else if(sport.matches("Dwa_Ognie")){
+            tekst = "Sedzia";
+            for( Mecz mecz : menu.rozgrywki.getTurniejSiatkowki().getLista_meczy()){
+                Dwa_Ognie _mecz = (Dwa_Ognie)mecz;
+                if( (mecz.getTeam1().getNazwa().matches(team1) && mecz.getTeam2().getNazwa().matches(team2) ) || (mecz.getTeam1().getNazwa().matches(team2) && mecz.getTeam2().getNazwa().matches(team1) )   ){
+                    lista_sedziow.add(_mecz.getSedzia());
+                    if(_mecz.getZwyciezca() != null) nazwa_zwyciezcy = _mecz.getZwyciezca().getNazwa();
+                    else nazwa_zwyciezcy = "Brak";
+                }
+            }
+            
+        }
+        else if(sport.matches("Przeciaganie_Liny")){
+            tekst = "Sedzia";
+            for( Mecz mecz : menu.rozgrywki.getTurniejSiatkowki().getLista_meczy()){
+                Przeciaganie_Liny _mecz = (Przeciaganie_Liny)mecz;
+                if( (mecz.getTeam1().getNazwa().matches(team1) && mecz.getTeam2().getNazwa().matches(team2) ) || (mecz.getTeam1().getNazwa().matches(team2) && mecz.getTeam2().getNazwa().matches(team1) )   ){
+                    lista_sedziow.add(_mecz.getSedzia());
+                    if(_mecz.getZwyciezca() != null) nazwa_zwyciezcy = _mecz.getZwyciezca().getNazwa();
+                    else nazwa_zwyciezcy = "Brak";
+                }
+            }
+            
+        }
+        
+        for(Sedzia sedzia : lista_sedziow){
+            tabelaSedziow_model.addRow(new Object[]{ sedzia.getImie() , sedzia.getNazwisko() });
+        }
+        
+        
+        
         initComponents();
     }
 
@@ -29,58 +88,90 @@ public class PrzegladMeczu extends javax.swing.JFrame {
     private void initComponents() {
 
         lMecz = new javax.swing.JLabel();
-        lSędziowie = new javax.swing.JLabel();
         lDyscyplina = new javax.swing.JLabel();
         bPowrot = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tSedziowie = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        lblNazwa_Zwyciezcy = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        lMecz.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lMecz.setText(team1 + " -- "+ team2);
 
-        lSędziowie.setText("jLabel2");
-
-        lDyscyplina.setText("jLabel3");
-
-        bPowrot.setText("jButton1");
+        bPowrot.setText("Wyjscie");
         bPowrot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bPowrotActionPerformed(evt);
             }
         });
 
+        tSedziowie.setModel(tabelaSedziow_model);
+        jScrollPane1.setViewportView(tSedziowie);
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText(nazwa_sportu);
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText(tekst);
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Zwyciezca:");
+
+        lblNazwa_Zwyciezcy.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lMecz, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(174, 174, 174)
-                .addComponent(lMecz)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bPowrot))
+                        .addGap(192, 192, 192)
+                        .addComponent(lDyscyplina)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addComponent(lSędziowie)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
-                        .addComponent(lDyscyplina)))
-                .addGap(103, 103, 103))
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblNazwa_Zwyciezcy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 50, Short.MAX_VALUE)
+                                .addComponent(bPowrot)))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(3, 3, 3)
                 .addComponent(lMecz)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lDyscyplina)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lSędziowie)
-                    .addComponent(lDyscyplina))
-                .addGap(75, 75, 75)
-                .addComponent(bPowrot)
-                .addContainerGap(152, Short.MAX_VALUE))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblNazwa_Zwyciezcy, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bPowrot)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        lblNazwa_Zwyciezcy.setText(nazwa_zwyciezcy);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -129,8 +220,13 @@ public class PrzegladMeczu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bPowrot;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lDyscyplina;
     private javax.swing.JLabel lMecz;
-    private javax.swing.JLabel lSędziowie;
+    private javax.swing.JLabel lblNazwa_Zwyciezcy;
+    private javax.swing.JTable tSedziowie;
     // End of variables declaration//GEN-END:variables
 }

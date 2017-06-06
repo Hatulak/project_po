@@ -819,21 +819,21 @@ public class MenuGlowne extends javax.swing.JFrame {
 
     private void tMeczeSiatkowkaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tMeczeSiatkowkaMouseClicked
        if(evt.getClickCount()==2&&!evt.isConsumed()){
-        PrzegladMeczu fPrzeglad = new PrzegladMeczu(this,meczeSiatkowka_model.getValueAt(tMeczeSiatkowka.getSelectedRow(), 0).toString(),meczeSiatkowka_model.getValueAt(tMeczeSiatkowka.getSelectedRow(), 1).toString());
+        PrzegladMeczu fPrzeglad = new PrzegladMeczu(this,meczeSiatkowka_model.getValueAt(tMeczeSiatkowka.getSelectedRow(), 0).toString(),meczeSiatkowka_model.getValueAt(tMeczeSiatkowka.getSelectedRow(), 1).toString(), "Siatkowka");
         fPrzeglad.setVisible(true); 
         }
     }//GEN-LAST:event_tMeczeSiatkowkaMouseClicked
 
     private void tMeczeDwa_OgnieMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tMeczeDwa_OgnieMouseClicked
         if(evt.getClickCount()==2&&!evt.isConsumed()){
-        PrzegladMeczu fPrzeglad = new PrzegladMeczu(this,meczeDwa_Ognie_model.getValueAt(tMeczeDwa_Ognie.getSelectedRow(), 0).toString(),meczeDwa_Ognie_model.getValueAt(tMeczeDwa_Ognie.getSelectedRow(), 1).toString());
+        PrzegladMeczu fPrzeglad = new PrzegladMeczu(this,meczeDwa_Ognie_model.getValueAt(tMeczeDwa_Ognie.getSelectedRow(), 0).toString(),meczeDwa_Ognie_model.getValueAt(tMeczeDwa_Ognie.getSelectedRow(), 1).toString(), "Dwa_Ognie");
         fPrzeglad.setVisible(true); 
         }
     }//GEN-LAST:event_tMeczeDwa_OgnieMouseClicked
 
     private void tMeczePrzeciaganie_LinyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tMeczePrzeciaganie_LinyMouseClicked
        if(evt.getClickCount()==2&&!evt.isConsumed()){
-        PrzegladMeczu fPrzeglad = new PrzegladMeczu(this,meczePrzeciaganie_Liny_model.getValueAt(tMeczePrzeciaganie_Liny.getSelectedRow(), 0).toString(),meczePrzeciaganie_Liny_model.getValueAt(tMeczePrzeciaganie_Liny.getSelectedRow(), 1).toString());
+        PrzegladMeczu fPrzeglad = new PrzegladMeczu(this,meczePrzeciaganie_Liny_model.getValueAt(tMeczePrzeciaganie_Liny.getSelectedRow(), 0).toString(),meczePrzeciaganie_Liny_model.getValueAt(tMeczePrzeciaganie_Liny.getSelectedRow(), 1).toString(), "Przeciaganie_Liny");
         fPrzeglad.setVisible(true); 
         }
     }//GEN-LAST:event_tMeczePrzeciaganie_LinyMouseClicked
