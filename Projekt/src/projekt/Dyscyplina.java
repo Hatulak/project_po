@@ -2,6 +2,7 @@ package projekt;
 
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -9,6 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.Random;
+import java.util.Set;
 
 public class Dyscyplina {
     private String nazwa;
@@ -67,6 +69,8 @@ public class Dyscyplina {
         return polfinal_2;
     }
     public void sortowanie(){
+       
+       
     	List<Entry<Druzyna,Integer>> lista = new LinkedList<Entry<Druzyna,Integer>>(tabela_wynikow.entrySet());
     	Collections.sort(lista, new Comparator<Entry<Druzyna,Integer>>(){
     		@Override
@@ -78,7 +82,8 @@ public class Dyscyplina {
     	for (Entry<Druzyna,Integer> druzyna: lista){
     		posort.put(druzyna.getKey(), druzyna.getValue());
     	}
-        posort=tabela_wynikow;
+        tabela_wynikow = posort;
+      
     }
     public void wygenerujMecze(LinkedList<Druzyna> druzyny){
     	for (int i = 0; i < druzyny.size() ; i++ ){

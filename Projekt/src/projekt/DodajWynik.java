@@ -115,6 +115,9 @@ public class DodajWynik extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
+    
     private void btnTeam1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTeam1ActionPerformed
         // LEWY
         if(team1n.matches(spotkanie.getTeam1().getNazwa())) {
@@ -135,6 +138,38 @@ public class DodajWynik extends javax.swing.JFrame {
             menu.meczeSiatkowka_model.setValueAt(spotkanie.zwyciezca.getNazwa(), menu.tMeczeSiatkowka.getSelectedRow(), 2);
             menu.rozgrywki.getTurniejSiatkowki().dodajPunkty(spotkanie.getZwyciezca());
             menu.siatkowkaTabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejSiatkowki().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
+            
+            String klucze[] = new String[menu.siatkowkaTabela_wynikow_model.getRowCount()];
+            int wartosci[] = new int[menu.siatkowkaTabela_wynikow_model.getRowCount()];
+            
+            for(int i=0; i< menu.siatkowkaTabela_wynikow_model.getRowCount(); i++){
+                klucze[i] =(String) menu.siatkowkaTabela_wynikow_model.getValueAt(i,0);
+                wartosci[i] = (int) menu.siatkowkaTabela_wynikow_model.getValueAt(i, 1);
+            }
+            
+            String stringTemp;
+            int intTemp;
+           
+            for(int i=0; i< wartosci.length ; i++){
+                for(int j=0;  j< wartosci.length -1; j++){
+                    if(wartosci[j] < wartosci[j+1]){
+                        stringTemp =klucze[j+1];
+                        intTemp = wartosci[j+1];                     
+                        klucze[j+1] = klucze[j];
+                        wartosci[j+1] = wartosci[j];
+                        klucze[j] = stringTemp;
+                        wartosci[j] = intTemp;
+                    }
+                }
+            }
+            for(int i=0; i<wartosci.length; i++){
+                
+                menu.siatkowkaTabela_wynikow_model.setValueAt(klucze[i], i, 0);
+                menu.siatkowkaTabela_wynikow_model.setValueAt(wartosci[i], i, 1);
+            }
+            
+            
+            
         }
         else if(sport.matches("Dwa_Ognie")){
             for(int i=0;i<menu.rozgrywki.getTurniejDwa_Ognie().getTabela_wynikow().size();i++){
