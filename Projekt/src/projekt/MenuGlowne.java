@@ -62,6 +62,18 @@ public class MenuGlowne extends javax.swing.JFrame {
             return false;
         }
     };
+    public DefaultTableModel meczeDwa_Ognie_model = new DefaultTableModel(0,0){
+        @Override
+        public boolean isCellEditable(int rzad, int kolumna){
+            return false;
+        }
+    };
+    public DefaultTableModel meczePrzeciaganie_Liny_model = new DefaultTableModel(0,0){
+        @Override
+        public boolean isCellEditable(int rzad, int kolumna){
+            return false;
+        }
+    };
     
     
     public MenuGlowne() {
@@ -114,8 +126,8 @@ public class MenuGlowne extends javax.swing.JFrame {
         btnDodajWynikSiatkowka = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tMeczeSiatkowka = new javax.swing.JTable();
-        bGenerujPolfinaly = new javax.swing.JButton();
-        bGenerujFinaly = new javax.swing.JButton();
+        btnGenerujPolfinalySiatkowka = new javax.swing.JButton();
+        btnGenerujFinalySiatkowka = new javax.swing.JButton();
         pTabelaSiatkowka = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         tSiatkowkaTabela_wynikow = new javax.swing.JTable();
@@ -126,6 +138,12 @@ public class MenuGlowne extends javax.swing.JFrame {
         btnDodajSedziegoDwa_Ognie = new javax.swing.JButton();
         btnUsunSedziegoDwa_Ognie = new javax.swing.JButton();
         pMeczeDwa_Ognie = new javax.swing.JPanel();
+        btnWygenerujMeczeDwa_Ognie = new javax.swing.JButton();
+        btnDodajWynikDwa_Ognie = new javax.swing.JButton();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        tMeczeDwa_Ognie = new javax.swing.JTable();
+        btnGenerujPolfinalyDwa_Ognie = new javax.swing.JButton();
+        btnGenerujFinalyDwa_Ognie = new javax.swing.JButton();
         pTabelaDwa_Ognie = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
         tDwa_OgnieTabela_wynikow = new javax.swing.JTable();
@@ -136,6 +154,12 @@ public class MenuGlowne extends javax.swing.JFrame {
         btnDodajSedziegoPrzeciaganie_Liny = new javax.swing.JButton();
         btnUsunSedziegoPrzeciaganie_Liny = new javax.swing.JButton();
         pMeczePrzeciaganie_Liny = new javax.swing.JPanel();
+        btnWygenerujMeczePrzeciaganie_Liny = new javax.swing.JButton();
+        btnDodajWynikPrzeciaganie_Liny = new javax.swing.JButton();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        tMeczePrzeciaganie_Liny = new javax.swing.JTable();
+        btnGenerujPolfinalyPrzeciaganie_Liny = new javax.swing.JButton();
+        btnGenerujFinalyPrzeciaganie_Liny = new javax.swing.JButton();
         pTabelaPrzeciaganie_Liny = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
         tPrzeciaganie_LinyTabela_wynikow = new javax.swing.JTable();
@@ -210,9 +234,9 @@ public class MenuGlowne extends javax.swing.JFrame {
         tMeczeSiatkowka.setToolTipText("");
         jScrollPane1.setViewportView(tMeczeSiatkowka);
 
-        bGenerujPolfinaly.setText("Wygeneruj półfinały");
+        btnGenerujPolfinalySiatkowka.setText("Wygeneruj półfinały");
 
-        bGenerujFinaly.setText("Wygeneruj finały");
+        btnGenerujFinalySiatkowka.setText("Wygeneruj finały");
 
         javax.swing.GroupLayout pMeczeSiatkowkaLayout = new javax.swing.GroupLayout(pMeczeSiatkowka);
         pMeczeSiatkowka.setLayout(pMeczeSiatkowkaLayout);
@@ -225,8 +249,8 @@ public class MenuGlowne extends javax.swing.JFrame {
                         .addComponent(btnWygenerujMeczeSiatkowka, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
                         .addComponent(btnDodajWynikSiatkowka, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pMeczeSiatkowkaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(bGenerujPolfinaly, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bGenerujFinaly, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(btnGenerujPolfinalySiatkowka, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnGenerujFinalySiatkowka, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE))
         );
@@ -238,9 +262,9 @@ public class MenuGlowne extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnDodajWynikSiatkowka)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bGenerujPolfinaly)
+                .addComponent(btnGenerujPolfinalySiatkowka)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bGenerujFinaly)
+                .addComponent(btnGenerujFinalySiatkowka)
                 .addGap(96, 96, 96))
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
         );
@@ -311,15 +335,58 @@ public class MenuGlowne extends javax.swing.JFrame {
 
         tpDwa_Ognie.addTab("Sędziowie", pSedziowieDwa_Ognie);
 
+        btnWygenerujMeczeDwa_Ognie.setText("Wygeneruj Mecze");
+        btnWygenerujMeczeDwa_Ognie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnWygenerujMeczeDwa_OgnieActionPerformed(evt);
+            }
+        });
+
+        btnDodajWynikDwa_Ognie.setText("Dodaj Wynik");
+        btnDodajWynikDwa_Ognie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDodajWynikDwa_OgnieActionPerformed(evt);
+            }
+        });
+
+        meczeDwa_Ognie_model.setColumnIdentifiers(new Object[]{"Drużyna 1", "Drużyna 2", "Zwyciezca"});
+        tMeczeDwa_Ognie.setModel(meczeDwa_Ognie_model);
+        tMeczeDwa_Ognie.setToolTipText("");
+        jScrollPane9.setViewportView(tMeczeDwa_Ognie);
+
+        btnGenerujPolfinalyDwa_Ognie.setText("Wygeneruj półfinały");
+
+        btnGenerujFinalyDwa_Ognie.setText("Wygeneruj finały");
+
         javax.swing.GroupLayout pMeczeDwa_OgnieLayout = new javax.swing.GroupLayout(pMeczeDwa_Ognie);
         pMeczeDwa_Ognie.setLayout(pMeczeDwa_OgnieLayout);
         pMeczeDwa_OgnieLayout.setHorizontalGroup(
             pMeczeDwa_OgnieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 568, Short.MAX_VALUE)
+            .addGroup(pMeczeDwa_OgnieLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(pMeczeDwa_OgnieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pMeczeDwa_OgnieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnWygenerujMeczeDwa_Ognie, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                        .addComponent(btnDodajWynikDwa_Ognie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pMeczeDwa_OgnieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btnGenerujPolfinalyDwa_Ognie, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnGenerujFinalyDwa_Ognie, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE))
         );
         pMeczeDwa_OgnieLayout.setVerticalGroup(
             pMeczeDwa_OgnieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 462, Short.MAX_VALUE)
+            .addGroup(pMeczeDwa_OgnieLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(btnWygenerujMeczeDwa_Ognie)
+                .addGap(18, 18, 18)
+                .addComponent(btnDodajWynikDwa_Ognie)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnGenerujPolfinalyDwa_Ognie)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnGenerujFinalyDwa_Ognie)
+                .addGap(96, 96, 96))
+            .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
         );
 
         tpDwa_Ognie.addTab("Mecze", pMeczeDwa_Ognie);
@@ -388,15 +455,58 @@ public class MenuGlowne extends javax.swing.JFrame {
 
         tpPrzeciaganie_Liny.addTab("Sędziowie", pSedziowiePrzeciaganie_Liny);
 
+        btnWygenerujMeczePrzeciaganie_Liny.setText("Wygeneruj Mecze");
+        btnWygenerujMeczePrzeciaganie_Liny.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnWygenerujMeczePrzeciaganie_LinyActionPerformed(evt);
+            }
+        });
+
+        btnDodajWynikPrzeciaganie_Liny.setText("Dodaj Wynik");
+        btnDodajWynikPrzeciaganie_Liny.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDodajWynikPrzeciaganie_LinyActionPerformed(evt);
+            }
+        });
+
+        meczePrzeciaganie_Liny_model.setColumnIdentifiers(new Object[]{"Drużyna 1", "Drużyna 2", "Zwyciezca"});
+        tMeczePrzeciaganie_Liny.setModel(meczePrzeciaganie_Liny_model);
+        tMeczePrzeciaganie_Liny.setToolTipText("");
+        jScrollPane10.setViewportView(tMeczePrzeciaganie_Liny);
+
+        btnGenerujPolfinalyPrzeciaganie_Liny.setText("Wygeneruj półfinały");
+
+        btnGenerujFinalyPrzeciaganie_Liny.setText("Wygeneruj finały");
+
         javax.swing.GroupLayout pMeczePrzeciaganie_LinyLayout = new javax.swing.GroupLayout(pMeczePrzeciaganie_Liny);
         pMeczePrzeciaganie_Liny.setLayout(pMeczePrzeciaganie_LinyLayout);
         pMeczePrzeciaganie_LinyLayout.setHorizontalGroup(
             pMeczePrzeciaganie_LinyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 568, Short.MAX_VALUE)
+            .addGroup(pMeczePrzeciaganie_LinyLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(pMeczePrzeciaganie_LinyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pMeczePrzeciaganie_LinyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnWygenerujMeczePrzeciaganie_Liny, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                        .addComponent(btnDodajWynikPrzeciaganie_Liny, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pMeczePrzeciaganie_LinyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btnGenerujPolfinalyPrzeciaganie_Liny, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnGenerujFinalyPrzeciaganie_Liny, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE))
         );
         pMeczePrzeciaganie_LinyLayout.setVerticalGroup(
             pMeczePrzeciaganie_LinyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 462, Short.MAX_VALUE)
+            .addGroup(pMeczePrzeciaganie_LinyLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(btnWygenerujMeczePrzeciaganie_Liny)
+                .addGap(18, 18, 18)
+                .addComponent(btnDodajWynikPrzeciaganie_Liny)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnGenerujPolfinalyPrzeciaganie_Liny)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnGenerujFinalyPrzeciaganie_Liny)
+                .addGap(96, 96, 96))
+            .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
         );
 
         tpPrzeciaganie_Liny.addTab("Mecze", pMeczePrzeciaganie_Liny);
@@ -561,11 +671,11 @@ public class MenuGlowne extends javax.swing.JFrame {
     private void btnWygenerujMeczeSiatkowkaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWygenerujMeczeSiatkowkaActionPerformed
         rozgrywki.getTurniejSiatkowki().wygenerujMecze(rozgrywki.getDruzyny());
         
-        LinkedList<Mecz> lista = rozgrywki.turniejSiatkowki.getLista_meczy();
+        LinkedList<Mecz> listaSiatkowka = rozgrywki.getTurniejSiatkowki().getLista_meczy();
         
-        for(int i=0; i < lista.size(); i++){
-                String nazwa1 = lista.get(i).getTeam1().getNazwa();
-                String nazwa2 = lista.get(i).getTeam2().getNazwa();
+        for(int i=0; i < listaSiatkowka.size(); i++){
+                String nazwa1 = listaSiatkowka.get(i).getTeam1().getNazwa();
+                String nazwa2 = listaSiatkowka.get(i).getTeam2().getNazwa();
             
                 this.meczeSiatkowka_model.addRow(new Object[]{nazwa1,nazwa2});
             
@@ -581,6 +691,44 @@ public class MenuGlowne extends javax.swing.JFrame {
        DodajWynik fDodajwynik = new DodajWynik(this, "Siatkowka",(String) tMeczeSiatkowka.getModel().getValueAt(tMeczeSiatkowka.getSelectedRow(), 0 ),(String) tMeczeSiatkowka.getModel().getValueAt(tMeczeSiatkowka.getSelectedRow(), 1 ));
        fDodajwynik.setVisible(true);
     }//GEN-LAST:event_btnDodajWynikSiatkowkaActionPerformed
+
+    private void btnWygenerujMeczeDwa_OgnieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWygenerujMeczeDwa_OgnieActionPerformed
+        rozgrywki.getTurniejDwa_Ognie().wygenerujMecze(rozgrywki.getDruzyny());
+        
+        LinkedList<Mecz> listaDwa_Ognie = rozgrywki.getTurniejDwa_Ognie().getLista_meczy();
+        
+        for(int i=0; i < listaDwa_Ognie.size(); i++){
+                String nazwa1 = listaDwa_Ognie.get(i).getTeam1().getNazwa();
+                String nazwa2 = listaDwa_Ognie.get(i).getTeam2().getNazwa();
+            
+                this.meczeDwa_Ognie_model.addRow(new Object[]{nazwa1,nazwa2});
+            
+        }
+    }//GEN-LAST:event_btnWygenerujMeczeDwa_OgnieActionPerformed
+
+    private void btnDodajWynikDwa_OgnieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajWynikDwa_OgnieActionPerformed
+       DodajWynik fDodajwynik = new DodajWynik(this, "Dwa_Ognie",(String) tMeczeDwa_Ognie.getModel().getValueAt(tMeczeDwa_Ognie.getSelectedRow(), 0 ),(String) tMeczeDwa_Ognie.getModel().getValueAt(tMeczeDwa_Ognie.getSelectedRow(), 1 ));
+       fDodajwynik.setVisible(true);
+    }//GEN-LAST:event_btnDodajWynikDwa_OgnieActionPerformed
+
+    private void btnWygenerujMeczePrzeciaganie_LinyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWygenerujMeczePrzeciaganie_LinyActionPerformed
+        rozgrywki.getTurniejLina().wygenerujMecze(rozgrywki.getDruzyny());
+        
+        LinkedList<Mecz> listaPrzeciaganie_Liny = rozgrywki.getTurniejLina().getLista_meczy();
+        
+        for(int i=0; i < listaPrzeciaganie_Liny.size(); i++){
+                String nazwa1 = listaPrzeciaganie_Liny.get(i).getTeam1().getNazwa();
+                String nazwa2 = listaPrzeciaganie_Liny.get(i).getTeam2().getNazwa();
+            
+                this.meczePrzeciaganie_Liny_model.addRow(new Object[]{nazwa1,nazwa2});
+            
+        }
+    }//GEN-LAST:event_btnWygenerujMeczePrzeciaganie_LinyActionPerformed
+
+    private void btnDodajWynikPrzeciaganie_LinyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajWynikPrzeciaganie_LinyActionPerformed
+       DodajWynik fDodajwynik = new DodajWynik(this, "Przeciaganie_Liny",(String) tMeczePrzeciaganie_Liny.getModel().getValueAt(tMeczePrzeciaganie_Liny.getSelectedRow(), 0 ),(String) tMeczePrzeciaganie_Liny.getModel().getValueAt(tMeczePrzeciaganie_Liny.getSelectedRow(), 1 ));
+       fDodajwynik.setVisible(true);    // TODO add your handling code here:
+    }//GEN-LAST:event_btnDodajWynikPrzeciaganie_LinyActionPerformed
 
     
     /**
@@ -619,19 +767,28 @@ public class MenuGlowne extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bGenerujFinaly;
-    private javax.swing.JButton bGenerujPolfinaly;
     private javax.swing.JButton btnDodajDruzyne;
     private javax.swing.JButton btnDodajSedziegoDwa_Ognie;
     private javax.swing.JButton btnDodajSedziegoPrzeciaganie_Liny;
     private javax.swing.JButton btnDodajSedziegoSiatkowka;
+    private javax.swing.JButton btnDodajWynikDwa_Ognie;
+    private javax.swing.JButton btnDodajWynikPrzeciaganie_Liny;
     private javax.swing.JButton btnDodajWynikSiatkowka;
+    private javax.swing.JButton btnGenerujFinalyDwa_Ognie;
+    private javax.swing.JButton btnGenerujFinalyPrzeciaganie_Liny;
+    private javax.swing.JButton btnGenerujFinalySiatkowka;
+    private javax.swing.JButton btnGenerujPolfinalyDwa_Ognie;
+    private javax.swing.JButton btnGenerujPolfinalyPrzeciaganie_Liny;
+    private javax.swing.JButton btnGenerujPolfinalySiatkowka;
     private javax.swing.JButton btnUsunDruzyne;
     private javax.swing.JButton btnUsunSedziegoDwa_Ognie;
     private javax.swing.JButton btnUsunSedziegoPrzeciaganie_Liny;
     private javax.swing.JButton btnUsunSedziegoSiatkowka;
+    private javax.swing.JButton btnWygenerujMeczeDwa_Ognie;
+    private javax.swing.JButton btnWygenerujMeczePrzeciaganie_Liny;
     private javax.swing.JButton btnWygenerujMeczeSiatkowka;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -639,6 +796,7 @@ public class MenuGlowne extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JPanel pDruzyny;
     private javax.swing.JPanel pMeczeDwa_Ognie;
@@ -652,6 +810,8 @@ public class MenuGlowne extends javax.swing.JFrame {
     private javax.swing.JPanel pTabelaSiatkowka;
     private javax.swing.JTable tDruzyny;
     private javax.swing.JTable tDwa_OgnieTabela_wynikow;
+    public javax.swing.JTable tMeczeDwa_Ognie;
+    public javax.swing.JTable tMeczePrzeciaganie_Liny;
     public javax.swing.JTable tMeczeSiatkowka;
     private javax.swing.JTable tPrzeciaganie_LinyTabela_wynikow;
     private javax.swing.JTable tSedziowieDwa_Ognie;

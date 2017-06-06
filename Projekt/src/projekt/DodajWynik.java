@@ -119,48 +119,95 @@ public class DodajWynik extends javax.swing.JFrame {
         // LEWY
         if(team1n.matches(spotkanie.getTeam1().getNazwa())) {
             spotkanie.dodajWynik(spotkanie.getTeam1());
-            
         }
         else{
             spotkanie.dodajWynik(spotkanie.getTeam2());
-        
         }        
         int rzad=0;
-        for(int i=0;i<menu.rozgrywki.getTurniejSiatkowki().getTabela_wynikow().size();i++){
+       
+        if(sport.matches("Siatkowka")){
+            for(int i=0;i<menu.rozgrywki.getTurniejSiatkowki().getTabela_wynikow().size();i++){
             if(spotkanie.getZwyciezca().getNazwa().matches((String)menu.siatkowkaTabela_wynikow_model.getValueAt(i, 0))){
                 rzad=i;
                 break;
             }
         }
-        if(sport.matches("Siatkowka")){
             menu.meczeSiatkowka_model.setValueAt(spotkanie.zwyciezca.getNazwa(), menu.tMeczeSiatkowka.getSelectedRow(), 2);
             menu.rozgrywki.getTurniejSiatkowki().dodajPunkty(spotkanie.getZwyciezca());
             menu.siatkowkaTabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejSiatkowki().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
         }
         else if(sport.matches("Dwa_Ognie")){
-            //nie ma jeszcze dwa ognie mecze
+            for(int i=0;i<menu.rozgrywki.getTurniejDwa_Ognie().getTabela_wynikow().size();i++){
+            if(spotkanie.getZwyciezca().getNazwa().matches((String)menu.dwa_ognie_Tabela_wynikow_model.getValueAt(i, 0))){
+                rzad=i;
+                break;
+            }
+        }
+            menu.meczeDwa_Ognie_model.setValueAt(spotkanie.zwyciezca.getNazwa(), menu.tMeczeDwa_Ognie.getSelectedRow(), 2);
+            menu.rozgrywki.getTurniejDwa_Ognie().dodajPunkty(spotkanie.getZwyciezca());
+            menu.dwa_ognie_Tabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejDwa_Ognie().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
+       
         }
         else if(sport.matches("Przeciaganie_Liny")){
-            //nie ma jeszcze liny mecze
+            for(int i=0;i<menu.rozgrywki.getTurniejLina().getTabela_wynikow().size();i++){
+            if(spotkanie.getZwyciezca().getNazwa().matches((String)menu.przeciaganie_liny_Tabela_wynikow_model.getValueAt(i, 0))){
+                rzad=i;
+                break;
+            }
+        }
+            menu.meczePrzeciaganie_Liny_model.setValueAt(spotkanie.zwyciezca.getNazwa(), menu.tMeczePrzeciaganie_Liny.getSelectedRow(), 2);
+            menu.rozgrywki.getTurniejLina().dodajPunkty(spotkanie.getZwyciezca());
+            menu.przeciaganie_liny_Tabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejLina().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
+       
         }
         this.setVisible(false);
     }//GEN-LAST:event_btnTeam1ActionPerformed
 
     private void btnTeam2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTeam2ActionPerformed
         // PRAWY
-        if(team2n.matches(spotkanie.getTeam1().getNazwa())) spotkanie.dodajWynik(spotkanie.getTeam1());
-        else spotkanie.dodajWynik(spotkanie.getTeam2());
-        
+        if(team2n.matches(spotkanie.getTeam1().getNazwa())){
+            spotkanie.dodajWynik(spotkanie.getTeam1());
+        }
+        else{ 
+            spotkanie.dodajWynik(spotkanie.getTeam2());
+        }
+        int rzad=0;
+       
         if(sport.matches("Siatkowka")){
+            for(int i=0;i<menu.rozgrywki.getTurniejSiatkowki().getTabela_wynikow().size();i++){
+            if(spotkanie.getZwyciezca().getNazwa().matches((String)menu.siatkowkaTabela_wynikow_model.getValueAt(i, 0))){
+                rzad=i;
+                break;
+            }
+        }
             menu.meczeSiatkowka_model.setValueAt(spotkanie.zwyciezca.getNazwa(), menu.tMeczeSiatkowka.getSelectedRow(), 2);
+            menu.rozgrywki.getTurniejSiatkowki().dodajPunkty(spotkanie.getZwyciezca());
+            menu.siatkowkaTabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejSiatkowki().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
         }
         else if(sport.matches("Dwa_Ognie")){
-            //nie ma jeszcze dwa ognie mecze
+            for(int i=0;i<menu.rozgrywki.getTurniejDwa_Ognie().getTabela_wynikow().size();i++){
+            if(spotkanie.getZwyciezca().getNazwa().matches((String)menu.dwa_ognie_Tabela_wynikow_model.getValueAt(i, 0))){
+                rzad=i;
+                break;
+            }
+        }
+            menu.meczeDwa_Ognie_model.setValueAt(spotkanie.zwyciezca.getNazwa(), menu.tMeczeDwa_Ognie.getSelectedRow(), 2);
+            menu.rozgrywki.getTurniejDwa_Ognie().dodajPunkty(spotkanie.getZwyciezca());
+            menu.dwa_ognie_Tabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejDwa_Ognie().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
+       
         }
         else if(sport.matches("Przeciaganie_Liny")){
-            //nie ma jeszcze liny mecze
+            for(int i=0;i<menu.rozgrywki.getTurniejLina().getTabela_wynikow().size();i++){
+            if(spotkanie.getZwyciezca().getNazwa().matches((String)menu.przeciaganie_liny_Tabela_wynikow_model.getValueAt(i, 0))){
+                rzad=i;
+                break;
+            }
         }
-        
+            menu.meczePrzeciaganie_Liny_model.setValueAt(spotkanie.zwyciezca.getNazwa(), menu.tMeczePrzeciaganie_Liny.getSelectedRow(), 2);
+            menu.rozgrywki.getTurniejLina().dodajPunkty(spotkanie.getZwyciezca());
+            menu.przeciaganie_liny_Tabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejLina().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
+       
+        }
         this.setVisible(false);
     }//GEN-LAST:event_btnTeam2ActionPerformed
 

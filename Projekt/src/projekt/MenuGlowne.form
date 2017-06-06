@@ -149,8 +149,8 @@
                                   <Component id="btnDodajWynikSiatkowka" max="32767" attributes="0"/>
                               </Group>
                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="bGenerujPolfinaly" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="bGenerujFinaly" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnGenerujPolfinalySiatkowka" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnGenerujFinalySiatkowka" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -166,9 +166,9 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnDodajWynikSiatkowka" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="bGenerujPolfinaly" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnGenerujPolfinalySiatkowka" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="bGenerujFinaly" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnGenerujFinalySiatkowka" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jScrollPane1" alignment="0" pref="464" max="32767" attributes="0"/>
@@ -210,12 +210,12 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JButton" name="bGenerujPolfinaly">
+                <Component class="javax.swing.JButton" name="btnGenerujPolfinalySiatkowka">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Wygeneruj p&#xf3;&#x142;fina&#x142;y"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="bGenerujFinaly">
+                <Component class="javax.swing.JButton" name="btnGenerujFinalySiatkowka">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Wygeneruj fina&#x142;y"/>
                   </Properties>
@@ -370,15 +370,86 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="568" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="btnWygenerujMeczeDwa_Ognie" alignment="0" pref="130" max="32767" attributes="0"/>
+                                  <Component id="btnDodajWynikDwa_Ognie" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="btnGenerujPolfinalyDwa_Ognie" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnGenerujFinalyDwa_Ognie" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jScrollPane9" pref="374" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="462" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="btnWygenerujMeczeDwa_Ognie" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btnDodajWynikDwa_Ognie" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="btnGenerujPolfinalyDwa_Ognie" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnGenerujFinalyDwa_Ognie" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="jScrollPane9" alignment="0" pref="462" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JButton" name="btnWygenerujMeczeDwa_Ognie">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Wygeneruj Mecze"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnWygenerujMeczeDwa_OgnieActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnDodajWynikDwa_Ognie">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Dodaj Wynik"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDodajWynikDwa_OgnieActionPerformed"/>
+                  </Events>
+                </Component>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane9">
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTable" name="tMeczeDwa_Ognie">
+                      <Properties>
+                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                          <Connection code="meczeDwa_Ognie_model" type="code"/>
+                        </Property>
+                        <Property name="toolTipText" type="java.lang.String" value=""/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="meczeDwa_Ognie_model.setColumnIdentifiers(new Object[]{&quot;Dru&#x17c;yna 1&quot;, &quot;Dru&#x17c;yna 2&quot;, &quot;Zwyciezca&quot;});"/>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JButton" name="btnGenerujPolfinalyDwa_Ognie">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Wygeneruj p&#xf3;&#x142;fina&#x142;y"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnGenerujFinalyDwa_Ognie">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Wygeneruj fina&#x142;y"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="pTabelaDwa_Ognie">
               <Constraints>
@@ -528,15 +599,86 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="568" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="btnWygenerujMeczePrzeciaganie_Liny" alignment="0" pref="130" max="32767" attributes="0"/>
+                                  <Component id="btnDodajWynikPrzeciaganie_Liny" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="btnGenerujPolfinalyPrzeciaganie_Liny" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnGenerujFinalyPrzeciaganie_Liny" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jScrollPane10" pref="374" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="462" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="btnWygenerujMeczePrzeciaganie_Liny" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btnDodajWynikPrzeciaganie_Liny" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="btnGenerujPolfinalyPrzeciaganie_Liny" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnGenerujFinalyPrzeciaganie_Liny" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="jScrollPane10" alignment="0" pref="462" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JButton" name="btnWygenerujMeczePrzeciaganie_Liny">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Wygeneruj Mecze"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnWygenerujMeczePrzeciaganie_LinyActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnDodajWynikPrzeciaganie_Liny">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Dodaj Wynik"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDodajWynikPrzeciaganie_LinyActionPerformed"/>
+                  </Events>
+                </Component>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane10">
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTable" name="tMeczePrzeciaganie_Liny">
+                      <Properties>
+                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                          <Connection code="meczePrzeciaganie_Liny_model" type="code"/>
+                        </Property>
+                        <Property name="toolTipText" type="java.lang.String" value=""/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="meczePrzeciaganie_Liny_model.setColumnIdentifiers(new Object[]{&quot;Dru&#x17c;yna 1&quot;, &quot;Dru&#x17c;yna 2&quot;, &quot;Zwyciezca&quot;});"/>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JButton" name="btnGenerujPolfinalyPrzeciaganie_Liny">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Wygeneruj p&#xf3;&#x142;fina&#x142;y"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnGenerujFinalyPrzeciaganie_Liny">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Wygeneruj fina&#x142;y"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="pTabelaPrzeciaganie_Liny">
               <Constraints>
