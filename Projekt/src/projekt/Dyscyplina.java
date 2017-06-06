@@ -29,8 +29,15 @@ public class Dyscyplina {
     public void dodajSedziego(Sedzia sedzia){
         sedziowie.add(sedzia);
     }
-    public void usunSedziego(Sedzia sedzia){
-        sedziowie.remove(sedzia);
+    public void usunSedziego(String imie, String nazwisko){
+        int index =0;
+        for (Sedzia sedzia : sedziowie) {
+            if(imie.matches(sedzia.getImie()) && nazwisko.matches(sedzia.getNazwisko())){
+                this.sedziowie.remove(index);
+                return;
+            }
+            index++;
+        }
     }
 
     public LinkedList<Sedzia> getSedziowie() {
@@ -44,7 +51,7 @@ public class Dyscyplina {
     public HashMap<Druzyna, Integer> getTabela_wynikow() {
         return tabela_wynikow;
     }
-    public void dodajWynik(Druzyna druzyna){
+    public void dodajPunkty(Druzyna druzyna){
         tabela_wynikow.put( druzyna, tabela_wynikow.get(druzyna) + 1 );
         sortowanie();
     }
@@ -71,6 +78,7 @@ public class Dyscyplina {
     	for (Entry<Druzyna,Integer> druzyna: lista){
     		posort.put(druzyna.getKey(), druzyna.getValue());
     	}
+        posort=tabela_wynikow;
     }
     public void wygenerujMecze(LinkedList<Druzyna> druzyny){
     	for (int i = 0; i < druzyny.size() ; i++ ){
@@ -93,7 +101,7 @@ public class Dyscyplina {
     	for(Druzyna klucz : tabela_wynikow.keySet()){
     	             nazwy.add(klucz);
     	}
-    	if (nazwa.matches("Siatk�wka")){
+    	if (nazwa.matches("Siatkowka")){
             this.polfinal_1 = new Siatkowka(nazwy.get(0),nazwy.get(3),sedziowie);
             this.polfinal_2 = new Siatkowka(nazwy.get(1),nazwy.get(2),sedziowie);
     	}

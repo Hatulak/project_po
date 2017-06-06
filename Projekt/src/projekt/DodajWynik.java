@@ -117,11 +117,25 @@ public class DodajWynik extends javax.swing.JFrame {
 
     private void btnTeam1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTeam1ActionPerformed
         // LEWY
-        if(team1n.matches(spotkanie.getTeam1().getNazwa())) spotkanie.dodajWynik(spotkanie.getTeam1());
-        else spotkanie.dodajWynik(spotkanie.getTeam2());
+        if(team1n.matches(spotkanie.getTeam1().getNazwa())) {
+            spotkanie.dodajWynik(spotkanie.getTeam1());
+            
+        }
+        else{
+            spotkanie.dodajWynik(spotkanie.getTeam2());
         
+        }        
+        int rzad=0;
+        for(int i=0;i<menu.rozgrywki.getTurniejSiatkowki().getTabela_wynikow().size();i++){
+            if(spotkanie.getZwyciezca().getNazwa().matches((String)menu.siatkowkaTabela_wynikow_model.getValueAt(i, 0))){
+                rzad=i;
+                break;
+            }
+        }
         if(sport.matches("Siatkowka")){
-            menu.meczeSiatkowka_model.setValueAt(spotkanie.zwyciezca.getNazwa(), menu.tMeczeSiatkowka.getSelectedRow(), 3);
+            menu.meczeSiatkowka_model.setValueAt(spotkanie.zwyciezca.getNazwa(), menu.tMeczeSiatkowka.getSelectedRow(), 2);
+            menu.rozgrywki.getTurniejSiatkowki().dodajPunkty(spotkanie.getZwyciezca());
+            menu.siatkowkaTabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejSiatkowki().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
         }
         else if(sport.matches("Dwa_Ognie")){
             //nie ma jeszcze dwa ognie mecze
@@ -129,7 +143,6 @@ public class DodajWynik extends javax.swing.JFrame {
         else if(sport.matches("Przeciaganie_Liny")){
             //nie ma jeszcze liny mecze
         }
-        
         this.setVisible(false);
     }//GEN-LAST:event_btnTeam1ActionPerformed
 
@@ -139,7 +152,7 @@ public class DodajWynik extends javax.swing.JFrame {
         else spotkanie.dodajWynik(spotkanie.getTeam2());
         
         if(sport.matches("Siatkowka")){
-            menu.meczeSiatkowka_model.setValueAt(spotkanie.zwyciezca.getNazwa(), menu.tMeczeSiatkowka.getSelectedRow(), 3);
+            menu.meczeSiatkowka_model.setValueAt(spotkanie.zwyciezca.getNazwa(), menu.tMeczeSiatkowka.getSelectedRow(), 2);
         }
         else if(sport.matches("Dwa_Ognie")){
             //nie ma jeszcze dwa ognie mecze

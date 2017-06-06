@@ -17,8 +17,15 @@ public class Rozgrywki {
     	druzyny.add(team);
     }
 
-    public void wycofajDruzyne(Druzyna team){
-        druzyny.remove(team);
+    public void wycofajDruzyne(String nazwa){
+        int index =0;
+        for (Druzyna druzyna : druzyny) {
+            if(nazwa.matches(druzyna.getNazwa())){
+                this.druzyny.remove(index);
+                return;
+            }
+            index++;
+        }
     }
 
     public LinkedList<Druzyna> getDruzyny() {
