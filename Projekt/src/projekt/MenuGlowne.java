@@ -233,6 +233,11 @@ public class MenuGlowne extends javax.swing.JFrame {
         meczeSiatkowka_model.setColumnIdentifiers(new Object[]{"Drużyna 1", "Drużyna 2", "Zwyciezca"});
         tMeczeSiatkowka.setModel(meczeSiatkowka_model);
         tMeczeSiatkowka.setToolTipText("");
+        tMeczeSiatkowka.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tMeczeSiatkowkaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tMeczeSiatkowka);
 
         btnGenerujPolfinalySiatkowka.setText("Wygeneruj półfinały");
@@ -353,6 +358,11 @@ public class MenuGlowne extends javax.swing.JFrame {
         meczeDwa_Ognie_model.setColumnIdentifiers(new Object[]{"Drużyna 1", "Drużyna 2", "Zwyciezca"});
         tMeczeDwa_Ognie.setModel(meczeDwa_Ognie_model);
         tMeczeDwa_Ognie.setToolTipText("");
+        tMeczeDwa_Ognie.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tMeczeDwa_OgnieMouseClicked(evt);
+            }
+        });
         jScrollPane9.setViewportView(tMeczeDwa_Ognie);
 
         btnGenerujPolfinalyDwa_Ognie.setText("Wygeneruj półfinały");
@@ -473,6 +483,11 @@ public class MenuGlowne extends javax.swing.JFrame {
         meczePrzeciaganie_Liny_model.setColumnIdentifiers(new Object[]{"Drużyna 1", "Drużyna 2", "Zwyciezca"});
         tMeczePrzeciaganie_Liny.setModel(meczePrzeciaganie_Liny_model);
         tMeczePrzeciaganie_Liny.setToolTipText("");
+        tMeczePrzeciaganie_Liny.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tMeczePrzeciaganie_LinyMouseClicked(evt);
+            }
+        });
         jScrollPane10.setViewportView(tMeczePrzeciaganie_Liny);
 
         btnGenerujPolfinalyPrzeciaganie_Liny.setText("Wygeneruj półfinały");
@@ -598,26 +613,47 @@ public class MenuGlowne extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDodajSedziegoSiatkowkaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajSedziegoSiatkowkaActionPerformed
-       DodajSedziego fDodajSedziegoSiatkowka = new DodajSedziego(this, "Siatkowka");
-       fDodajSedziegoSiatkowka.setVisible(true);
+       if(rozgrywki.getTurniejSiatkowki().wygenerowanoMecze==false){
+        DodajSedziego fDodajSedziegoSiatkowka = new DodajSedziego(this, "Siatkowka");
+        fDodajSedziegoSiatkowka.setVisible(true);
+       }
+       else{
+           JOptionPane.showMessageDialog(this, "Nie można dodać sędziego po wygenerowaniu meczy");
+       }
     }//GEN-LAST:event_btnDodajSedziegoSiatkowkaActionPerformed
 
     private void btnDodajDruzyneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajDruzyneActionPerformed
-           DodajDruzyne fDodajDruzyne = new DodajDruzyne(this);
+        if(rozgrywki.getTurniejSiatkowki().wygenerowanoMecze==false||rozgrywki.getTurniejDwa_Ognie().wygenerowanoMecze==false||rozgrywki.getTurniejLina().wygenerowanoMecze==false){   
+        DodajDruzyne fDodajDruzyne = new DodajDruzyne(this);
            fDodajDruzyne.setVisible(true);
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Nie można dodać drużyny po wygenerowaniu którychkolwiek meczy");
+        }
     }//GEN-LAST:event_btnDodajDruzyneActionPerformed
 
     private void btnDodajSedziegoDwa_OgnieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajSedziegoDwa_OgnieActionPerformed
-       DodajSedziego fDodajSedziegoDwa_Ognie = new DodajSedziego(this, "Dwa_Ognie");
-       fDodajSedziegoDwa_Ognie.setVisible(true);
+       if(rozgrywki.getTurniejDwa_Ognie().wygenerowanoMecze==false){
+           DodajSedziego fDodajSedziegoDwa_Ognie = new DodajSedziego(this, "Dwa_Ognie");
+           fDodajSedziegoDwa_Ognie.setVisible(true);
+       }
+       else{
+           JOptionPane.showMessageDialog(this, "Nie można dodać sędziego po wygenerowaniu meczy");
+       }
     }//GEN-LAST:event_btnDodajSedziegoDwa_OgnieActionPerformed
 
     private void btnDodajSedziegoPrzeciaganie_LinyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajSedziegoPrzeciaganie_LinyActionPerformed
+        if(rozgrywki.getTurniejLina().wygenerowanoMecze==false){
         DodajSedziego fDodajSedziegoPrzeciaganie_Liny = new DodajSedziego(this, "Przeciaganie_Liny");
        fDodajSedziegoPrzeciaganie_Liny.setVisible(true);
+       }
+       else{
+           JOptionPane.showMessageDialog(this, "Nie można dodać sędziego po wygenerowaniu meczy");
+       }
     }//GEN-LAST:event_btnDodajSedziegoPrzeciaganie_LinyActionPerformed
 
     private void btnUsunSedziegoSiatkowkaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsunSedziegoSiatkowkaActionPerformed
+        if(rozgrywki.getTurniejSiatkowki().wygenerowanoMecze==false){
         if(tSedziowieSiatkowka.getSelectedRow() != -1){
             String imie, nazwisko;
             imie = (String)  sedziowieSiatkowka_model.getValueAt(tSedziowieSiatkowka.getSelectedRow(), 0);
@@ -628,10 +664,15 @@ public class MenuGlowne extends javax.swing.JFrame {
             }
             sedziowieSiatkowka_model.removeRow(tSedziowieSiatkowka.getSelectedRow());
             
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(this,"Nie można usuwać sędziów po wygenerowaniu meczy");
         }
     }//GEN-LAST:event_btnUsunSedziegoSiatkowkaActionPerformed
 
     private void btnUsunSedziegoDwa_OgnieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsunSedziegoDwa_OgnieActionPerformed
+        if(rozgrywki.getTurniejDwa_Ognie().wygenerowanoMecze==false){
         if(tSedziowieDwa_Ognie.getSelectedRow() != -1){
             String imie, nazwisko;
             imie = (String)  sedziowieDwa_Ognie_model.getValueAt(tSedziowieDwa_Ognie.getSelectedRow(), 0);
@@ -642,9 +683,14 @@ public class MenuGlowne extends javax.swing.JFrame {
             }
             sedziowieDwa_Ognie_model.removeRow(tSedziowieDwa_Ognie.getSelectedRow());
         }
+        }
+        else{
+            JOptionPane.showMessageDialog(this,"Nie można usuwać sędziów po wygenerowaniu meczy");
+        }
     }//GEN-LAST:event_btnUsunSedziegoDwa_OgnieActionPerformed
 
     private void btnUsunSedziegoPrzeciaganie_LinyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsunSedziegoPrzeciaganie_LinyActionPerformed
+        if(rozgrywki.getTurniejLina().wygenerowanoMecze==false){
         if(tSedziowiePrzeciaganie_Liny.getSelectedRow() != -1){
             String imie, nazwisko;
             imie = (String)  sedziowiePrzeciaganie_Liny_model.getValueAt(tSedziowiePrzeciaganie_Liny.getSelectedRow(), 0);
@@ -655,9 +701,14 @@ public class MenuGlowne extends javax.swing.JFrame {
             }
             sedziowiePrzeciaganie_Liny_model.removeRow(tSedziowiePrzeciaganie_Liny.getSelectedRow());
         }
+        }
+        else{
+            JOptionPane.showMessageDialog(this,"Nie można usuwać sędziów po wygenerowaniu meczy");
+        }
     }//GEN-LAST:event_btnUsunSedziegoPrzeciaganie_LinyActionPerformed
 
     private void btnUsunDruzyneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsunDruzyneActionPerformed
+        if(rozgrywki.getTurniejSiatkowki().wygenerowanoMecze==false||rozgrywki.getTurniejDwa_Ognie().wygenerowanoMecze==false||rozgrywki.getTurniejLina().wygenerowanoMecze==false){
         if(tDruzyny.getSelectedRow() != -1){
             String nazwa;
             nazwa = (String) druzyny_model.getValueAt(tDruzyny.getSelectedRow(), 0);
@@ -667,85 +718,125 @@ public class MenuGlowne extends javax.swing.JFrame {
             }
             druzyny_model.removeRow(tDruzyny.getSelectedRow());
         }
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Nie można usuwać drużyn po wygenerowaniu którychkolwiek meczy");
+        }
     }//GEN-LAST:event_btnUsunDruzyneActionPerformed
 
     private void btnWygenerujMeczeSiatkowkaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWygenerujMeczeSiatkowkaActionPerformed
-        rozgrywki.getTurniejSiatkowki().wygenerujMecze(rozgrywki.getDruzyny());
+        if(rozgrywki.turniejSiatkowki.wygenerowanoMecze==false){
+            rozgrywki.getTurniejSiatkowki().wygenerujMecze(rozgrywki.getDruzyny());
         
-        LinkedList<Mecz> listaSiatkowka = rozgrywki.getTurniejSiatkowki().getLista_meczy();
+            LinkedList<Mecz> listaSiatkowka = rozgrywki.getTurniejSiatkowki().getLista_meczy();
         
-        for(int i=0; i < listaSiatkowka.size(); i++){
-                String nazwa1 = listaSiatkowka.get(i).getTeam1().getNazwa();
-                String nazwa2 = listaSiatkowka.get(i).getTeam2().getNazwa();
+            for(int i=0; i < listaSiatkowka.size(); i++){
+                    String nazwa1 = listaSiatkowka.get(i).getTeam1().getNazwa();
+                    String nazwa2 = listaSiatkowka.get(i).getTeam2().getNazwa();
             
-                this.meczeSiatkowka_model.addRow(new Object[]{nazwa1,nazwa2});
+                    this.meczeSiatkowka_model.addRow(new Object[]{nazwa1,nazwa2});
             
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(this,"Mecze zostały już wygenerowane");
         }
     }//GEN-LAST:event_btnWygenerujMeczeSiatkowkaActionPerformed
 
     private void tDruzynyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tDruzynyMouseClicked
+        if(evt.getClickCount()==2&&!evt.isConsumed()){
         PrzegladDruzyny fPrzeglad = new PrzegladDruzyny(this,druzyny_model.getValueAt(tDruzyny.getSelectedRow(),NORMAL).toString());
         fPrzeglad.setVisible(true); 
+        }
     }//GEN-LAST:event_tDruzynyMouseClicked
 
     private void btnDodajWynikSiatkowkaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajWynikSiatkowkaActionPerformed
-       DodajWynik fDodajwynik = new DodajWynik(this, "Siatkowka",(String) tMeczeSiatkowka.getModel().getValueAt(tMeczeSiatkowka.getSelectedRow(), 0 ),(String) tMeczeSiatkowka.getModel().getValueAt(tMeczeSiatkowka.getSelectedRow(), 1 ));
        if(tMeczeSiatkowka.getModel().getValueAt(tMeczeSiatkowka.getSelectedRow(), 2)!=(null)){
            JOptionPane.showMessageDialog(this,"Zwycięzca został wybrany");
        }    
        else{
-           fDodajwynik.setVisible(true);
+       DodajWynik fDodajwynik = new DodajWynik(this, "Siatkowka",(String) tMeczeSiatkowka.getModel().getValueAt(tMeczeSiatkowka.getSelectedRow(), 0 ),(String) tMeczeSiatkowka.getModel().getValueAt(tMeczeSiatkowka.getSelectedRow(), 1 ));
+       fDodajwynik.setVisible(true);
        }
     }//GEN-LAST:event_btnDodajWynikSiatkowkaActionPerformed
 
     private void btnWygenerujMeczeDwa_OgnieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWygenerujMeczeDwa_OgnieActionPerformed
-        rozgrywki.getTurniejDwa_Ognie().wygenerujMecze(rozgrywki.getDruzyny());
+        if(rozgrywki.turniejDwa_Ognie.wygenerowanoMecze==false)
+        {
+            rozgrywki.getTurniejDwa_Ognie().wygenerujMecze(rozgrywki.getDruzyny());
+            LinkedList<Mecz> listaDwa_Ognie = rozgrywki.getTurniejDwa_Ognie().getLista_meczy();
         
-        LinkedList<Mecz> listaDwa_Ognie = rozgrywki.getTurniejDwa_Ognie().getLista_meczy();
-        
-        for(int i=0; i < listaDwa_Ognie.size(); i++){
+            for(int i=0; i < listaDwa_Ognie.size(); i++){
                 String nazwa1 = listaDwa_Ognie.get(i).getTeam1().getNazwa();
                 String nazwa2 = listaDwa_Ognie.get(i).getTeam2().getNazwa();
             
                 this.meczeDwa_Ognie_model.addRow(new Object[]{nazwa1,nazwa2});
             
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(this,"Mecze zostały wygenerowane");
         }
     }//GEN-LAST:event_btnWygenerujMeczeDwa_OgnieActionPerformed
 
     private void btnDodajWynikDwa_OgnieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajWynikDwa_OgnieActionPerformed
-       DodajWynik fDodajwynik = new DodajWynik(this, "Dwa_Ognie",(String) tMeczeDwa_Ognie.getModel().getValueAt(tMeczeDwa_Ognie.getSelectedRow(), 0 ),(String) tMeczeDwa_Ognie.getModel().getValueAt(tMeczeDwa_Ognie.getSelectedRow(), 1 ));
        if(tMeczeDwa_Ognie.getModel().getValueAt(tMeczeDwa_Ognie.getSelectedRow(), 2)!=(null)){
            JOptionPane.showMessageDialog(this,"Zwycięzca został wybrany");
        }    
        else{
+           DodajWynik fDodajwynik = new DodajWynik(this, "Dwa_Ognie",(String) tMeczeDwa_Ognie.getModel().getValueAt(tMeczeDwa_Ognie.getSelectedRow(), 0 ),(String) tMeczeDwa_Ognie.getModel().getValueAt(tMeczeDwa_Ognie.getSelectedRow(), 1 ));
            fDodajwynik.setVisible(true);
        }
     }//GEN-LAST:event_btnDodajWynikDwa_OgnieActionPerformed
 
     private void btnWygenerujMeczePrzeciaganie_LinyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWygenerujMeczePrzeciaganie_LinyActionPerformed
-        rozgrywki.getTurniejLina().wygenerujMecze(rozgrywki.getDruzyny());
+        if(rozgrywki.getTurniejLina().wygenerowanoMecze==false){
+            rozgrywki.getTurniejLina().wygenerujMecze(rozgrywki.getDruzyny());
+            LinkedList<Mecz> listaPrzeciaganie_Liny = rozgrywki.getTurniejLina().getLista_meczy();
         
-        LinkedList<Mecz> listaPrzeciaganie_Liny = rozgrywki.getTurniejLina().getLista_meczy();
-        
-        for(int i=0; i < listaPrzeciaganie_Liny.size(); i++){
+            for(int i=0; i < listaPrzeciaganie_Liny.size(); i++){
                 String nazwa1 = listaPrzeciaganie_Liny.get(i).getTeam1().getNazwa();
                 String nazwa2 = listaPrzeciaganie_Liny.get(i).getTeam2().getNazwa();
             
                 this.meczePrzeciaganie_Liny_model.addRow(new Object[]{nazwa1,nazwa2});
             
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(this,"Mecze zostały wygenerowane");
         }
     }//GEN-LAST:event_btnWygenerujMeczePrzeciaganie_LinyActionPerformed
 
     private void btnDodajWynikPrzeciaganie_LinyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajWynikPrzeciaganie_LinyActionPerformed
-       
-       DodajWynik fDodajwynik = new DodajWynik(this, "Przeciaganie_Liny",(String) tMeczePrzeciaganie_Liny.getModel().getValueAt(tMeczePrzeciaganie_Liny.getSelectedRow(), 0 ),(String) tMeczePrzeciaganie_Liny.getModel().getValueAt(tMeczePrzeciaganie_Liny.getSelectedRow(), 1 ));
        if(tMeczePrzeciaganie_Liny.getModel().getValueAt(tMeczePrzeciaganie_Liny.getSelectedRow(), 2)!=(null)){
            JOptionPane.showMessageDialog(this,"Zwycięzca został wybrany");
        }    
        else{
+           DodajWynik fDodajwynik = new DodajWynik(this, "Przeciaganie_Liny",(String) tMeczePrzeciaganie_Liny.getModel().getValueAt(tMeczePrzeciaganie_Liny.getSelectedRow(), 0 ),(String) tMeczePrzeciaganie_Liny.getModel().getValueAt(tMeczePrzeciaganie_Liny.getSelectedRow(), 1 ));
            fDodajwynik.setVisible(true);
        }
     }//GEN-LAST:event_btnDodajWynikPrzeciaganie_LinyActionPerformed
+
+    private void tMeczeSiatkowkaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tMeczeSiatkowkaMouseClicked
+       if(evt.getClickCount()==2&&!evt.isConsumed()){
+        PrzegladMeczu fPrzeglad = new PrzegladMeczu(this,meczeSiatkowka_model.getValueAt(tMeczeSiatkowka.getSelectedRow(), 0).toString(),meczeSiatkowka_model.getValueAt(tMeczeSiatkowka.getSelectedRow(), 1).toString());
+        fPrzeglad.setVisible(true); 
+        }
+    }//GEN-LAST:event_tMeczeSiatkowkaMouseClicked
+
+    private void tMeczeDwa_OgnieMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tMeczeDwa_OgnieMouseClicked
+        if(evt.getClickCount()==2&&!evt.isConsumed()){
+        PrzegladMeczu fPrzeglad = new PrzegladMeczu(this,meczeDwa_Ognie_model.getValueAt(tMeczeDwa_Ognie.getSelectedRow(), 0).toString(),meczeDwa_Ognie_model.getValueAt(tMeczeDwa_Ognie.getSelectedRow(), 1).toString());
+        fPrzeglad.setVisible(true); 
+        }
+    }//GEN-LAST:event_tMeczeDwa_OgnieMouseClicked
+
+    private void tMeczePrzeciaganie_LinyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tMeczePrzeciaganie_LinyMouseClicked
+       if(evt.getClickCount()==2&&!evt.isConsumed()){
+        PrzegladMeczu fPrzeglad = new PrzegladMeczu(this,meczePrzeciaganie_Liny_model.getValueAt(tMeczePrzeciaganie_Liny.getSelectedRow(), 0).toString(),meczePrzeciaganie_Liny_model.getValueAt(tMeczePrzeciaganie_Liny.getSelectedRow(), 1).toString());
+        fPrzeglad.setVisible(true); 
+        }
+    }//GEN-LAST:event_tMeczePrzeciaganie_LinyMouseClicked
 
     
     /**

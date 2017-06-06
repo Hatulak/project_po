@@ -20,6 +20,9 @@ public class Dyscyplina {
     private Mecz polfinal_1;
     private Mecz polfinal_2;
     private Mecz mecz_final;
+    boolean wygenerowanoMecze=false;
+    boolean wygenerowanoPolfinaly=false;
+    boolean wygenerowanoFinaly=false;
 
     public Dyscyplina(String s){
         nazwa = s;
@@ -99,10 +102,11 @@ public class Dyscyplina {
                 
                 }
             }
+        wygenerowanoMecze=true;
         }
     public void wygenerujPolfinaly(){
     	//sortowanie
-    	List<Druzyna> nazwy = new ArrayList<Druzyna>();
+    	List<Druzyna> nazwy = new ArrayList<>();
     	for(Druzyna klucz : tabela_wynikow.keySet()){
     	             nazwy.add(klucz);
     	}
@@ -118,6 +122,7 @@ public class Dyscyplina {
         	this.polfinal_1 = new Przeciaganie_Liny(nazwy.get(0),nazwy.get(3),sedziowie);
         	this.polfinal_2 = new Przeciaganie_Liny(nazwy.get(1),nazwy.get(2),sedziowie);
         }
+        wygenerowanoPolfinaly=true;
     }
     public void wygenerujFinaly(){
     	if (nazwa.matches("Siatkowka"))
@@ -126,7 +131,8 @@ public class Dyscyplina {
             this.mecz_final = new Dwa_Ognie(this.polfinal_1.getZwyciezca(),this.polfinal_2.getZwyciezca(),sedziowie);
         if (nazwa.matches("Przeciaganie_Liny"))
             this.mecz_final = new Przeciaganie_Liny(this.polfinal_1.getZwyciezca(),this.polfinal_2.getZwyciezca(),sedziowie);
+        wygenerowanoFinaly=true;
     }
-    }
+}
     
 
