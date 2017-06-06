@@ -5,6 +5,8 @@
  */
 package projekt;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Przemysław
@@ -49,7 +51,7 @@ public class DodajWynik extends javax.swing.JFrame {
                     break;
                 }      
             }
-        }
+        }           
     }
 
     
@@ -167,9 +169,6 @@ public class DodajWynik extends javax.swing.JFrame {
                 menu.siatkowkaTabela_wynikow_model.setValueAt(klucze[i], i, 0);
                 menu.siatkowkaTabela_wynikow_model.setValueAt(wartosci[i], i, 1);
             }
-            
-            
-            
         }
         else if(sport.matches("Dwa_Ognie")){
             for(int i=0;i<menu.rozgrywki.getTurniejDwa_Ognie().getTabela_wynikow().size();i++){
@@ -181,7 +180,35 @@ public class DodajWynik extends javax.swing.JFrame {
             menu.meczeDwa_Ognie_model.setValueAt(spotkanie.zwyciezca.getNazwa(), menu.tMeczeDwa_Ognie.getSelectedRow(), 2);
             menu.rozgrywki.getTurniejDwa_Ognie().dodajPunkty(spotkanie.getZwyciezca());
             menu.dwa_ognie_Tabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejDwa_Ognie().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
-       
+            
+            String klucze[] = new String[menu.dwa_ognie_Tabela_wynikow_model.getRowCount()];
+            int wartosci[] = new int[menu.dwa_ognie_Tabela_wynikow_model.getRowCount()];
+            
+            for(int i=0; i< menu.dwa_ognie_Tabela_wynikow_model.getRowCount(); i++){
+                klucze[i] =(String) menu.dwa_ognie_Tabela_wynikow_model.getValueAt(i,0);
+                wartosci[i] = (int) menu.dwa_ognie_Tabela_wynikow_model.getValueAt(i, 1);
+            }
+            
+            String stringTemp;
+            int intTemp;
+           
+            for(int i=0; i< wartosci.length ; i++){
+                for(int j=0;  j< wartosci.length -1; j++){
+                    if(wartosci[j] < wartosci[j+1]){
+                        stringTemp =klucze[j+1];
+                        intTemp = wartosci[j+1];                     
+                        klucze[j+1] = klucze[j];
+                        wartosci[j+1] = wartosci[j];
+                        klucze[j] = stringTemp;
+                        wartosci[j] = intTemp;
+                    }
+                }
+            }
+            for(int i=0; i<wartosci.length; i++){
+                
+                menu.dwa_ognie_Tabela_wynikow_model.setValueAt(klucze[i], i, 0);
+                menu.dwa_ognie_Tabela_wynikow_model.setValueAt(wartosci[i], i, 1);
+            }
         }
         else if(sport.matches("Przeciaganie_Liny")){
             for(int i=0;i<menu.rozgrywki.getTurniejLina().getTabela_wynikow().size();i++){
@@ -193,7 +220,35 @@ public class DodajWynik extends javax.swing.JFrame {
             menu.meczePrzeciaganie_Liny_model.setValueAt(spotkanie.zwyciezca.getNazwa(), menu.tMeczePrzeciaganie_Liny.getSelectedRow(), 2);
             menu.rozgrywki.getTurniejLina().dodajPunkty(spotkanie.getZwyciezca());
             menu.przeciaganie_liny_Tabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejLina().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
-       
+            
+            String klucze[] = new String[menu.przeciaganie_liny_Tabela_wynikow_model.getRowCount()];
+            int wartosci[] = new int[menu.przeciaganie_liny_Tabela_wynikow_model.getRowCount()];
+            
+            for(int i=0; i< menu.przeciaganie_liny_Tabela_wynikow_model.getRowCount(); i++){
+                klucze[i] =(String) menu.przeciaganie_liny_Tabela_wynikow_model.getValueAt(i,0);
+                wartosci[i] = (int) menu.przeciaganie_liny_Tabela_wynikow_model.getValueAt(i, 1);
+            }
+            
+            String stringTemp;
+            int intTemp;
+           
+            for(int i=0; i< wartosci.length ; i++){
+                for(int j=0;  j< wartosci.length -1; j++){
+                    if(wartosci[j] < wartosci[j+1]){
+                        stringTemp =klucze[j+1];
+                        intTemp = wartosci[j+1];                     
+                        klucze[j+1] = klucze[j];
+                        wartosci[j+1] = wartosci[j];
+                        klucze[j] = stringTemp;
+                        wartosci[j] = intTemp;
+                    }
+                }
+            }
+            for(int i=0; i<wartosci.length; i++){
+                
+                menu.przeciaganie_liny_Tabela_wynikow_model.setValueAt(klucze[i], i, 0);
+                menu.przeciaganie_liny_Tabela_wynikow_model.setValueAt(wartosci[i], i, 1);
+            }
         }
         this.setVisible(false);
     }//GEN-LAST:event_btnTeam1ActionPerformed
@@ -218,6 +273,35 @@ public class DodajWynik extends javax.swing.JFrame {
             menu.meczeSiatkowka_model.setValueAt(spotkanie.zwyciezca.getNazwa(), menu.tMeczeSiatkowka.getSelectedRow(), 2);
             menu.rozgrywki.getTurniejSiatkowki().dodajPunkty(spotkanie.getZwyciezca());
             menu.siatkowkaTabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejSiatkowki().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
+     
+            String klucze[] = new String[menu.siatkowkaTabela_wynikow_model.getRowCount()];
+            int wartosci[] = new int[menu.siatkowkaTabela_wynikow_model.getRowCount()];
+            
+            for(int i=0; i< menu.siatkowkaTabela_wynikow_model.getRowCount(); i++){
+                klucze[i] =(String) menu.siatkowkaTabela_wynikow_model.getValueAt(i,0);
+                wartosci[i] = (int) menu.siatkowkaTabela_wynikow_model.getValueAt(i, 1);
+            }
+            
+            String stringTemp;
+            int intTemp;
+           
+            for(int i=0; i< wartosci.length ; i++){
+                for(int j=0;  j< wartosci.length -1; j++){
+                    if(wartosci[j] < wartosci[j+1]){
+                        stringTemp =klucze[j+1];
+                        intTemp = wartosci[j+1];                     
+                        klucze[j+1] = klucze[j];
+                        wartosci[j+1] = wartosci[j];
+                        klucze[j] = stringTemp;
+                        wartosci[j] = intTemp;
+                    }
+                }
+            }
+            for(int i=0; i<wartosci.length; i++){
+                
+                menu.siatkowkaTabela_wynikow_model.setValueAt(klucze[i], i, 0);
+                menu.siatkowkaTabela_wynikow_model.setValueAt(wartosci[i], i, 1);
+            }
         }
         else if(sport.matches("Dwa_Ognie")){
             for(int i=0;i<menu.rozgrywki.getTurniejDwa_Ognie().getTabela_wynikow().size();i++){
@@ -229,7 +313,35 @@ public class DodajWynik extends javax.swing.JFrame {
             menu.meczeDwa_Ognie_model.setValueAt(spotkanie.zwyciezca.getNazwa(), menu.tMeczeDwa_Ognie.getSelectedRow(), 2);
             menu.rozgrywki.getTurniejDwa_Ognie().dodajPunkty(spotkanie.getZwyciezca());
             menu.dwa_ognie_Tabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejDwa_Ognie().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
-       
+            
+            String klucze[] = new String[menu.dwa_ognie_Tabela_wynikow_model.getRowCount()];
+            int wartosci[] = new int[menu.dwa_ognie_Tabela_wynikow_model.getRowCount()];
+            
+            for(int i=0; i< menu.dwa_ognie_Tabela_wynikow_model.getRowCount(); i++){
+                klucze[i] =(String) menu.dwa_ognie_Tabela_wynikow_model.getValueAt(i,0);
+                wartosci[i] = (int) menu.dwa_ognie_Tabela_wynikow_model.getValueAt(i, 1);
+            }
+            
+            String stringTemp;
+            int intTemp;
+           
+            for(int i=0; i< wartosci.length ; i++){
+                for(int j=0;  j< wartosci.length -1; j++){
+                    if(wartosci[j] < wartosci[j+1]){
+                        stringTemp =klucze[j+1];
+                        intTemp = wartosci[j+1];                     
+                        klucze[j+1] = klucze[j];
+                        wartosci[j+1] = wartosci[j];
+                        klucze[j] = stringTemp;
+                        wartosci[j] = intTemp;
+                    }
+                }
+            }
+            for(int i=0; i<wartosci.length; i++){
+                
+                menu.dwa_ognie_Tabela_wynikow_model.setValueAt(klucze[i], i, 0);
+                menu.dwa_ognie_Tabela_wynikow_model.setValueAt(wartosci[i], i, 1);
+            }       
         }
         else if(sport.matches("Przeciaganie_Liny")){
             for(int i=0;i<menu.rozgrywki.getTurniejLina().getTabela_wynikow().size();i++){
@@ -241,7 +353,35 @@ public class DodajWynik extends javax.swing.JFrame {
             menu.meczePrzeciaganie_Liny_model.setValueAt(spotkanie.zwyciezca.getNazwa(), menu.tMeczePrzeciaganie_Liny.getSelectedRow(), 2);
             menu.rozgrywki.getTurniejLina().dodajPunkty(spotkanie.getZwyciezca());
             menu.przeciaganie_liny_Tabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejLina().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
-       
+            
+            String klucze[] = new String[menu.przeciaganie_liny_Tabela_wynikow_model.getRowCount()];
+            int wartosci[] = new int[menu.przeciaganie_liny_Tabela_wynikow_model.getRowCount()];
+            
+            for(int i=0; i< menu.przeciaganie_liny_Tabela_wynikow_model.getRowCount(); i++){
+                klucze[i] =(String) menu.przeciaganie_liny_Tabela_wynikow_model.getValueAt(i,0);
+                wartosci[i] = (int) menu.przeciaganie_liny_Tabela_wynikow_model.getValueAt(i, 1);
+            }
+            
+            String stringTemp;
+            int intTemp;
+           
+            for(int i=0; i< wartosci.length ; i++){
+                for(int j=0;  j< wartosci.length -1; j++){
+                    if(wartosci[j] < wartosci[j+1]){
+                        stringTemp =klucze[j+1];
+                        intTemp = wartosci[j+1];                     
+                        klucze[j+1] = klucze[j];
+                        wartosci[j+1] = wartosci[j];
+                        klucze[j] = stringTemp;
+                        wartosci[j] = intTemp;
+                    }
+                }
+            }
+            for(int i=0; i<wartosci.length; i++){
+                
+                menu.przeciaganie_liny_Tabela_wynikow_model.setValueAt(klucze[i], i, 0);
+                menu.przeciaganie_liny_Tabela_wynikow_model.setValueAt(wartosci[i], i, 1);
+            }
         }
         this.setVisible(false);
     }//GEN-LAST:event_btnTeam2ActionPerformed

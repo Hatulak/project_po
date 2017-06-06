@@ -3,6 +3,7 @@ package projekt;
 
 import javax.swing.table.DefaultTableModel;
 import java.util.LinkedList;
+import javax.swing.JOptionPane;
 
 
 public class MenuGlowne extends javax.swing.JFrame {
@@ -689,7 +690,12 @@ public class MenuGlowne extends javax.swing.JFrame {
 
     private void btnDodajWynikSiatkowkaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajWynikSiatkowkaActionPerformed
        DodajWynik fDodajwynik = new DodajWynik(this, "Siatkowka",(String) tMeczeSiatkowka.getModel().getValueAt(tMeczeSiatkowka.getSelectedRow(), 0 ),(String) tMeczeSiatkowka.getModel().getValueAt(tMeczeSiatkowka.getSelectedRow(), 1 ));
-       fDodajwynik.setVisible(true);
+       if(tMeczeSiatkowka.getModel().getValueAt(tMeczeSiatkowka.getSelectedRow(), 2)!=(null)){
+           JOptionPane.showMessageDialog(this,"Zwycięzca został wybrany");
+       }    
+       else{
+           fDodajwynik.setVisible(true);
+       }
     }//GEN-LAST:event_btnDodajWynikSiatkowkaActionPerformed
 
     private void btnWygenerujMeczeDwa_OgnieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWygenerujMeczeDwa_OgnieActionPerformed
@@ -708,7 +714,12 @@ public class MenuGlowne extends javax.swing.JFrame {
 
     private void btnDodajWynikDwa_OgnieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajWynikDwa_OgnieActionPerformed
        DodajWynik fDodajwynik = new DodajWynik(this, "Dwa_Ognie",(String) tMeczeDwa_Ognie.getModel().getValueAt(tMeczeDwa_Ognie.getSelectedRow(), 0 ),(String) tMeczeDwa_Ognie.getModel().getValueAt(tMeczeDwa_Ognie.getSelectedRow(), 1 ));
-       fDodajwynik.setVisible(true);
+       if(tMeczeDwa_Ognie.getModel().getValueAt(tMeczeDwa_Ognie.getSelectedRow(), 2)!=(null)){
+           JOptionPane.showMessageDialog(this,"Zwycięzca został wybrany");
+       }    
+       else{
+           fDodajwynik.setVisible(true);
+       }
     }//GEN-LAST:event_btnDodajWynikDwa_OgnieActionPerformed
 
     private void btnWygenerujMeczePrzeciaganie_LinyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWygenerujMeczePrzeciaganie_LinyActionPerformed
@@ -726,8 +737,14 @@ public class MenuGlowne extends javax.swing.JFrame {
     }//GEN-LAST:event_btnWygenerujMeczePrzeciaganie_LinyActionPerformed
 
     private void btnDodajWynikPrzeciaganie_LinyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajWynikPrzeciaganie_LinyActionPerformed
+       
        DodajWynik fDodajwynik = new DodajWynik(this, "Przeciaganie_Liny",(String) tMeczePrzeciaganie_Liny.getModel().getValueAt(tMeczePrzeciaganie_Liny.getSelectedRow(), 0 ),(String) tMeczePrzeciaganie_Liny.getModel().getValueAt(tMeczePrzeciaganie_Liny.getSelectedRow(), 1 ));
-       fDodajwynik.setVisible(true);    // TODO add your handling code here:
+       if(tMeczePrzeciaganie_Liny.getModel().getValueAt(tMeczePrzeciaganie_Liny.getSelectedRow(), 2)!=(null)){
+           JOptionPane.showMessageDialog(this,"Zwycięzca został wybrany");
+       }    
+       else{
+           fDodajwynik.setVisible(true);
+       }
     }//GEN-LAST:event_btnDodajWynikPrzeciaganie_LinyActionPerformed
 
     
