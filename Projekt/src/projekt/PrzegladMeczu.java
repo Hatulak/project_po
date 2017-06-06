@@ -46,7 +46,7 @@ public class PrzegladMeczu extends javax.swing.JFrame {
         }
         else if(sport.matches("Dwa_Ognie")){
             tekst = "Sedzia";
-            for( Mecz mecz : menu.rozgrywki.getTurniejSiatkowki().getLista_meczy()){
+            for( Mecz mecz : menu.rozgrywki.getTurniejDwa_Ognie().getLista_meczy()){
                 Dwa_Ognie _mecz = (Dwa_Ognie)mecz;
                 if( (mecz.getTeam1().getNazwa().matches(team1) && mecz.getTeam2().getNazwa().matches(team2) ) || (mecz.getTeam1().getNazwa().matches(team2) && mecz.getTeam2().getNazwa().matches(team1) )   ){
                     lista_sedziow.add(_mecz.getSedzia());
@@ -58,7 +58,7 @@ public class PrzegladMeczu extends javax.swing.JFrame {
         }
         else if(sport.matches("Przeciaganie_Liny")){
             tekst = "Sedzia";
-            for( Mecz mecz : menu.rozgrywki.getTurniejSiatkowki().getLista_meczy()){
+            for( Mecz mecz : menu.rozgrywki.getTurniejLina().getLista_meczy()){
                 Przeciaganie_Liny _mecz = (Przeciaganie_Liny)mecz;
                 if( (mecz.getTeam1().getNazwa().matches(team1) && mecz.getTeam2().getNazwa().matches(team2) ) || (mecz.getTeam1().getNazwa().matches(team2) && mecz.getTeam2().getNazwa().matches(team1) )   ){
                     lista_sedziow.add(_mecz.getSedzia());
@@ -97,7 +97,7 @@ public class PrzegladMeczu extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         lblNazwa_Zwyciezcy = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lMecz.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lMecz.setText(team1 + " -- "+ team2);
