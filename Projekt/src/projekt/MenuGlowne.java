@@ -623,7 +623,7 @@ public class MenuGlowne extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDodajSedziegoSiatkowkaActionPerformed
 
     private void btnDodajDruzyneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajDruzyneActionPerformed
-        if(rozgrywki.getTurniejSiatkowki().wygenerowanoMecze==false||rozgrywki.getTurniejDwa_Ognie().wygenerowanoMecze==false||rozgrywki.getTurniejLina().wygenerowanoMecze==false){   
+        if(((rozgrywki.turniejSiatkowki.wygenerowanoMecze==false)&&(rozgrywki.turniejDwa_Ognie.wygenerowanoMecze==false)&&(rozgrywki.turniejLina.wygenerowanoMecze==false))==true){   
         DodajDruzyne fDodajDruzyne = new DodajDruzyne(this);
            fDodajDruzyne.setVisible(true);
         }
@@ -708,7 +708,7 @@ public class MenuGlowne extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUsunSedziegoPrzeciaganie_LinyActionPerformed
 
     private void btnUsunDruzyneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsunDruzyneActionPerformed
-        if(rozgrywki.getTurniejSiatkowki().wygenerowanoMecze==false||rozgrywki.getTurniejDwa_Ognie().wygenerowanoMecze==false||rozgrywki.getTurniejLina().wygenerowanoMecze==false){
+        if(((rozgrywki.turniejSiatkowki.wygenerowanoMecze==false)&&(rozgrywki.turniejDwa_Ognie.wygenerowanoMecze==false)&&(rozgrywki.turniejLina.wygenerowanoMecze==false))==true){
         if(tDruzyny.getSelectedRow() != -1){
             String nazwa;
             nazwa = (String) druzyny_model.getValueAt(tDruzyny.getSelectedRow(), 0);
