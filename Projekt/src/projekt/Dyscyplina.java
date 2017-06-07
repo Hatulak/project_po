@@ -130,11 +130,11 @@ public class Dyscyplina {
                 Druzyna team1 = druzyny.get(i);
                 Druzyna team2 = druzyny.get(j);
                 if (nazwa.matches("Siatkowka"))
-                    lista_meczy.add(new Siatkowka(team1,team2,sedziowie));
+                    lista_meczy.add(new Siatkowka(team1,team2,sedziowie, "Faza_Grupowa"));
                 else if (nazwa.matches("Dwa_Ognie"))
-                    lista_meczy.add(new Dwa_Ognie(team1,team2,sedziowie));
+                    lista_meczy.add(new Dwa_Ognie(team1,team2,sedziowie, "Faza_Grupowa"));
                 else if (nazwa.matches("Przeciaganie_Liny"))
-                    lista_meczy.add(new Przeciaganie_Liny(team1,team2,sedziowie));
+                    lista_meczy.add(new Przeciaganie_Liny(team1,team2,sedziowie, "Faza_Grupowa"));
                 
                 }
             }
@@ -161,16 +161,16 @@ public class Dyscyplina {
         }
 
     	if (nazwa.matches("Siatkowka")){
-            this.polfinal_1 = new Siatkowka(lista.get(lista.size()-1).getKey() ,lista.get(lista.size()-4).getKey(),sedziowie);
-            this.polfinal_2 = new Siatkowka(lista.get(lista.size()-2).getKey() ,lista.get(lista.size()-3).getKey(),sedziowie);
+            this.polfinal_1 = new Siatkowka(lista.get(lista.size()-1).getKey() ,lista.get(lista.size()-4).getKey(),sedziowie, "Półfinały");
+            this.polfinal_2 = new Siatkowka(lista.get(lista.size()-2).getKey() ,lista.get(lista.size()-3).getKey(),sedziowie, "Półfinały");
     	}
         if (nazwa.matches("Dwa_Ognie")){
-        	this.polfinal_1 = new Dwa_Ognie(lista.get(lista.size()-1).getKey() ,lista.get(lista.size()-4).getKey(),sedziowie);
-        	this.polfinal_2 = new Dwa_Ognie(lista.get(lista.size()-2).getKey() ,lista.get(lista.size()-3).getKey(),sedziowie);
+        	this.polfinal_1 = new Dwa_Ognie(lista.get(lista.size()-1).getKey() ,lista.get(lista.size()-4).getKey(),sedziowie, "Półfinały");
+        	this.polfinal_2 = new Dwa_Ognie(lista.get(lista.size()-2).getKey() ,lista.get(lista.size()-3).getKey(),sedziowie, "Półfinały");
         }
         if (nazwa.matches("Przeciaganie_Liny")){
-        	this.polfinal_1 = new Przeciaganie_Liny(lista.get(lista.size()-1).getKey() ,lista.get(lista.size()-4).getKey(),sedziowie);
-        	this.polfinal_2 = new Przeciaganie_Liny(lista.get(lista.size()-2).getKey() ,lista.get(lista.size()-3).getKey(),sedziowie);
+        	this.polfinal_1 = new Przeciaganie_Liny(lista.get(lista.size()-1).getKey() ,lista.get(lista.size()-4).getKey(),sedziowie, "Półfinały");
+        	this.polfinal_2 = new Przeciaganie_Liny(lista.get(lista.size()-2).getKey() ,lista.get(lista.size()-3).getKey(),sedziowie, "Półfinały");
         }
         wygenerowanoPolfinaly=true;
     }
@@ -181,11 +181,11 @@ public class Dyscyplina {
      */
     public void wygenerujFinal(){
     	if (nazwa.matches("Siatkowka"))
-            this.mecz_final = new Siatkowka(this.polfinal_1.getZwyciezca(),this.polfinal_2.getZwyciezca(),sedziowie);
+            this.mecz_final = new Siatkowka(this.polfinal_1.getZwyciezca(),this.polfinal_2.getZwyciezca(),sedziowie, "Finał");
         if (nazwa.matches("Dwa_Ognie"))
-            this.mecz_final = new Dwa_Ognie(this.polfinal_1.getZwyciezca(),this.polfinal_2.getZwyciezca(),sedziowie);
+            this.mecz_final = new Dwa_Ognie(this.polfinal_1.getZwyciezca(),this.polfinal_2.getZwyciezca(),sedziowie, "Finał");
         if (nazwa.matches("Przeciaganie_Liny"))
-            this.mecz_final = new Przeciaganie_Liny(this.polfinal_1.getZwyciezca(),this.polfinal_2.getZwyciezca(),sedziowie);
+            this.mecz_final = new Przeciaganie_Liny(this.polfinal_1.getZwyciezca(),this.polfinal_2.getZwyciezca(),sedziowie, "Finał");
         wygenerowanoFinal=true;
     }
 }

@@ -216,10 +216,11 @@ public class DodajWynik extends javax.swing.JFrame {
                 }
             }
             
-            menu.meczeSiatkowka_model.setValueAt(spotkanie.getZwyciezca().getNazwa(), menu.tMeczeSiatkowka.getSelectedRow(), 2);
-            menu.rozgrywki.getTurniejSiatkowki().dodajPunkty(spotkanie.getZwyciezca());
-            menu.siatkowkaTabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejSiatkowki().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
-            
+            menu.meczeSiatkowka_model.setValueAt(spotkanie.getZwyciezca().getNazwa(), menu.tMeczeSiatkowka.getSelectedRow(), 3);
+            if(spotkanie.getFaza().matches("Faza_Grupowa")){
+                menu.rozgrywki.getTurniejSiatkowki().dodajPunkty(spotkanie.getZwyciezca());
+                menu.siatkowkaTabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejSiatkowki().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
+            }
             String klucze[] = new String[menu.siatkowkaTabela_wynikow_model.getRowCount()];
             int wartosci[] = new int[menu.siatkowkaTabela_wynikow_model.getRowCount()];
             
@@ -273,10 +274,11 @@ public class DodajWynik extends javax.swing.JFrame {
                 break;
             }
         }
-            menu.meczeDwa_Ognie_model.setValueAt(spotkanie.getZwyciezca().getNazwa(), menu.tMeczeDwa_Ognie.getSelectedRow(), 2);
-            menu.rozgrywki.getTurniejDwa_Ognie().dodajPunkty(spotkanie.getZwyciezca());
-            menu.dwa_ognie_Tabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejDwa_Ognie().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
-            
+            menu.meczeDwa_Ognie_model.setValueAt(spotkanie.getZwyciezca().getNazwa(), menu.tMeczeDwa_Ognie.getSelectedRow(), 3);
+            if(spotkanie.getFaza().matches("Faza_Grupowa")){
+                menu.rozgrywki.getTurniejDwa_Ognie().dodajPunkty(spotkanie.getZwyciezca());
+                menu.dwa_ognie_Tabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejDwa_Ognie().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
+            }
             String klucze[] = new String[menu.dwa_ognie_Tabela_wynikow_model.getRowCount()];
             int wartosci[] = new int[menu.dwa_ognie_Tabela_wynikow_model.getRowCount()];
             
@@ -330,10 +332,11 @@ public class DodajWynik extends javax.swing.JFrame {
                 break;
             }
         }
-            menu.meczePrzeciaganie_Liny_model.setValueAt(spotkanie.getZwyciezca().getNazwa(), menu.tMeczePrzeciaganie_Liny.getSelectedRow(), 2);
-            menu.rozgrywki.getTurniejLina().dodajPunkty(spotkanie.getZwyciezca());
-            menu.przeciaganie_liny_Tabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejLina().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
-            
+            menu.meczePrzeciaganie_Liny_model.setValueAt(spotkanie.getZwyciezca().getNazwa(), menu.tMeczePrzeciaganie_Liny.getSelectedRow(), 3);
+            if(spotkanie.getFaza().matches("Faza_Grupowa")){
+                menu.rozgrywki.getTurniejLina().dodajPunkty(spotkanie.getZwyciezca());
+                menu.przeciaganie_liny_Tabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejLina().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
+            }
             String klucze[] = new String[menu.przeciaganie_liny_Tabela_wynikow_model.getRowCount()];
             int wartosci[] = new int[menu.przeciaganie_liny_Tabela_wynikow_model.getRowCount()];
             
@@ -400,10 +403,11 @@ public class DodajWynik extends javax.swing.JFrame {
                 break;
             }
         }
-            menu.meczeSiatkowka_model.setValueAt(spotkanie.getZwyciezca().getNazwa(), menu.tMeczeSiatkowka.getSelectedRow(), 2);
-            menu.rozgrywki.getTurniejSiatkowki().dodajPunkty(spotkanie.getZwyciezca());
-            menu.siatkowkaTabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejSiatkowki().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
-     
+            menu.meczeSiatkowka_model.setValueAt(spotkanie.getZwyciezca().getNazwa(), menu.tMeczeSiatkowka.getSelectedRow(), 3);
+            if(spotkanie.getFaza().matches("Faza_Grupowa")){
+                menu.rozgrywki.getTurniejSiatkowki().dodajPunkty(spotkanie.getZwyciezca());
+                menu.siatkowkaTabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejSiatkowki().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
+            }
             String klucze[] = new String[menu.siatkowkaTabela_wynikow_model.getRowCount()];
             int wartosci[] = new int[menu.siatkowkaTabela_wynikow_model.getRowCount()];
             
@@ -457,9 +461,11 @@ public class DodajWynik extends javax.swing.JFrame {
                 break;
             }
         }
-            menu.meczeDwa_Ognie_model.setValueAt(spotkanie.getZwyciezca().getNazwa(), menu.tMeczeDwa_Ognie.getSelectedRow(), 2);
-            menu.rozgrywki.getTurniejDwa_Ognie().dodajPunkty(spotkanie.getZwyciezca());
-            menu.dwa_ognie_Tabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejDwa_Ognie().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
+            menu.meczeDwa_Ognie_model.setValueAt(spotkanie.getZwyciezca().getNazwa(), menu.tMeczeDwa_Ognie.getSelectedRow(), 3);
+            if(spotkanie.getFaza().matches("Faza_Grupowa")){
+                menu.rozgrywki.getTurniejDwa_Ognie().dodajPunkty(spotkanie.getZwyciezca());
+                menu.dwa_ognie_Tabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejDwa_Ognie().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
+            }
             
             String klucze[] = new String[menu.dwa_ognie_Tabela_wynikow_model.getRowCount()];
             int wartosci[] = new int[menu.dwa_ognie_Tabela_wynikow_model.getRowCount()];
@@ -514,9 +520,11 @@ public class DodajWynik extends javax.swing.JFrame {
                 break;
             }
         }
-            menu.meczePrzeciaganie_Liny_model.setValueAt(spotkanie.getZwyciezca().getNazwa(), menu.tMeczePrzeciaganie_Liny.getSelectedRow(), 2);
-            menu.rozgrywki.getTurniejLina().dodajPunkty(spotkanie.getZwyciezca());
-            menu.przeciaganie_liny_Tabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejLina().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
+            menu.meczePrzeciaganie_Liny_model.setValueAt(spotkanie.getZwyciezca().getNazwa(), menu.tMeczePrzeciaganie_Liny.getSelectedRow(), 3);
+            if(spotkanie.getFaza().matches("Faza_Grupowa")){
+                menu.rozgrywki.getTurniejLina().dodajPunkty(spotkanie.getZwyciezca());
+                menu.przeciaganie_liny_Tabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejLina().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
+            }
             
             String klucze[] = new String[menu.przeciaganie_liny_Tabela_wynikow_model.getRowCount()];
             int wartosci[] = new int[menu.przeciaganie_liny_Tabela_wynikow_model.getRowCount()];

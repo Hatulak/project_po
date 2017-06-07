@@ -207,7 +207,7 @@
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tMeczeSiatkowkaMouseClicked"/>
                       </Events>
                       <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="meczeSiatkowka_model.setColumnIdentifiers(new Object[]{&quot;Dru&#x17c;yna 1&quot;, &quot;Dru&#x17c;yna 2&quot;, &quot;Zwyciezca&quot;});"/>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="meczeSiatkowka_model.setColumnIdentifiers(new Object[]{&quot;Faza&quot;, &quot;Dru&#x17c;yna 1&quot;, &quot;Dru&#x17c;yna 2&quot;, &quot;Zwyciezca&quot;});"/>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                       </AuxValues>
                     </Component>
@@ -769,7 +769,7 @@
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tMeczeDwa_OgnieMouseClicked"/>
                       </Events>
                       <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="meczeDwa_Ognie_model.setColumnIdentifiers(new Object[]{&quot;Dru&#x17c;yna 1&quot;, &quot;Dru&#x17c;yna 2&quot;, &quot;Zwyciezca&quot;});"/>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="meczeDwa_Ognie_model.setColumnIdentifiers(new Object[]{&quot;Faza&quot;,&quot;Dru&#x17c;yna 1&quot;, &quot;Dru&#x17c;yna 2&quot;, &quot;Zwyciezca&quot;});"/>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                       </AuxValues>
                     </Component>
@@ -1331,7 +1331,7 @@
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tMeczePrzeciaganie_LinyMouseClicked"/>
                       </Events>
                       <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="meczePrzeciaganie_Liny_model.setColumnIdentifiers(new Object[]{&quot;Dru&#x17c;yna 1&quot;, &quot;Dru&#x17c;yna 2&quot;, &quot;Zwyciezca&quot;});"/>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="meczePrzeciaganie_Liny_model.setColumnIdentifiers(new Object[]{&quot;Faza&quot;,&quot;Dru&#x17c;yna 1&quot;, &quot;Dru&#x17c;yna 2&quot;, &quot;Zwyciezca&quot;});"/>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                       </AuxValues>
                     </Component>

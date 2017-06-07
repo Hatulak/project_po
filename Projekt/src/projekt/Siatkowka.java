@@ -16,8 +16,8 @@ public class Siatkowka extends Mecz {
      * @param team2 druga drużyna, która będzie brała udział w tworzonym meczu
      * @param s     lista sędziów, z których zostanie wybranych 3 do sędziowania spotkania
      */
-    public Siatkowka(Druzyna team1, Druzyna team2, LinkedList<Sedzia> s){
-        super(team1, team2);
+    public Siatkowka(Druzyna team1, Druzyna team2, LinkedList<Sedzia> s, String faza_rozgrywek){
+        super(team1, team2,faza_rozgrywek);
         LinkedList<Sedzia> kopia = new LinkedList<>();
         for(int i=0; i< s.size(); i++){
             kopia.add(new Sedzia(s.get(i).getImie(), s.get(i).getNazwisko()));

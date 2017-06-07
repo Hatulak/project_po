@@ -17,8 +17,8 @@ public class Przeciaganie_Liny extends Mecz {
      * @param team2 druga drużyna, która będzie brała udział w tworzonym meczu
      * @param s     lista sędziów, z których zostanie wybrany jeden do sędziowania spotkania
      */
-    public Przeciaganie_Liny(Druzyna team1, Druzyna team2, LinkedList<Sedzia> s){
-        super(team1, team2);
+    public Przeciaganie_Liny(Druzyna team1, Druzyna team2, LinkedList<Sedzia> s, String faza_rozgrywek){
+        super(team1, team2,faza_rozgrywek);
         
         Random random = new Random();
         int los;

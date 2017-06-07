@@ -6,7 +6,16 @@ package projekt;
 public abstract class Mecz {
     private Druzyna team1, team2;
     private Druzyna zwyciezca;
+    private String faza; //Faza_Grupowa, Półfinały, Finał
 
+    
+    /**
+     * metoda pobiera fazę w której rozgrywany jest dany mecz
+     * @return zwraca fazę spotkania Faza_grupowa/Półfinały/Finał
+     */
+    public String getFaza(){
+        return faza;
+    }
     /**
      * metoda pobiera zwycięską drużynę
      * @return zwraca zwycięzcę danego meczu
@@ -56,9 +65,10 @@ public abstract class Mecz {
      * @param team1     pierwsza drużyna biorąca udział w meczu
      * @param team2     druga drużyna biorąca udział  w meczu
      */
-    public Mecz(Druzyna team1, Druzyna team2){
+    public Mecz(Druzyna team1, Druzyna team2, String faza_rozgrywek){
         this.team1 = team1;
         this.team2 = team2;
+        faza = faza_rozgrywek;
     }
 
     /**
