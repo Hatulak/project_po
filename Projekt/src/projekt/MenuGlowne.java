@@ -124,42 +124,225 @@ public class MenuGlowne extends javax.swing.JFrame {
         }
         for (Mecz mecz :rozgrywki.getTurniejSiatkowki().getLista_meczy())
         {
+            if(mecz.getZwyciezca()!=null){
             this.meczeSiatkowka_model.addRow(new Object[]{
                 mecz.getFaza().toString(),
                 mecz.getTeam1().getNazwa(),
                 mecz.getTeam2().getNazwa(),
-                mecz.getZwyciezca().getNazwa()})
+                mecz.getZwyciezca().getNazwa()});
+            }
+            else{
+                this.meczeSiatkowka_model.addRow(new Object[]{
+                mecz.getFaza().toString(),
+                mecz.getTeam1().getNazwa(),
+                mecz.getTeam2().getNazwa(),
+                null});
+            }
         }
         for (Mecz mecz :rozgrywki.getTurniejDwa_Ognie().getLista_meczy())
         {
+            if(mecz.getZwyciezca()!=null){
             this.meczeDwa_Ognie_model.addRow(new Object[]{
                 mecz.getFaza().toString(),
                 mecz.getTeam1().getNazwa(),
                 mecz.getTeam2().getNazwa(),
-                mecz.getZwyciezca().getNazwa()})
+                mecz.getZwyciezca().getNazwa()});
+            }
+            else{
+                this.meczeDwa_Ognie_model.addRow(new Object[]{
+                mecz.getFaza().toString(),
+                mecz.getTeam1().getNazwa(),
+                mecz.getTeam2().getNazwa(),
+                null});
+            }
         }
         for (Mecz mecz :rozgrywki.getTurniejLina().getLista_meczy())
         {
+            if(mecz.getZwyciezca()!=null){
             this.meczePrzeciaganie_Liny_model.addRow(new Object[]{
                 mecz.getFaza().toString(),
                 mecz.getTeam1().getNazwa(),
                 mecz.getTeam2().getNazwa(),
-                mecz.getZwyciezca().getNazwa()})
+                mecz.getZwyciezca().getNazwa()});
+            }
+            else{
+                this.meczePrzeciaganie_Liny_model.addRow(new Object[]{
+                mecz.getFaza().toString(),
+                mecz.getTeam1().getNazwa(),
+                mecz.getTeam2().getNazwa(),
+                null});
+            }
         }
         for (Sedzia sedzia : rozgrywki.getTurniejSiatkowki().getSedziowie())
         {
             this.sedziowieSiatkowka_model.addRow(new Object []{
-                sedzia.getImie(),sedzia.getNazwisko()})
+                sedzia.getImie(),sedzia.getNazwisko()});
         }
         for (Sedzia sedzia : rozgrywki.getTurniejDwa_Ognie().getSedziowie())
         {
             this.sedziowieDwa_Ognie_model.addRow(new Object []{
-                sedzia.getImie(),sedzia.getNazwisko()})
+                sedzia.getImie(),sedzia.getNazwisko()});
         }
         for (Sedzia sedzia : rozgrywki.getTurniejLina().getSedziowie())
         {
             this.sedziowiePrzeciaganie_Liny_model.addRow(new Object []{
-                sedzia.getImie(),sedzia.getNazwisko()})
+                sedzia.getImie(),sedzia.getNazwisko()});
+        }
+        if(rozgrywki.getTurniejSiatkowki().getPolfinal_1()!=null){
+        if(rozgrywki.getTurniejSiatkowki().getPolfinal_1().getZwyciezca()!=null){
+        this.meczeSiatkowka_model.addRow(new Object[]{
+            rozgrywki.getTurniejSiatkowki().getPolfinal_1().getFaza(),
+            rozgrywki.getTurniejSiatkowki().getPolfinal_1().getTeam1().getNazwa(),
+            rozgrywki.getTurniejSiatkowki().getPolfinal_1().getTeam2().getNazwa(),
+            rozgrywki.getTurniejSiatkowki().getPolfinal_1().getZwyciezca().getNazwa()});
+        }
+        else
+        {
+            this.meczeSiatkowka_model.addRow(new Object[]{
+            rozgrywki.getTurniejSiatkowki().getPolfinal_1().getFaza(),
+            rozgrywki.getTurniejSiatkowki().getPolfinal_1().getTeam1().getNazwa(),
+            rozgrywki.getTurniejSiatkowki().getPolfinal_1().getTeam2().getNazwa(),
+            null});
+         }
+        }
+       
+        if(rozgrywki.getTurniejSiatkowki().getPolfinal_2()!=null){
+        if(rozgrywki.getTurniejSiatkowki().getPolfinal_2().getZwyciezca()!=null){
+        this.meczeSiatkowka_model.addRow(new Object[]{
+            rozgrywki.getTurniejSiatkowki().getPolfinal_2().getFaza(),
+            rozgrywki.getTurniejSiatkowki().getPolfinal_2().getTeam1().getNazwa(),
+            rozgrywki.getTurniejSiatkowki().getPolfinal_2().getTeam2().getNazwa(),
+            rozgrywki.getTurniejSiatkowki().getPolfinal_2().getZwyciezca().getNazwa()});
+        }
+        else
+        {
+            this.meczeSiatkowka_model.addRow(new Object[]{
+            rozgrywki.getTurniejSiatkowki().getPolfinal_2().getFaza(),
+            rozgrywki.getTurniejSiatkowki().getPolfinal_2().getTeam1().getNazwa(),
+            rozgrywki.getTurniejSiatkowki().getPolfinal_2().getTeam2().getNazwa(),
+            null});
+        }
+        }
+        
+        if(rozgrywki.getTurniejDwa_Ognie().getPolfinal_1()!=null){
+        if(rozgrywki.getTurniejDwa_Ognie().getPolfinal_1().getZwyciezca()!=null){
+        this.meczeDwa_Ognie_model.addRow(new Object[]{
+            rozgrywki.getTurniejDwa_Ognie().getPolfinal_1().getFaza(),
+            rozgrywki.getTurniejDwa_Ognie().getPolfinal_1().getTeam1().getNazwa(),
+            rozgrywki.getTurniejDwa_Ognie().getPolfinal_1().getTeam2().getNazwa(),
+            rozgrywki.getTurniejDwa_Ognie().getPolfinal_1().getZwyciezca().getNazwa()});
+        }
+        else
+        {
+            this.meczeDwa_Ognie_model.addRow(new Object[]{
+            rozgrywki.getTurniejDwa_Ognie().getPolfinal_1().getFaza(),
+            rozgrywki.getTurniejDwa_Ognie().getPolfinal_1().getTeam1().getNazwa(),
+            rozgrywki.getTurniejDwa_Ognie().getPolfinal_1().getTeam2().getNazwa(),
+            null});
+                }
+        }
+        if(rozgrywki.getTurniejDwa_Ognie().getPolfinal_2()!=null){       
+        if(rozgrywki.getTurniejDwa_Ognie().getPolfinal_2().getZwyciezca()!=null){
+        this.meczeDwa_Ognie_model.addRow(new Object[]{
+            rozgrywki.getTurniejDwa_Ognie().getPolfinal_2().getFaza(),
+            rozgrywki.getTurniejDwa_Ognie().getPolfinal_2().getTeam1().getNazwa(),
+            rozgrywki.getTurniejDwa_Ognie().getPolfinal_2().getTeam2().getNazwa(),
+            rozgrywki.getTurniejDwa_Ognie().getPolfinal_2().getZwyciezca().getNazwa()});
+        }
+        else
+        {
+            this.meczeDwa_Ognie_model.addRow(new Object[]{
+            rozgrywki.getTurniejDwa_Ognie().getPolfinal_2().getFaza(),
+            rozgrywki.getTurniejDwa_Ognie().getPolfinal_2().getTeam1().getNazwa(),
+            rozgrywki.getTurniejDwa_Ognie().getPolfinal_2().getTeam2().getNazwa(),
+            null});
+        }
+        }
+        
+        if(rozgrywki.getTurniejLina().getPolfinal_1()!=null){
+        if(rozgrywki.getTurniejLina().getPolfinal_1().getZwyciezca()!=null){
+        this.meczePrzeciaganie_Liny_model.addRow(new Object[]{
+            rozgrywki.getTurniejLina().getPolfinal_1().getFaza(),
+            rozgrywki.getTurniejLina().getPolfinal_1().getTeam1().getNazwa(),
+            rozgrywki.getTurniejLina().getPolfinal_1().getTeam2().getNazwa(),
+            rozgrywki.getTurniejLina().getPolfinal_1().getZwyciezca().getNazwa()});
+        }
+        else
+        {
+            this.meczePrzeciaganie_Liny_model.addRow(new Object[]{
+            rozgrywki.getTurniejLina().getPolfinal_1().getFaza(),
+            rozgrywki.getTurniejLina().getPolfinal_1().getTeam1().getNazwa(),
+            rozgrywki.getTurniejLina().getPolfinal_1().getTeam2().getNazwa(),
+            null});
+        }
+        }
+        if(rozgrywki.getTurniejLina().getPolfinal_2()!=null){
+        if(rozgrywki.getTurniejLina().getPolfinal_2().getZwyciezca()!=null){
+        this.meczePrzeciaganie_Liny_model.addRow(new Object[]{
+            rozgrywki.getTurniejLina().getPolfinal_2().getFaza(),
+            rozgrywki.getTurniejLina().getPolfinal_2().getTeam1().getNazwa(),
+            rozgrywki.getTurniejLina().getPolfinal_2().getTeam2().getNazwa(),
+            rozgrywki.getTurniejLina().getPolfinal_2().getZwyciezca().getNazwa()});
+        }
+        else
+        {
+            this.meczePrzeciaganie_Liny_model.addRow(new Object[]{
+            rozgrywki.getTurniejLina().getPolfinal_2().getFaza(),
+            rozgrywki.getTurniejLina().getPolfinal_2().getTeam1().getNazwa(),
+            rozgrywki.getTurniejLina().getPolfinal_2().getTeam2().getNazwa(),
+            null});
+        }
+        }
+        if(rozgrywki.getTurniejSiatkowki().getFinal()!=null){
+        if(rozgrywki.getTurniejSiatkowki().getFinal().getZwyciezca()!=null){
+        this.meczeSiatkowka_model.addRow(new Object[]{
+            rozgrywki.getTurniejSiatkowki().getFinal().getFaza(),
+            rozgrywki.getTurniejSiatkowki().getFinal().getTeam1().getNazwa(),
+            rozgrywki.getTurniejSiatkowki().getFinal().getTeam2().getNazwa(),
+            rozgrywki.getTurniejSiatkowki().getFinal().getZwyciezca().getNazwa()});
+        }
+        else
+        {
+            this.meczeSiatkowka_model.addRow(new Object[]{
+            rozgrywki.getTurniejSiatkowki().getFinal().getFaza(),
+            rozgrywki.getTurniejSiatkowki().getFinal().getTeam1().getNazwa(),
+            rozgrywki.getTurniejSiatkowki().getFinal().getTeam2().getNazwa(),
+            null});
+        }
+        }
+        if(rozgrywki.getTurniejDwa_Ognie().getFinal()!=null){
+        if(rozgrywki.getTurniejDwa_Ognie().getFinal().getZwyciezca()!=null){
+        this.meczeDwa_Ognie_model.addRow(new Object[]{
+            rozgrywki.getTurniejDwa_Ognie().getFinal().getFaza(),
+            rozgrywki.getTurniejDwa_Ognie().getFinal().getTeam1().getNazwa(),
+            rozgrywki.getTurniejDwa_Ognie().getFinal().getTeam2().getNazwa(),
+            rozgrywki.getTurniejDwa_Ognie().getFinal().getZwyciezca().getNazwa()});
+        }
+        else
+        {
+            this.meczeDwa_Ognie_model.addRow(new Object[]{
+            rozgrywki.getTurniejDwa_Ognie().getFinal().getFaza(),
+            rozgrywki.getTurniejDwa_Ognie().getFinal().getTeam1().getNazwa(),
+            rozgrywki.getTurniejDwa_Ognie().getFinal().getTeam2().getNazwa(),
+            null});
+        }
+        }
+        if(rozgrywki.getTurniejLina().getFinal()!=null){
+        if(rozgrywki.getTurniejLina().getFinal().getZwyciezca()!=null){
+        this.meczePrzeciaganie_Liny_model.addRow(new Object[]{
+            rozgrywki.getTurniejLina().getFinal().getFaza(),
+            rozgrywki.getTurniejLina().getFinal().getTeam1().getNazwa(),
+            rozgrywki.getTurniejLina().getFinal().getTeam2().getNazwa(),
+            rozgrywki.getTurniejLina().getFinal().getZwyciezca().getNazwa()});
+        }
+        else
+        {
+            this.meczePrzeciaganie_Liny_model.addRow(new Object[]{
+            rozgrywki.getTurniejLina().getFinal().getFaza(),
+            rozgrywki.getTurniejLina().getFinal().getTeam1().getNazwa(),
+            rozgrywki.getTurniejLina().getFinal().getTeam2().getNazwa(),
+            null});
+        }
         }
         String klucze1[] = new String[siatkowkaTabela_wynikow_model.getRowCount()];
             int wartosci1[] = new int[siatkowkaTabela_wynikow_model.getRowCount()];
@@ -245,7 +428,7 @@ public class MenuGlowne extends javax.swing.JFrame {
                 siatkowkaTabela_wynikow_model.setValueAt(klucze3[i], i, 0);
                 siatkowkaTabela_wynikow_model.setValueAt(wartosci3[i], i, 1);
             }
-    }
+        }
     
     
     
@@ -394,6 +577,7 @@ public class MenuGlowne extends javax.swing.JFrame {
         pZapisOdczyt = new javax.swing.JPanel();
         btnZapis = new javax.swing.JButton();
         btnOdczyt = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -424,7 +608,7 @@ public class MenuGlowne extends javax.swing.JFrame {
                 .addGroup(pSedziowieSiatkowkaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnDodajSedziegoSiatkowka, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnUsunSedziegoSiatkowka, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -493,7 +677,7 @@ public class MenuGlowne extends javax.swing.JFrame {
                         .addComponent(btnGenerujPolfinalySiatkowka, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnGenerujFinalySiatkowka, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE))
         );
         pMeczeSiatkowkaLayout.setVerticalGroup(
             pMeczeSiatkowkaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -543,7 +727,7 @@ public class MenuGlowne extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lPolfinal1_prawy, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
+                .addComponent(lPolfinal1_prawy, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(jSeparator2)
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -599,7 +783,7 @@ public class MenuGlowne extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lPolfinal2_prawy, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
+                .addComponent(lPolfinal2_prawy, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(jSeparator4)
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -655,7 +839,7 @@ public class MenuGlowne extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(jLabel18)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lFinal_prawy, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
+                .addComponent(lFinal_prawy, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(jSeparator6)
             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -741,7 +925,7 @@ public class MenuGlowne extends javax.swing.JFrame {
                 .addGroup(pSedziowieDwa_OgnieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnDodajSedziegoDwa_Ognie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnUsunSedziegoDwa_Ognie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pSedziowieDwa_OgnieLayout.setVerticalGroup(
@@ -809,7 +993,7 @@ public class MenuGlowne extends javax.swing.JFrame {
                         .addComponent(btnGenerujPolfinalyDwa_Ognie, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnGenerujFinalyDwa_Ognie, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE))
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE))
         );
         pMeczeDwa_OgnieLayout.setVerticalGroup(
             pMeczeDwa_OgnieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -823,7 +1007,7 @@ public class MenuGlowne extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnGenerujFinalyDwa_Ognie)
                 .addGap(96, 96, 96))
-            .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
+            .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
         );
 
         tpDwa_Ognie.addTab("Mecze", pMeczeDwa_Ognie);
@@ -859,7 +1043,7 @@ public class MenuGlowne extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lPolfinal1_prawy_DO, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
+                .addComponent(lPolfinal1_prawy_DO, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(jSeparator10)
             .addGroup(jPanel5Layout.createSequentialGroup()
@@ -915,7 +1099,7 @@ public class MenuGlowne extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lPolfinal2_prawy_DO, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
+                .addComponent(lPolfinal2_prawy_DO, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(jSeparator12)
             .addGroup(jPanel6Layout.createSequentialGroup()
@@ -971,7 +1155,7 @@ public class MenuGlowne extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(jLabel21)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lFinal_prawy_DO, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
+                .addComponent(lFinal_prawy_DO, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(jSeparator14)
             .addGroup(jPanel7Layout.createSequentialGroup()
@@ -1057,7 +1241,7 @@ public class MenuGlowne extends javax.swing.JFrame {
                 .addGroup(pSedziowiePrzeciaganie_LinyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnDodajSedziegoPrzeciaganie_Liny, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnUsunSedziegoPrzeciaganie_Liny, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pSedziowiePrzeciaganie_LinyLayout.setVerticalGroup(
@@ -1125,7 +1309,7 @@ public class MenuGlowne extends javax.swing.JFrame {
                         .addComponent(btnGenerujPolfinalyPrzeciaganie_Liny, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnGenerujFinalyPrzeciaganie_Liny, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE))
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE))
         );
         pMeczePrzeciaganie_LinyLayout.setVerticalGroup(
             pMeczePrzeciaganie_LinyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1139,7 +1323,7 @@ public class MenuGlowne extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnGenerujFinalyPrzeciaganie_Liny)
                 .addGap(96, 96, 96))
-            .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
+            .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
         );
 
         tpPrzeciaganie_Liny.addTab("Mecze", pMeczePrzeciaganie_Liny);
@@ -1175,7 +1359,7 @@ public class MenuGlowne extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(jLabel24)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lPolfinal1_prawy_PL, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
+                .addComponent(lPolfinal1_prawy_PL, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(jSeparator16)
             .addGroup(jPanel8Layout.createSequentialGroup()
@@ -1231,7 +1415,7 @@ public class MenuGlowne extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(jLabel27)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lPolfinal2_prawy_PL, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
+                .addComponent(lPolfinal2_prawy_PL, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(jSeparator18)
             .addGroup(jPanel9Layout.createSequentialGroup()
@@ -1287,7 +1471,7 @@ public class MenuGlowne extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(jLabel30)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lFinal_prawy_PL, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
+                .addComponent(lFinal_prawy_PL, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(jSeparator20)
             .addGroup(jPanel10Layout.createSequentialGroup()
@@ -1378,12 +1562,12 @@ public class MenuGlowne extends javax.swing.JFrame {
                 .addGroup(pDruzynyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnDodajDruzyne, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnUsunDruzyne, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pDruzynyLayout.setVerticalGroup(
             pDruzynyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
             .addGroup(pDruzynyLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(btnDodajDruzyne)
@@ -1394,19 +1578,21 @@ public class MenuGlowne extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Drużyny", pDruzyny);
 
-        btnZapis.setText("jButton1");
+        btnZapis.setText("Zapis do pliku");
         btnZapis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnZapisActionPerformed(evt);
             }
         });
 
-        btnOdczyt.setText("jButton2");
+        btnOdczyt.setText("Odczyt z pliku");
         btnOdczyt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOdczytActionPerformed(evt);
             }
         });
+
+        jLabel2.setText("Dane zostaną zapisane do pliku rozgrywki.ser znajdujące się w folderze z programem");
 
         javax.swing.GroupLayout pZapisOdczytLayout = new javax.swing.GroupLayout(pZapisOdczyt);
         pZapisOdczyt.setLayout(pZapisOdczytLayout);
@@ -1414,19 +1600,24 @@ public class MenuGlowne extends javax.swing.JFrame {
             pZapisOdczytLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pZapisOdczytLayout.createSequentialGroup()
                 .addGap(80, 80, 80)
-                .addComponent(btnZapis)
-                .addGap(64, 64, 64)
-                .addComponent(btnOdczyt)
-                .addContainerGap(295, Short.MAX_VALUE))
+                .addGroup(pZapisOdczytLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(pZapisOdczytLayout.createSequentialGroup()
+                        .addComponent(btnZapis)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnOdczyt))
+                    .addComponent(jLabel2))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
         pZapisOdczytLayout.setVerticalGroup(
             pZapisOdczytLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pZapisOdczytLayout.createSequentialGroup()
-                .addGap(112, 112, 112)
+                .addGap(47, 47, 47)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pZapisOdczytLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnZapis)
-                    .addComponent(btnOdczyt))
-                .addContainerGap(355, Short.MAX_VALUE))
+                    .addComponent(btnOdczyt)
+                    .addComponent(btnZapis))
+                .addContainerGap(402, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Zapis/Odczyt", pZapisOdczyt);
@@ -1968,6 +2159,7 @@ public class MenuGlowne extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;

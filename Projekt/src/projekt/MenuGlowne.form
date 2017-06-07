@@ -69,7 +69,7 @@
                               <Component id="btnDodajSedziegoSiatkowka" max="32767" attributes="0"/>
                               <Component id="btnUsunSedziegoSiatkowka" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="30" max="32767" attributes="0"/>
+                          <EmptySpace pref="54" max="32767" attributes="0"/>
                           <Component id="jScrollPane3" min="-2" pref="378" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -154,7 +154,7 @@
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" pref="381" max="32767" attributes="0"/>
+                          <Component id="jScrollPane1" pref="400" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -310,7 +310,7 @@
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="lPolfinal1_prawy" pref="67" max="32767" attributes="0"/>
+                              <Component id="lPolfinal1_prawy" pref="98" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                           <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
@@ -413,7 +413,7 @@
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="lPolfinal2_prawy" pref="67" max="32767" attributes="0"/>
+                              <Component id="lPolfinal2_prawy" pref="98" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                           <Component id="jSeparator4" alignment="0" max="32767" attributes="0"/>
@@ -516,7 +516,7 @@
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="lFinal_prawy" pref="67" max="32767" attributes="0"/>
+                              <Component id="lFinal_prawy" pref="98" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                           <Component id="jSeparator6" alignment="0" max="32767" attributes="0"/>
@@ -632,7 +632,7 @@
                               <Component id="btnDodajSedziegoDwa_Ognie" max="32767" attributes="0"/>
                               <Component id="btnUsunSedziegoDwa_Ognie" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="42" max="32767" attributes="0"/>
+                          <EmptySpace pref="64" max="32767" attributes="0"/>
                           <Component id="jScrollPane4" min="-2" pref="378" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -716,7 +716,7 @@
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jScrollPane9" pref="381" max="32767" attributes="0"/>
+                          <Component id="jScrollPane9" pref="400" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -733,7 +733,7 @@
                           <Component id="btnGenerujFinalyDwa_Ognie" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jScrollPane9" alignment="0" pref="462" max="32767" attributes="0"/>
+                      <Component id="jScrollPane9" alignment="0" pref="464" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -872,7 +872,7 @@
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="lPolfinal1_prawy_DO" pref="67" max="32767" attributes="0"/>
+                              <Component id="lPolfinal1_prawy_DO" pref="98" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                           <Component id="jSeparator10" alignment="0" max="32767" attributes="0"/>
@@ -975,7 +975,7 @@
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="lPolfinal2_prawy_DO" pref="67" max="32767" attributes="0"/>
+                              <Component id="lPolfinal2_prawy_DO" pref="98" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                           <Component id="jSeparator12" alignment="0" max="32767" attributes="0"/>
@@ -1078,7 +1078,7 @@
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="lFinal_prawy_DO" pref="67" max="32767" attributes="0"/>
+                              <Component id="lFinal_prawy_DO" pref="98" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                           <Component id="jSeparator14" alignment="0" max="32767" attributes="0"/>
@@ -1194,7 +1194,7 @@
                               <Component id="btnDodajSedziegoPrzeciaganie_Liny" max="32767" attributes="0"/>
                               <Component id="btnUsunSedziegoPrzeciaganie_Liny" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="42" max="32767" attributes="0"/>
+                          <EmptySpace pref="64" max="32767" attributes="0"/>
                           <Component id="jScrollPane5" min="-2" pref="378" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1278,7 +1278,7 @@
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jScrollPane10" pref="381" max="32767" attributes="0"/>
+                          <Component id="jScrollPane10" pref="400" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1295,7 +1295,7 @@
                           <Component id="btnGenerujFinalyPrzeciaganie_Liny" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jScrollPane10" alignment="0" pref="462" max="32767" attributes="0"/>
+                      <Component id="jScrollPane10" alignment="0" pref="464" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -1461,7 +1461,7 @@
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="lPolfinal1_prawy_PL" pref="67" max="32767" attributes="0"/>
+                              <Component id="lPolfinal1_prawy_PL" pref="98" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                           <Component id="jSeparator16" alignment="0" max="32767" attributes="0"/>
@@ -1564,7 +1564,7 @@
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="lPolfinal2_prawy_PL" pref="67" max="32767" attributes="0"/>
+                              <Component id="lPolfinal2_prawy_PL" pref="98" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                           <Component id="jSeparator18" alignment="0" max="32767" attributes="0"/>
@@ -1667,7 +1667,7 @@
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="lFinal_prawy_PL" pref="67" max="32767" attributes="0"/>
+                              <Component id="lFinal_prawy_PL" pref="98" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                           <Component id="jSeparator20" alignment="0" max="32767" attributes="0"/>
@@ -1772,14 +1772,14 @@
                           <Component id="btnDodajDruzyne" max="32767" attributes="0"/>
                           <Component id="btnUsunDruzyne" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="44" max="32767" attributes="0"/>
+                      <EmptySpace pref="66" max="32767" attributes="0"/>
                       <Component id="jScrollPane2" min="-2" pref="385" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane2" alignment="0" pref="490" max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" alignment="0" pref="492" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                       <Component id="btnDodajDruzyne" min="-2" max="-2" attributes="0"/>
@@ -1842,22 +1842,29 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                      <Component id="btnZapis" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-                      <Component id="btnOdczyt" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="295" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="btnZapis" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btnOdczyt" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="117" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnZapis" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnOdczyt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnZapis" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="355" max="32767" attributes="0"/>
+                      <EmptySpace pref="402" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1865,7 +1872,7 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="btnZapis">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jButton1"/>
+                <Property name="text" type="java.lang.String" value="Zapis do pliku"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnZapisActionPerformed"/>
@@ -1873,11 +1880,16 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnOdczyt">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jButton2"/>
+                <Property name="text" type="java.lang.String" value="Odczyt z pliku"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOdczytActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Dane zostan&#x105; zapisane do pliku rozgrywki.ser znajduj&#x105;ce si&#x119; w folderze z programem"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

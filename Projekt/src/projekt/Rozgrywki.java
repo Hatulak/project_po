@@ -18,6 +18,7 @@ public class Rozgrywki implements Serializable{
     public Dyscyplina turniejSiatkowki = new Dyscyplina("Siatkowka");
     public Dyscyplina turniejDwa_Ognie = new Dyscyplina("Dwa_Ognie");
     public Dyscyplina turniejLina = new Dyscyplina("Przeciaganie_Liny");
+    private static final long serialVersionUID = 070620172330L;
     
 
     /**
@@ -116,6 +117,8 @@ public class Rozgrywki implements Serializable{
             turniejDwa_Ognie = (Dyscyplina) in.readObject();
             turniejLina = (Dyscyplina) in.readObject();
             turniejSiatkowki = (Dyscyplina) in.readObject();
+            in.close();
+            plikIn.close();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Rozgrywki.class.getName()).log(Level.SEVERE, null, ex);
         }
