@@ -241,8 +241,18 @@ public class MenuGlowne extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tMeczeSiatkowka);
 
         btnGenerujPolfinalySiatkowka.setText("Wygeneruj półfinały");
+        btnGenerujPolfinalySiatkowka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerujPolfinalySiatkowkaActionPerformed(evt);
+            }
+        });
 
         btnGenerujFinalySiatkowka.setText("Wygeneruj finały");
+        btnGenerujFinalySiatkowka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerujFinalySiatkowkaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pMeczeSiatkowkaLayout = new javax.swing.GroupLayout(pMeczeSiatkowka);
         pMeczeSiatkowka.setLayout(pMeczeSiatkowkaLayout);
@@ -366,6 +376,11 @@ public class MenuGlowne extends javax.swing.JFrame {
         jScrollPane9.setViewportView(tMeczeDwa_Ognie);
 
         btnGenerujPolfinalyDwa_Ognie.setText("Wygeneruj półfinały");
+        btnGenerujPolfinalyDwa_Ognie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerujPolfinalyDwa_OgnieActionPerformed(evt);
+            }
+        });
 
         btnGenerujFinalyDwa_Ognie.setText("Wygeneruj finały");
 
@@ -837,6 +852,38 @@ public class MenuGlowne extends javax.swing.JFrame {
         fPrzeglad.setVisible(true); 
         }
     }//GEN-LAST:event_tMeczePrzeciaganie_LinyMouseClicked
+
+    private void btnGenerujPolfinalyDwa_OgnieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerujPolfinalyDwa_OgnieActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGenerujPolfinalyDwa_OgnieActionPerformed
+
+    private void btnGenerujPolfinalySiatkowkaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerujPolfinalySiatkowkaActionPerformed
+       if(rozgrywki.getTurniejSiatkowki().wygenerowanoPolfinaly==false){
+            rozgrywki.getTurniejSiatkowki().wygenerujPolfinaly();
+        
+            
+            this.meczeSiatkowka_model.addRow(new Object[] {this.rozgrywki.getTurniejSiatkowki().getPolfinal_1().getTeam1().getNazwa(),this.rozgrywki.getTurniejSiatkowki().getPolfinal_1().getTeam2().getNazwa() });
+            this.meczeSiatkowka_model.addRow(new Object[]{this.rozgrywki.getTurniejSiatkowki().getPolfinal_2().getTeam1().getNazwa(),this.rozgrywki.getTurniejSiatkowki().getPolfinal_2().getTeam2().getNazwa()});
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(this,"Półfinały zostały już wygenerowane");
+        }       
+    }//GEN-LAST:event_btnGenerujPolfinalySiatkowkaActionPerformed
+
+    private void btnGenerujFinalySiatkowkaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerujFinalySiatkowkaActionPerformed
+        if(rozgrywki.getTurniejSiatkowki().wygenerowanoFinal==false){
+            rozgrywki.getTurniejSiatkowki().wygenerujFinal();
+            
+            this.meczeSiatkowka_model.addRow(new Object[] {this.rozgrywki.getTurniejSiatkowki().getFinal().getTeam1().getNazwa(),this.rozgrywki.getTurniejSiatkowki().getFinal().getTeam2().getNazwa()} );
+     
+        }
+        else{
+            JOptionPane.showMessageDialog(this,"Final został już wygenerowany");
+        } 
+        
+        
+    }//GEN-LAST:event_btnGenerujFinalySiatkowkaActionPerformed
 
     
     /**

@@ -22,7 +22,7 @@ public class Dyscyplina {
     private Mecz mecz_final;
     boolean wygenerowanoMecze=false;
     boolean wygenerowanoPolfinaly=false;
-    boolean wygenerowanoFinaly=false;
+    boolean wygenerowanoFinal=false;
 
     public Dyscyplina(String s){
         nazwa = s;
@@ -58,7 +58,6 @@ public class Dyscyplina {
     }
     public void dodajPunkty(Druzyna druzyna){
         tabela_wynikow.put( druzyna, tabela_wynikow.get(druzyna) + 1 );
-        sortowanie();
     }
 
 
@@ -70,23 +69,6 @@ public class Dyscyplina {
     }
     public Mecz getPolfinal_2() {
         return polfinal_2;
-    }
-    public void sortowanie(){
-       
-       
-    	List<Entry<Druzyna,Integer>> lista = new LinkedList<Entry<Druzyna,Integer>>(tabela_wynikow.entrySet());
-    	Collections.sort(lista, new Comparator<Entry<Druzyna,Integer>>(){
-    		@Override
-    		public int compare(Entry<Druzyna,Integer> o1, Entry<Druzyna,Integer> o2){
-    			return o1.getValue().compareTo(o2.getValue());
-    		}
-    	});
-    	HashMap<Druzyna,Integer> posort = new HashMap<Druzyna,Integer>();
-    	for (Entry<Druzyna,Integer> druzyna: lista){
-    		posort.put(druzyna.getKey(), druzyna.getValue());
-    	}
-        tabela_wynikow = posort;
-      
     }
     public void wygenerujMecze(LinkedList<Druzyna> druzyny){
     	for (int i = 0; i < druzyny.size() ; i++ ){
@@ -104,34 +86,42 @@ public class Dyscyplina {
             }
         wygenerowanoMecze=true;
         }
-    public void wygenerujPolfinaly(){
-    	//sortowanie
-    	List<Druzyna> nazwy = new ArrayList<>();
-    	for(Druzyna klucz : tabela_wynikow.keySet()){
-    	             nazwy.add(klucz);
-    	}
+    public void wygenerujPolfinaly(){ 
+        //Sortowanie tabeli wynikow
+        List<Entry<Druzyna,Integer>> lista = new LinkedList<Entry<Druzyna,Integer>>(tabela_wynikow.entrySet());
+    	Collections.sort(lista, new Comparator<Entry<Druzyna,Integer>>(){
+    		@Override
+    		public int compare(Entry<Druzyna,Integer> o1, Entry<Druzyna,Integer> o2){
+    			return o1.getValue().compareTo(o2.getValue());
+    		}
+    	});
+       
+        for(Entry<Druzyna, Integer> item : lista){
+            System.out.println(item.getKey().getNazwa() + "  " + item.getValue());
+        }
+
     	if (nazwa.matches("Siatkowka")){
-            this.polfinal_1 = new Siatkowka(nazwy.get(0),nazwy.get(3),sedziowie);
-            this.polfinal_2 = new Siatkowka(nazwy.get(1),nazwy.get(2),sedziowie);
+            this.polfinal_1 = new Siatkowka(lista.get(lista.size()-1).getKey() ,lista.get(lista.size()-4).getKey(),sedziowie);
+            this.polfinal_2 = new Siatkowka(lista.get(lista.size()-2).getKey() ,lista.get(lista.size()-3).getKey(),sedziowie);
     	}
         if (nazwa.matches("Dwa_Ognie")){
-        	this.polfinal_1 = new Dwa_Ognie(nazwy.get(0),nazwy.get(3),sedziowie);
-        	this.polfinal_2 = new Dwa_Ognie(nazwy.get(1),nazwy.get(2),sedziowie);
+        	this.polfinal_1 = new Dwa_Ognie(lista.get(lista.size()-1).getKey() ,lista.get(lista.size()-4).getKey(),sedziowie);
+        	this.polfinal_2 = new Dwa_Ognie(lista.get(lista.size()-2).getKey() ,lista.get(lista.size()-3).getKey(),sedziowie);
         }
         if (nazwa.matches("Przeciaganie_Liny")){
-        	this.polfinal_1 = new Przeciaganie_Liny(nazwy.get(0),nazwy.get(3),sedziowie);
-        	this.polfinal_2 = new Przeciaganie_Liny(nazwy.get(1),nazwy.get(2),sedziowie);
+        	this.polfinal_1 = new Przeciaganie_Liny(lista.get(lista.size()-1).getKey() ,lista.get(lista.size()-4).getKey(),sedziowie);
+        	this.polfinal_2 = new Przeciaganie_Liny(lista.get(lista.size()-2).getKey() ,lista.get(lista.size()-3).getKey(),sedziowie);
         }
         wygenerowanoPolfinaly=true;
     }
-    public void wygenerujFinaly(){
+    public void wygenerujFinal(){
     	if (nazwa.matches("Siatkowka"))
             this.mecz_final = new Siatkowka(this.polfinal_1.getZwyciezca(),this.polfinal_2.getZwyciezca(),sedziowie);
         if (nazwa.matches("Dwa_Ognie"))
             this.mecz_final = new Dwa_Ognie(this.polfinal_1.getZwyciezca(),this.polfinal_2.getZwyciezca(),sedziowie);
         if (nazwa.matches("Przeciaganie_Liny"))
             this.mecz_final = new Przeciaganie_Liny(this.polfinal_1.getZwyciezca(),this.polfinal_2.getZwyciezca(),sedziowie);
-        wygenerowanoFinaly=true;
+        wygenerowanoFinal=true;
     }
 }
     
