@@ -653,7 +653,7 @@ public class MenuGlowne extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDodajSedziegoSiatkowkaActionPerformed
 
     private void btnDodajDruzyneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajDruzyneActionPerformed
-        if(((rozgrywki.turniejSiatkowki.wygenerowanoMecze==false)&&(rozgrywki.turniejDwa_Ognie.wygenerowanoMecze==false)&&(rozgrywki.turniejLina.wygenerowanoMecze==false))==true){   
+        if(((rozgrywki.getTurniejSiatkowki().wygenerowanoMecze==false)&&(rozgrywki.turniejDwa_Ognie.wygenerowanoMecze==false)&&(rozgrywki.turniejLina.wygenerowanoMecze==false))==true){   
         DodajDruzyne fDodajDruzyne = new DodajDruzyne(this);
            fDodajDruzyne.setVisible(true);
         }
@@ -683,93 +683,130 @@ public class MenuGlowne extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDodajSedziegoPrzeciaganie_LinyActionPerformed
 
     private void btnUsunSedziegoSiatkowkaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsunSedziegoSiatkowkaActionPerformed
-        if(rozgrywki.getTurniejSiatkowki().wygenerowanoMecze==false){
-        if(tSedziowieSiatkowka.getSelectedRow() != -1){
-            String imie, nazwisko;
-            imie = (String)  sedziowieSiatkowka_model.getValueAt(tSedziowieSiatkowka.getSelectedRow(), 0);
-            nazwisko = (String) sedziowieSiatkowka_model.getValueAt(tSedziowieSiatkowka.getSelectedRow(), 1);
-            for (Sedzia sedzia : this.rozgrywki.getTurniejSiatkowki().getSedziowie()) {
-                if(imie.matches(sedzia.getImie()) && (nazwisko.matches(sedzia.getNazwisko())))
-                    this.rozgrywki.getTurniejSiatkowki().usunSedziego(imie, nazwisko);
-            }
-            sedziowieSiatkowka_model.removeRow(tSedziowieSiatkowka.getSelectedRow());
-            
-            }
+        if(rozgrywki.getTurniejSiatkowki().getSedziowie().isEmpty()==true){
+            JOptionPane.showMessageDialog(this, "Nie można usuwaać sędziów gdy nie ma żadnego na liście");
         }
         else{
+        if(rozgrywki.getTurniejSiatkowki().wygenerowanoMecze!=false){
             JOptionPane.showMessageDialog(this,"Nie można usuwać sędziów po wygenerowaniu meczy");
+        }
+        else{
+            if(tSedziowieSiatkowka.getSelectedRow() == -1){
+                JOptionPane.showMessageDialog(this, "Nie wybrano sędziego");
+            }
+            else {
+                String imie, nazwisko;
+                imie = (String)  sedziowieSiatkowka_model.getValueAt(tSedziowieSiatkowka.getSelectedRow(), 0);
+                nazwisko = (String) sedziowieSiatkowka_model.getValueAt(tSedziowieSiatkowka.getSelectedRow(), 1);
+                for (Sedzia sedzia : this.rozgrywki.getTurniejSiatkowki().getSedziowie()) {
+                    if(imie.matches(sedzia.getImie()) && (nazwisko.matches(sedzia.getNazwisko())))
+                        this.rozgrywki.getTurniejSiatkowki().usunSedziego(imie, nazwisko);
+                }   sedziowieSiatkowka_model.removeRow(tSedziowieSiatkowka.getSelectedRow());
+            }
+        }
         }
     }//GEN-LAST:event_btnUsunSedziegoSiatkowkaActionPerformed
 
     private void btnUsunSedziegoDwa_OgnieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsunSedziegoDwa_OgnieActionPerformed
-        if(rozgrywki.getTurniejDwa_Ognie().wygenerowanoMecze==false){
-        if(tSedziowieDwa_Ognie.getSelectedRow() != -1){
-            String imie, nazwisko;
-            imie = (String)  sedziowieDwa_Ognie_model.getValueAt(tSedziowieDwa_Ognie.getSelectedRow(), 0);
-            nazwisko = (String) sedziowieDwa_Ognie_model.getValueAt(tSedziowieDwa_Ognie.getSelectedRow(), 1);
-            for (Sedzia sedzia : this.rozgrywki.getTurniejDwa_Ognie().getSedziowie()) {
-                if(imie.matches(sedzia.getImie()) && (nazwisko.matches(sedzia.getNazwisko())))
-                    this.rozgrywki.getTurniejDwa_Ognie().usunSedziego(imie, nazwisko);
-            }
-            sedziowieDwa_Ognie_model.removeRow(tSedziowieDwa_Ognie.getSelectedRow());
-        }
+        if(rozgrywki.getTurniejDwa_Ognie().getSedziowie().isEmpty()==true){
+            JOptionPane.showMessageDialog(this, "Nie można usuwaać sędziów gdy nie ma żadnego na liście");
         }
         else{
+            if(rozgrywki.getTurniejDwa_Ognie().wygenerowanoMecze!=false){
             JOptionPane.showMessageDialog(this,"Nie można usuwać sędziów po wygenerowaniu meczy");
+        }
+        else{
+            if(tSedziowieDwa_Ognie.getSelectedRow() == -1){
+                JOptionPane.showMessageDialog(this, "Nie wybrano sędziego");
+            } else {
+                String imie, nazwisko;
+                imie = (String)  sedziowieDwa_Ognie_model.getValueAt(tSedziowieDwa_Ognie.getSelectedRow(), 0);
+                nazwisko = (String) sedziowieDwa_Ognie_model.getValueAt(tSedziowieDwa_Ognie.getSelectedRow(), 1);
+                for (Sedzia sedzia : this.rozgrywki.getTurniejDwa_Ognie().getSedziowie()) {
+                    if(imie.matches(sedzia.getImie()) && (nazwisko.matches(sedzia.getNazwisko())))
+                        this.rozgrywki.getTurniejDwa_Ognie().usunSedziego(imie, nazwisko);
+                }   sedziowieDwa_Ognie_model.removeRow(tSedziowieDwa_Ognie.getSelectedRow());
+            }
+        }
         }
     }//GEN-LAST:event_btnUsunSedziegoDwa_OgnieActionPerformed
 
     private void btnUsunSedziegoPrzeciaganie_LinyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsunSedziegoPrzeciaganie_LinyActionPerformed
-        if(rozgrywki.getTurniejLina().wygenerowanoMecze==false){
-        if(tSedziowiePrzeciaganie_Liny.getSelectedRow() != -1){
-            String imie, nazwisko;
-            imie = (String)  sedziowiePrzeciaganie_Liny_model.getValueAt(tSedziowiePrzeciaganie_Liny.getSelectedRow(), 0);
-            nazwisko = (String) sedziowiePrzeciaganie_Liny_model.getValueAt(tSedziowiePrzeciaganie_Liny.getSelectedRow(), 1);
-            for (Sedzia sedzia : this.rozgrywki.getTurniejLina().getSedziowie()) {
-                if(imie.matches(sedzia.getImie()) && (nazwisko.matches(sedzia.getNazwisko())))
-                    this.rozgrywki.getTurniejLina().usunSedziego(imie, nazwisko);
-            }
-            sedziowiePrzeciaganie_Liny_model.removeRow(tSedziowiePrzeciaganie_Liny.getSelectedRow());
-        }
+        if(rozgrywki.getTurniejLina().getSedziowie().isEmpty()==true){
+            JOptionPane.showMessageDialog(this,"Nie można usuwać sędziów po wygenerowaniu meczy");
         }
         else{
+        if(rozgrywki.getTurniejLina().wygenerowanoMecze!=false){
             JOptionPane.showMessageDialog(this,"Nie można usuwać sędziów po wygenerowaniu meczy");
+        }
+        else{
+            if(tSedziowiePrzeciaganie_Liny.getSelectedRow() == -1){
+                JOptionPane.showMessageDialog(this, "Nie wybrano sędziego");
+            }
+            else {
+                String imie, nazwisko;
+                imie = (String)  sedziowiePrzeciaganie_Liny_model.getValueAt(tSedziowiePrzeciaganie_Liny.getSelectedRow(), 0);
+                nazwisko = (String) sedziowiePrzeciaganie_Liny_model.getValueAt(tSedziowiePrzeciaganie_Liny.getSelectedRow(), 1);
+                for (Sedzia sedzia : this.rozgrywki.getTurniejLina().getSedziowie()) {
+                    if(imie.matches(sedzia.getImie()) && (nazwisko.matches(sedzia.getNazwisko())))
+                        this.rozgrywki.getTurniejLina().usunSedziego(imie, nazwisko);
+                }
+                sedziowiePrzeciaganie_Liny_model.removeRow(tSedziowiePrzeciaganie_Liny.getSelectedRow());
+            }
+        }
         }
     }//GEN-LAST:event_btnUsunSedziegoPrzeciaganie_LinyActionPerformed
 
     private void btnUsunDruzyneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsunDruzyneActionPerformed
-        if(((rozgrywki.turniejSiatkowki.wygenerowanoMecze==false)&&(rozgrywki.turniejDwa_Ognie.wygenerowanoMecze==false)&&(rozgrywki.turniejLina.wygenerowanoMecze==false))==true){
-        if(tDruzyny.getSelectedRow() != -1){
-            String nazwa;
-            nazwa = (String) druzyny_model.getValueAt(tDruzyny.getSelectedRow(), 0);
-            for(Druzyna team : this.rozgrywki.getDruzyny()){
-                if(nazwa.matches(team.getNazwa()))
-                    this.rozgrywki.wycofajDruzyne(nazwa);
-            }
-            druzyny_model.removeRow(tDruzyny.getSelectedRow());
-        }
+        if(rozgrywki.getDruzyny().isEmpty()==true){
+                JOptionPane.showMessageDialog(this, "Nie można usunąć drużyny jeśli nie ma drużyn na liście");
         }
         else{
+        if(((rozgrywki.turniejSiatkowki.wygenerowanoMecze==false)&&(rozgrywki.turniejDwa_Ognie.wygenerowanoMecze==false)&&(rozgrywki.turniejLina.wygenerowanoMecze==false))!=true){
             JOptionPane.showMessageDialog(this, "Nie można usuwać drużyn po wygenerowaniu którychkolwiek meczy");
+        }
+        else{
+            if(tDruzyny.getSelectedRow() == -1){
+                JOptionPane.showMessageDialog(this, "Nie wybrano drużyny");
+            } else {
+                String nazwa;
+                nazwa = (String) druzyny_model.getValueAt(tDruzyny.getSelectedRow(), 0);
+                for(Druzyna team : this.rozgrywki.getDruzyny()){
+                    if(nazwa.matches(team.getNazwa()))
+                        this.rozgrywki.wycofajDruzyne(nazwa);
+                }
+                druzyny_model.removeRow(tDruzyny.getSelectedRow());
+            }
+        }
         }
     }//GEN-LAST:event_btnUsunDruzyneActionPerformed
 
     private void btnWygenerujMeczeSiatkowkaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWygenerujMeczeSiatkowkaActionPerformed
-        if(rozgrywki.turniejSiatkowki.wygenerowanoMecze==false){
+       if(rozgrywki.getDruzyny().size()<4)        {
+            JOptionPane.showMessageDialog(this, "Wymagane są co najmniej 4 drużyny do generacji meczy");
+        }
+        else{
+            if(rozgrywki.getTurniejSiatkowki().getSedziowie().size()<3){
+                JOptionPane.showMessageDialog(this, "Wymagani są co najmniej 3 sędziowie");
+            }
+            else{ 
+                if(rozgrywki.turniejSiatkowki.wygenerowanoMecze!=false){
+            JOptionPane.showMessageDialog(this,"Mecze zostały już wygenerowane");
+        }
+        else{
             rozgrywki.getTurniejSiatkowki().wygenerujMecze(rozgrywki.getDruzyny());
         
             LinkedList<Mecz> listaSiatkowka = rozgrywki.getTurniejSiatkowki().getLista_meczy();
-        
+            
             for(int i=0; i < listaSiatkowka.size(); i++){
-                    String nazwa1 = listaSiatkowka.get(i).getTeam1().getNazwa();
-                    String nazwa2 = listaSiatkowka.get(i).getTeam2().getNazwa();
-            
-                    this.meczeSiatkowka_model.addRow(new Object[]{nazwa1,nazwa2});
-            
+                String nazwa1 = listaSiatkowka.get(i).getTeam1().getNazwa();
+                String nazwa2 = listaSiatkowka.get(i).getTeam2().getNazwa();
+                
+                this.meczeSiatkowka_model.addRow(new Object[]{nazwa1,nazwa2});
+                
             }
-        }
-        else{
-            JOptionPane.showMessageDialog(this,"Mecze zostały już wygenerowane");
+            }
+            }
         }
     }//GEN-LAST:event_btnWygenerujMeczeSiatkowkaActionPerformed
 
@@ -781,18 +818,34 @@ public class MenuGlowne extends javax.swing.JFrame {
     }//GEN-LAST:event_tDruzynyMouseClicked
 
     private void btnDodajWynikSiatkowkaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajWynikSiatkowkaActionPerformed
-       if(tMeczeSiatkowka.getModel().getValueAt(tMeczeSiatkowka.getSelectedRow(), 2)!=(null)){
+       if(tMeczeSiatkowka.getSelectedRow()==-1){
+           JOptionPane.showMessageDialog(this, "Nie wybrano meczu");
+       }else
+       {
+        if(tMeczeSiatkowka.getModel().getValueAt(tMeczeSiatkowka.getSelectedRow(), 2)!=(null)){
            JOptionPane.showMessageDialog(this,"Zwycięzca został wybrany");
        }    
        else{
        DodajWynik fDodajwynik = new DodajWynik(this, "Siatkowka",(String) tMeczeSiatkowka.getModel().getValueAt(tMeczeSiatkowka.getSelectedRow(), 0 ),(String) tMeczeSiatkowka.getModel().getValueAt(tMeczeSiatkowka.getSelectedRow(), 1 ));
        fDodajwynik.setVisible(true);
        }
+       }
     }//GEN-LAST:event_btnDodajWynikSiatkowkaActionPerformed
 
     private void btnWygenerujMeczeDwa_OgnieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWygenerujMeczeDwa_OgnieActionPerformed
-        if(rozgrywki.turniejDwa_Ognie.wygenerowanoMecze==false)
+        if(rozgrywki.getDruzyny().size()<4)        {
+            JOptionPane.showMessageDialog(this, "Wymagane są co najmniej 4 drużyny do generacji meczy");
+        }
+        else{
+            if(rozgrywki.getTurniejDwa_Ognie().getSedziowie().size()<1){
+                JOptionPane.showMessageDialog(this, "Wymagany jest co najmniej 1 sędzia");
+            }
+            else{
+                if(rozgrywki.getTurniejDwa_Ognie().wygenerowanoMecze!=false)
         {
+            JOptionPane.showMessageDialog(this,"Mecze zostały wygenerowane");
+        }
+        else{
             rozgrywki.getTurniejDwa_Ognie().wygenerujMecze(rozgrywki.getDruzyny());
             LinkedList<Mecz> listaDwa_Ognie = rozgrywki.getTurniejDwa_Ognie().getLista_meczy();
         
@@ -802,25 +855,40 @@ public class MenuGlowne extends javax.swing.JFrame {
             
                 this.meczeDwa_Ognie_model.addRow(new Object[]{nazwa1,nazwa2});
             
+                }
             }
-        }
-        else{
-            JOptionPane.showMessageDialog(this,"Mecze zostały wygenerowane");
+            }
         }
     }//GEN-LAST:event_btnWygenerujMeczeDwa_OgnieActionPerformed
 
     private void btnDodajWynikDwa_OgnieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajWynikDwa_OgnieActionPerformed
-       if(tMeczeDwa_Ognie.getModel().getValueAt(tMeczeDwa_Ognie.getSelectedRow(), 2)!=(null)){
+       if(tMeczeDwa_Ognie.getSelectedRow()==-1){
+           JOptionPane.showMessageDialog(this, "Nie wybrano meczu");
+       }
+       else{
+           if(tMeczeDwa_Ognie.getModel().getValueAt(tMeczeDwa_Ognie.getSelectedRow(), 2)!=(null)){
            JOptionPane.showMessageDialog(this,"Zwycięzca został wybrany");
        }    
        else{
            DodajWynik fDodajwynik = new DodajWynik(this, "Dwa_Ognie",(String) tMeczeDwa_Ognie.getModel().getValueAt(tMeczeDwa_Ognie.getSelectedRow(), 0 ),(String) tMeczeDwa_Ognie.getModel().getValueAt(tMeczeDwa_Ognie.getSelectedRow(), 1 ));
            fDodajwynik.setVisible(true);
        }
+       }
     }//GEN-LAST:event_btnDodajWynikDwa_OgnieActionPerformed
 
     private void btnWygenerujMeczePrzeciaganie_LinyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWygenerujMeczePrzeciaganie_LinyActionPerformed
-        if(rozgrywki.getTurniejLina().wygenerowanoMecze==false){
+        if(rozgrywki.getDruzyny().size()<4){
+            JOptionPane.showMessageDialog(this, "Wymagane są co najmniej 4 drużyny do generacji meczy");
+        }
+        else{
+            if(rozgrywki.getTurniejLina().getSedziowie().size()<1){
+                JOptionPane.showMessageDialog(this, "Wymagany jest co najmniej 1 sędzia");
+            }
+            else{
+        if(rozgrywki.getTurniejLina().wygenerowanoMecze!=false){
+            JOptionPane.showMessageDialog(this,"Mecze zostały wygenerowane");
+        }
+        else{
             rozgrywki.getTurniejLina().wygenerujMecze(rozgrywki.getDruzyny());
             LinkedList<Mecz> listaPrzeciaganie_Liny = rozgrywki.getTurniejLina().getLista_meczy();
         
@@ -830,21 +898,25 @@ public class MenuGlowne extends javax.swing.JFrame {
             
                 this.meczePrzeciaganie_Liny_model.addRow(new Object[]{nazwa1,nazwa2});
             
+                    }
+                }   
             }
-        }
-        else{
-            JOptionPane.showMessageDialog(this,"Mecze zostały wygenerowane");
         }
     }//GEN-LAST:event_btnWygenerujMeczePrzeciaganie_LinyActionPerformed
 
     private void btnDodajWynikPrzeciaganie_LinyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajWynikPrzeciaganie_LinyActionPerformed
-       if(tMeczePrzeciaganie_Liny.getModel().getValueAt(tMeczePrzeciaganie_Liny.getSelectedRow(), 2)!=(null)){
+      if(tMeczePrzeciaganie_Liny.getSelectedRow()==-1){
+           JOptionPane.showMessageDialog(this, "Nie wybrano meczu");
+       }
+       else{
+        if(tMeczePrzeciaganie_Liny.getModel().getValueAt(tMeczePrzeciaganie_Liny.getSelectedRow(), 2)!=(null)){
            JOptionPane.showMessageDialog(this,"Zwycięzca został wybrany");
        }    
        else{
            DodajWynik fDodajwynik = new DodajWynik(this, "Przeciaganie_Liny",(String) tMeczePrzeciaganie_Liny.getModel().getValueAt(tMeczePrzeciaganie_Liny.getSelectedRow(), 0 ),(String) tMeczePrzeciaganie_Liny.getModel().getValueAt(tMeczePrzeciaganie_Liny.getSelectedRow(), 1 ));
            fDodajwynik.setVisible(true);
        }
+      }
     }//GEN-LAST:event_btnDodajWynikPrzeciaganie_LinyActionPerformed
 
     private void tMeczeSiatkowkaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tMeczeSiatkowkaMouseClicked
