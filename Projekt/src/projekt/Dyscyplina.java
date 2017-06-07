@@ -1,6 +1,6 @@
 package projekt;
 
-
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -16,7 +16,7 @@ import java.util.Set;
  * Klasa wyróżniająca dyscyplinę w którą rozgrywany jest turniej
  */
 
-public class Dyscyplina {
+public class Dyscyplina implements Serializable {
     private String nazwa;
     private LinkedList<Sedzia> sedziowie;
     private HashMap<Druzyna, Integer> tabela_wynikow;

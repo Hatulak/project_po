@@ -1,13 +1,14 @@
 package projekt;
 
 
+import java.io.*;
 import java.util.LinkedList;
 import java.util.Random;
 
 /**
  * Klasa dziedzicząca z klasy mecz, wyróżnia ona mecz w dwa ognie
  */
-public class Dwa_Ognie extends Mecz {
+public class Dwa_Ognie extends Mecz implements Serializable {
     
     private Sedzia sedzia;
 

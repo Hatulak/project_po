@@ -1,16 +1,19 @@
 package projekt;
 
 
+import java.io.*;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
  * Klasa łącząca wszystkie dyscypliny oraz drużyny
  */
-public class Rozgrywki {
+public class Rozgrywki implements Serializable{
     public LinkedList<Druzyna> druzyny = new LinkedList<>();
     public Dyscyplina turniejSiatkowki = new Dyscyplina("Siatkowka");
     public Dyscyplina turniejDwa_Ognie = new Dyscyplina("Dwa_Ognie");
@@ -71,25 +74,52 @@ public class Rozgrywki {
     public Dyscyplina getTurniejLina(){
     	return turniejLina;
     }
-    
+    public void setDruzyny(LinkedList<Druzyna> d){
+        this.druzyny=d;
+    }
+    public void setTurniejDwa_Ognie(Dyscyplina td){
+        this.turniejDwa_Ognie=td;
+    }
+    public void setTurniejSiatkowka(Dyscyplina ts){
+        this.turniejSiatkowki=ts;
+    }
+    public void setTurniejPrzeciaganie_Liny(Dyscyplina tp){
+        this.turniejLina=tp;
+    }
     /**
-     * metoda zapisuje stan rozgrywek do pliku
-     * @param nazwa_pliku nazwa pliku do którego chcemy zapisać
+     * metoda zapisuje stan rozgrywek do pliku rozgrywki.ser w folderze z projektem
      * @throws IOException 
      */
-    public void zapis_stanu(String nazwa_pliku) throws IOException{
+    public void zapis_stanu() throws IOException{
     	try{
-    		ObjectOutputStream zp = new ObjectOutputStream(new FileOutputStream("a"));
-    	    zp.writeObject(turniejDwa_Ognie);
-    	    zp.close();
-    	    ObjectOutputStream z = new ObjectOutputStream(new FileOutputStream("b"));
-    	    zp.writeObject(turniejSiatkowki);
-    	    zp.close();
-    	    ObjectOutputStream zf = new ObjectOutputStream(new FileOutputStream("c"));
-    	    zp.writeObject(turniejLina);
-    	    zp.close();
+            FileOutputStream plikOut= new FileOutputStream("rozgrywki.ser");
+            ObjectOutputStream out = new ObjectOutputStream(plikOut);
+            out.writeObject(getDruzyny());
+            out.writeObject(getTurniejDwa_Ognie());
+            out.writeObject(getTurniejLina());
+            out.writeObject(getTurniejSiatkowki());
+            out.close();
+            plikOut.close();
     	} catch (IOException e){
     		e.printStackTrace();
     	}
+    }
+    /**
+     * metoda odczytuje stan rozgrywek z pliku rozgrywki.ser w folderze z projektem
+     * @throws IOException 
+     */
+    public void odczyt_stanu() throws IOException{
+        try {
+            FileInputStream plikIn = new FileInputStream("rozgrywki.ser");
+            ObjectInputStream in = new ObjectInputStream(plikIn);
+            druzyny = (LinkedList<Druzyna>) in.readObject();
+            turniejDwa_Ognie = (Dyscyplina) in.readObject();
+            turniejLina = (Dyscyplina) in.readObject();
+            turniejSiatkowki = (Dyscyplina) in.readObject();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Rozgrywki.class.getName()).log(Level.SEVERE, null, ex);
+        }
+ 
+ 
     }
 }

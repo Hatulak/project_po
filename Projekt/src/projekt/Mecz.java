@@ -1,9 +1,10 @@
 package projekt;
 
+import java.io.*;
 /**
  * Klasa będąca częścią dyscypliny
  */
-public abstract class Mecz {
+public abstract class Mecz implements Serializable {
     private Druzyna team1, team2;
     private Druzyna zwyciezca;
     private String faza; //Faza_Grupowa, Półfinały, Finał
@@ -44,7 +45,7 @@ public abstract class Mecz {
      * metoda pobiera przegranego z danego meczu
      * @return zwraca przegraną drużynę danego meczu
      */
-    public Druzyna getPrzegramy() {
+    public Druzyna getPrzegrany() {
 
         String nazwa_wygranego;
         Druzyna przegrany;

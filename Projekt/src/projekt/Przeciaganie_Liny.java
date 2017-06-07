@@ -1,13 +1,13 @@
 package projekt;
 
-
+import java.io.*;
 import java.util.LinkedList;
 import java.util.Random;
 
 /**
  * Klasa dziedzicząca z klasy mecz, wyróżnia ona mecz w przeciąganie liny
  */
-public class Przeciaganie_Liny extends Mecz {
+public class Przeciaganie_Liny extends Mecz implements Serializable {
 
     private Sedzia sedzia;
   

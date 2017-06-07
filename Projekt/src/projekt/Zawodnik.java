@@ -1,9 +1,11 @@
 package projekt;
 
+import java.io.*;
+
 /**
  * Klasa będąca częścią drużyny
  */
-public class Zawodnik {
+public class Zawodnik implements Serializable{
 
     private String imie, nazwisko;
 

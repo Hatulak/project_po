@@ -1,9 +1,11 @@
 package projekt;
 
+import java.io.*;
+
 /**
  * Klasa będąca częścią danej dyscypliny
  */
-public class Sedzia {
+public class Sedzia implements Serializable{
     private String imie, nazwisko;
 
     /**

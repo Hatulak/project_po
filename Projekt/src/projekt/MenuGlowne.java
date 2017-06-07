@@ -1,8 +1,11 @@
 
 package projekt;
 
+import java.io.IOException;
 import javax.swing.table.DefaultTableModel;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -106,6 +109,143 @@ public class MenuGlowne extends javax.swing.JFrame {
         this.rozgrywki.getTurniejDwa_Ognie().getTabela_wynikow().put(druzyna_dodawana, punkty);
         this.rozgrywki.getTurniejLina().getTabela_wynikow().put(druzyna_dodawana, punkty);
     } 
+    public void Odswiez(){
+        for (Druzyna druzyny : rozgrywki.getDruzyny()) {
+            this.druzyny_model.addRow(new Object[]{druzyny.getNazwa()});
+        }
+        for (Druzyna druzyny : rozgrywki.getDruzyny()){
+            this.siatkowkaTabela_wynikow_model.addRow(new Object[]{druzyny.getNazwa(),rozgrywki.turniejSiatkowki.getTabela_wynikow().get(druzyny)});
+        }
+        for (Druzyna druzyny : rozgrywki.getDruzyny()){
+            this.dwa_ognie_Tabela_wynikow_model.addRow(new Object[]{druzyny.getNazwa(),rozgrywki.turniejDwa_Ognie.getTabela_wynikow().get(druzyny)});
+        }
+        for (Druzyna druzyny : rozgrywki.getDruzyny()){
+            this.przeciaganie_liny_Tabela_wynikow_model.addRow(new Object[]{druzyny.getNazwa(),rozgrywki.turniejLina.getTabela_wynikow().get(druzyny)});
+        }
+        for (Mecz mecz :rozgrywki.getTurniejSiatkowki().getLista_meczy())
+        {
+            this.meczeSiatkowka_model.addRow(new Object[]{
+                mecz.getFaza().toString(),
+                mecz.getTeam1().getNazwa(),
+                mecz.getTeam2().getNazwa(),
+                mecz.getZwyciezca().getNazwa()})
+        }
+        for (Mecz mecz :rozgrywki.getTurniejDwa_Ognie().getLista_meczy())
+        {
+            this.meczeDwa_Ognie_model.addRow(new Object[]{
+                mecz.getFaza().toString(),
+                mecz.getTeam1().getNazwa(),
+                mecz.getTeam2().getNazwa(),
+                mecz.getZwyciezca().getNazwa()})
+        }
+        for (Mecz mecz :rozgrywki.getTurniejLina().getLista_meczy())
+        {
+            this.meczePrzeciaganie_Liny_model.addRow(new Object[]{
+                mecz.getFaza().toString(),
+                mecz.getTeam1().getNazwa(),
+                mecz.getTeam2().getNazwa(),
+                mecz.getZwyciezca().getNazwa()})
+        }
+        for (Sedzia sedzia : rozgrywki.getTurniejSiatkowki().getSedziowie())
+        {
+            this.sedziowieSiatkowka_model.addRow(new Object []{
+                sedzia.getImie(),sedzia.getNazwisko()})
+        }
+        for (Sedzia sedzia : rozgrywki.getTurniejDwa_Ognie().getSedziowie())
+        {
+            this.sedziowieDwa_Ognie_model.addRow(new Object []{
+                sedzia.getImie(),sedzia.getNazwisko()})
+        }
+        for (Sedzia sedzia : rozgrywki.getTurniejLina().getSedziowie())
+        {
+            this.sedziowiePrzeciaganie_Liny_model.addRow(new Object []{
+                sedzia.getImie(),sedzia.getNazwisko()})
+        }
+        String klucze1[] = new String[siatkowkaTabela_wynikow_model.getRowCount()];
+            int wartosci1[] = new int[siatkowkaTabela_wynikow_model.getRowCount()];
+            
+            for(int i=0; i< siatkowkaTabela_wynikow_model.getRowCount(); i++){
+                klucze1[i] =(String) siatkowkaTabela_wynikow_model.getValueAt(i,0);
+                wartosci1[i] = (int) siatkowkaTabela_wynikow_model.getValueAt(i, 1);
+            }
+            
+            String stringTemp1;
+            int intTemp1;
+           
+            for(int i=0; i< wartosci1.length ; i++){
+                for(int j=0;  j< wartosci1.length -1; j++){
+                    if(wartosci1[j] < wartosci1[j+1]){
+                        stringTemp1 =klucze1[j+1];
+                        intTemp1 = wartosci1[j+1];                     
+                        klucze1[j+1] = klucze1[j];
+                        wartosci1[j+1] = wartosci1[j];
+                        klucze1[j] = stringTemp1;
+                        wartosci1[j] = intTemp1;
+                    }
+                }
+            }
+            for(int i=0; i<wartosci1.length; i++){
+                
+                siatkowkaTabela_wynikow_model.setValueAt(klucze1[i], i, 0);
+                siatkowkaTabela_wynikow_model.setValueAt(wartosci1[i], i, 1);
+            }
+            String klucze2[] = new String[dwa_ognie_Tabela_wynikow_model.getRowCount()];
+            int wartosci2[] = new int[dwa_ognie_Tabela_wynikow_model.getRowCount()];
+            
+            for(int i=0; i< dwa_ognie_Tabela_wynikow_model.getRowCount(); i++){
+                klucze2[i] =(String) dwa_ognie_Tabela_wynikow_model.getValueAt(i,0);
+                wartosci2[i] = (int) dwa_ognie_Tabela_wynikow_model.getValueAt(i, 1);
+            }
+            
+            String stringTemp2;
+            int intTemp2;
+           
+            for(int i=0; i< wartosci2.length ; i++){
+                for(int j=0;  j< wartosci2.length -1; j++){
+                    if(wartosci2[j] < wartosci2[j+1]){
+                        stringTemp2 =klucze2[j+1];
+                        intTemp2 = wartosci2[j+1];                     
+                        klucze2[j+1] = klucze2[j];
+                        wartosci2[j+1] = wartosci2[j];
+                        klucze2[j] = stringTemp2;
+                        wartosci2[j] = intTemp2;
+                    }
+                }
+            }
+            for(int i=0; i<wartosci2.length; i++){
+                
+                dwa_ognie_Tabela_wynikow_model.setValueAt(klucze2[i], i, 0);
+                dwa_ognie_Tabela_wynikow_model.setValueAt(wartosci2[i], i, 1);
+            }
+            String klucze3[] = new String[przeciaganie_liny_Tabela_wynikow_model.getRowCount()];
+            int wartosci3[] = new int[przeciaganie_liny_Tabela_wynikow_model.getRowCount()];
+            
+            for(int i=0; i< przeciaganie_liny_Tabela_wynikow_model.getRowCount(); i++){
+                klucze3[i] =(String) przeciaganie_liny_Tabela_wynikow_model.getValueAt(i,0);
+                wartosci3[i] = (int) przeciaganie_liny_Tabela_wynikow_model.getValueAt(i, 1);
+            }
+            
+            String stringTemp3;
+            int intTemp3;
+           
+            for(int i=0; i< wartosci3.length ; i++){
+                for(int j=0;  j< wartosci3.length -1; j++){
+                    if(wartosci3[j] < wartosci3[j+1]){
+                        stringTemp3 =klucze3[j+1];
+                        intTemp3 = wartosci3[j+1];                     
+                        klucze3[j+1] = klucze3[j];
+                        wartosci3[j+1] = wartosci3[j];
+                        klucze3[j] = stringTemp3;
+                        wartosci3[j] = intTemp3;
+                    }
+                }
+            }
+            for(int i=0; i<wartosci3.length; i++){
+                
+                siatkowkaTabela_wynikow_model.setValueAt(klucze3[i], i, 0);
+                siatkowkaTabela_wynikow_model.setValueAt(wartosci3[i], i, 1);
+            }
+    }
     
     
     
@@ -251,6 +391,9 @@ public class MenuGlowne extends javax.swing.JFrame {
         tDruzyny = new javax.swing.JTable();
         btnDodajDruzyne = new javax.swing.JButton();
         btnUsunDruzyne = new javax.swing.JButton();
+        pZapisOdczyt = new javax.swing.JPanel();
+        btnZapis = new javax.swing.JButton();
+        btnOdczyt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1251,6 +1394,43 @@ public class MenuGlowne extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Drużyny", pDruzyny);
 
+        btnZapis.setText("jButton1");
+        btnZapis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnZapisActionPerformed(evt);
+            }
+        });
+
+        btnOdczyt.setText("jButton2");
+        btnOdczyt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOdczytActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pZapisOdczytLayout = new javax.swing.GroupLayout(pZapisOdczyt);
+        pZapisOdczyt.setLayout(pZapisOdczytLayout);
+        pZapisOdczytLayout.setHorizontalGroup(
+            pZapisOdczytLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pZapisOdczytLayout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addComponent(btnZapis)
+                .addGap(64, 64, 64)
+                .addComponent(btnOdczyt)
+                .addContainerGap(295, Short.MAX_VALUE))
+        );
+        pZapisOdczytLayout.setVerticalGroup(
+            pZapisOdczytLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pZapisOdczytLayout.createSequentialGroup()
+                .addGap(112, 112, 112)
+                .addGroup(pZapisOdczytLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnZapis)
+                    .addComponent(btnOdczyt))
+                .addContainerGap(355, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Zapis/Odczyt", pZapisOdczyt);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1699,6 +1879,25 @@ public class MenuGlowne extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnGenerujFinalyPrzeciaganie_LinyActionPerformed
 
+    private void btnZapisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnZapisActionPerformed
+        try {
+            rozgrywki.zapis_stanu();
+        } catch (IOException ex) {
+            Logger.getLogger(MenuGlowne.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnZapisActionPerformed
+
+    private void btnOdczytActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOdczytActionPerformed
+        try {
+            rozgrywki.odczyt_stanu();
+            this.setVisible(false);
+            Odswiez();
+            this.setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(MenuGlowne.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnOdczytActionPerformed
+
     
     /**
      * @param args the command line arguments
@@ -1749,6 +1948,7 @@ public class MenuGlowne extends javax.swing.JFrame {
     private javax.swing.JButton btnGenerujPolfinalyDwa_Ognie;
     private javax.swing.JButton btnGenerujPolfinalyPrzeciaganie_Liny;
     private javax.swing.JButton btnGenerujPolfinalySiatkowka;
+    private javax.swing.JButton btnOdczyt;
     private javax.swing.JButton btnUsunDruzyne;
     private javax.swing.JButton btnUsunSedziegoDwa_Ognie;
     private javax.swing.JButton btnUsunSedziegoPrzeciaganie_Liny;
@@ -1756,6 +1956,7 @@ public class MenuGlowne extends javax.swing.JFrame {
     private javax.swing.JButton btnWygenerujMeczeDwa_Ognie;
     private javax.swing.JButton btnWygenerujMeczePrzeciaganie_Liny;
     private javax.swing.JButton btnWygenerujMeczeSiatkowka;
+    private javax.swing.JButton btnZapis;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1858,6 +2059,7 @@ public class MenuGlowne extends javax.swing.JFrame {
     private javax.swing.JPanel pTabelaDwa_Ognie;
     private javax.swing.JPanel pTabelaPrzeciaganie_Liny;
     private javax.swing.JPanel pTabelaSiatkowka;
+    private javax.swing.JPanel pZapisOdczyt;
     private javax.swing.JTable tDruzyny;
     private javax.swing.JTable tDwa_OgnieTabela_wynikow;
     public javax.swing.JTable tMeczeDwa_Ognie;

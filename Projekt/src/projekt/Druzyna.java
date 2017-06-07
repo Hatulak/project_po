@@ -1,13 +1,13 @@
 package projekt;
 
-
+import java.io.*;
 import java.util.LinkedList;
 
 /**
  * Klasa drużyna posiada listę zawodników oraz nazwę
  */
 
-public class Druzyna {
+public class Druzyna implements Serializable {
     private String nazwa;
     private LinkedList<Zawodnik> zawodnicy = new LinkedList<>();
 
@@ -43,5 +43,4 @@ public class Druzyna {
     public void setNazwa(String nazwa){
     	this.nazwa = nazwa;
     }
-    
 }
