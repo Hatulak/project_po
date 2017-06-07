@@ -463,6 +463,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Wygeneruj fina&#x142;y"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGenerujFinalyDwa_OgnieActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -690,11 +693,17 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Wygeneruj p&#xf3;&#x142;fina&#x142;y"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGenerujPolfinalyPrzeciaganie_LinyActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnGenerujFinalyPrzeciaganie_Liny">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Wygeneruj fina&#x142;y"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGenerujFinalyPrzeciaganie_LinyActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

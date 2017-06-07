@@ -24,33 +24,99 @@ public class DodajWynik extends javax.swing.JFrame {
         initComponents();    
         if(nazwa_sportu.matches("Siatkowka")){
             for (Mecz mecz : menu.rozgrywki.getTurniejSiatkowki().getLista_meczy()) {
-                String nazwa1 = mecz.getTeam1().getNazwa();
-                String nazwa2 = mecz.getTeam2().getNazwa();
-                if (  (team1n.matches(nazwa1) && team2n.matches(nazwa2))  ||  (team1n.matches(nazwa2) && (team2n.matches(nazwa1)))  ){
-                    spotkanie = mecz;
-                    break;
-                }      
+                if(mecz.getZwyciezca() == null){
+                    String nazwa1 = mecz.getTeam1().getNazwa();
+                    String nazwa2 = mecz.getTeam2().getNazwa();
+                    if (  (team1n.matches(nazwa1) && team2n.matches(nazwa2))  ||  (team1n.matches(nazwa2) && (team2n.matches(nazwa1)))  ){
+                        spotkanie = mecz;
+                        break;
+                    } 
+                }
+                
             }
+            if(spotkanie == null){
+                    Mecz polfinal1 = menu.rozgrywki.getTurniejSiatkowki().getPolfinal_1();
+                    Mecz polfinal2 = menu.rozgrywki.getTurniejSiatkowki().getPolfinal_2();
+                    if( (team1n.matches(polfinal1.getTeam1().getNazwa()) && team2n.matches(polfinal1.getTeam2().getNazwa()))
+                            ||  (team1n.matches(polfinal1.getTeam2().getNazwa()) && team2n.matches(polfinal1.getTeam1().getNazwa()) ) ){
+                        spotkanie = polfinal1;
+                    }
+                    else if((team1n.matches(polfinal2.getTeam1().getNazwa()) && team2n.matches(polfinal2.getTeam2().getNazwa()))
+                            ||  (team1n.matches(polfinal2.getTeam2().getNazwa()) && team2n.matches(polfinal2.getTeam1().getNazwa()) )){
+                        spotkanie = polfinal2;
+                    }
+                    else{
+                        Mecz mecz_finalowy = menu.rozgrywki.getTurniejSiatkowki().getFinal();
+                        if((team1n.matches(mecz_finalowy.getTeam1().getNazwa()) && team2n.matches(mecz_finalowy.getTeam2().getNazwa()))
+                                ||  (team1n.matches(mecz_finalowy.getTeam2().getNazwa()) && team2n.matches(mecz_finalowy.getTeam1().getNazwa()) )){
+                            spotkanie = mecz_finalowy;
+                        }
+                    }
+            }
+            
         }
         else if(nazwa_sportu.matches("Dwa_Ognie")){
             for (Mecz mecz : menu.rozgrywki.getTurniejDwa_Ognie().getLista_meczy()) {
-                String nazwa1 = mecz.getTeam1().getNazwa();
-                String nazwa2 = mecz.getTeam2().getNazwa();
-                if (  (team1n.matches(nazwa1) && team2n.matches(nazwa2))  ||  (team1n.matches(nazwa2) && (team2n.matches(nazwa1)))  ){
-                    spotkanie = mecz;
-                    break;
-                }      
+                if(mecz.getZwyciezca() == null){
+                    String nazwa1 = mecz.getTeam1().getNazwa();
+                    String nazwa2 = mecz.getTeam2().getNazwa();
+                    if (  (team1n.matches(nazwa1) && team2n.matches(nazwa2))  ||  (team1n.matches(nazwa2) && (team2n.matches(nazwa1)))  ){
+                       spotkanie = mecz;
+                       break;
+                    } 
+                }
+            }
+            if(spotkanie == null){
+                    Mecz polfinal1 = menu.rozgrywki.getTurniejDwa_Ognie().getPolfinal_1();
+                    Mecz polfinal2 = menu.rozgrywki.getTurniejDwa_Ognie().getPolfinal_2();
+                    if( (team1n.matches(polfinal1.getTeam1().getNazwa()) && team2n.matches(polfinal1.getTeam2().getNazwa()))
+                            ||  (team1n.matches(polfinal1.getTeam2().getNazwa()) && team2n.matches(polfinal1.getTeam1().getNazwa()) ) ){
+                        spotkanie = polfinal1;
+                    }
+                    else if((team1n.matches(polfinal2.getTeam1().getNazwa()) && team2n.matches(polfinal2.getTeam2().getNazwa()))
+                            ||  (team1n.matches(polfinal2.getTeam2().getNazwa()) && team2n.matches(polfinal2.getTeam1().getNazwa()) )){
+                        spotkanie = polfinal2;
+                    }
+                    else{
+                        Mecz mecz_finalowy = menu.rozgrywki.getTurniejDwa_Ognie().getFinal();
+                        if((team1n.matches(mecz_finalowy.getTeam1().getNazwa()) && team2n.matches(mecz_finalowy.getTeam2().getNazwa()))
+                                ||  (team1n.matches(mecz_finalowy.getTeam2().getNazwa()) && team2n.matches(mecz_finalowy.getTeam1().getNazwa()) )){
+                            spotkanie = mecz_finalowy;
+                        }
+                    }
             }
         }
         else if(nazwa_sportu.matches("Przeciaganie_Liny")){
             for (Mecz mecz : menu.rozgrywki.getTurniejLina().getLista_meczy()) {
-                String nazwa1 = mecz.getTeam1().getNazwa();
-                String nazwa2 = mecz.getTeam2().getNazwa();
-                if (  (team1n.matches(nazwa1) && team2n.matches(nazwa2))  ||  (team1n.matches(nazwa2) && (team2n.matches(nazwa1)))  ){
-                    spotkanie = mecz;
-                    break;
-                }      
+                if(mecz.getZwyciezca() == null){
+                    String nazwa1 = mecz.getTeam1().getNazwa();
+                    String nazwa2 = mecz.getTeam2().getNazwa();
+                    if (  (team1n.matches(nazwa1) && team2n.matches(nazwa2))  ||  (team1n.matches(nazwa2) && (team2n.matches(nazwa1)))  ){
+                        spotkanie = mecz;
+                        break;
+                    }    
+                }
             }
+            if(spotkanie == null){
+                    Mecz polfinal1 = menu.rozgrywki.getTurniejLina().getPolfinal_1();
+                    Mecz polfinal2 = menu.rozgrywki.getTurniejLina().getPolfinal_2();
+                    if( (team1n.matches(polfinal1.getTeam1().getNazwa()) && team2n.matches(polfinal1.getTeam2().getNazwa()))
+                            ||  (team1n.matches(polfinal1.getTeam2().getNazwa()) && team2n.matches(polfinal1.getTeam1().getNazwa()) ) ){
+                        spotkanie = polfinal1;
+                    }
+                    else if((team1n.matches(polfinal2.getTeam1().getNazwa()) && team2n.matches(polfinal2.getTeam2().getNazwa()))
+                            ||  (team1n.matches(polfinal2.getTeam2().getNazwa()) && team2n.matches(polfinal2.getTeam1().getNazwa()) )){
+                        spotkanie = polfinal2;
+                    }
+                    else{
+                        Mecz mecz_finalowy = menu.rozgrywki.getTurniejLina().getFinal();
+                        if((team1n.matches(mecz_finalowy.getTeam1().getNazwa()) && team2n.matches(mecz_finalowy.getTeam2().getNazwa()))
+                                ||  (team1n.matches(mecz_finalowy.getTeam2().getNazwa()) && team2n.matches(mecz_finalowy.getTeam1().getNazwa()) )){
+                            spotkanie = mecz_finalowy;
+                        }
+                    }
+            }
+            
         }           
     }
 
@@ -132,11 +198,11 @@ public class DodajWynik extends javax.swing.JFrame {
        
         if(sport.matches("Siatkowka")){
             for(int i=0;i<menu.rozgrywki.getTurniejSiatkowki().getTabela_wynikow().size();i++){
-            if(spotkanie.getZwyciezca().getNazwa().matches((String)menu.siatkowkaTabela_wynikow_model.getValueAt(i, 0))){
-                rzad=i;
-                break;
+                if(spotkanie.getZwyciezca().getNazwa().matches((String)menu.siatkowkaTabela_wynikow_model.getValueAt(i, 0))){
+                     rzad=i;
+                     break;
+                }
             }
-        }
             menu.meczeSiatkowka_model.setValueAt(spotkanie.zwyciezca.getNazwa(), menu.tMeczeSiatkowka.getSelectedRow(), 2);
             menu.rozgrywki.getTurniejSiatkowki().dodajPunkty(spotkanie.getZwyciezca());
             menu.siatkowkaTabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejSiatkowki().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
