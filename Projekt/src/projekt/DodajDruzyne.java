@@ -1,6 +1,8 @@
 
 package projekt;
 
+import javax.swing.JOptionPane;
+
 /**
  * Interfejs 
  */
@@ -184,6 +186,22 @@ public class DodajDruzyne extends javax.swing.JFrame {
     }//GEN-LAST:event_tfNazwaDruzynyActionPerformed
 
     private void btnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajActionPerformed
+        if(tfNazwaDruzyny.getText().matches("")||
+           tfZawodnik1_imie.getText().matches("")||
+           tfZawodnik1_nazwisko.getText().matches("")||
+           tfZawodnik2_imie.getText().matches("")||
+           tfZawodnik2_nazwisko.getText().matches("")||
+           tfZawodnik3_imie.getText().matches("")||
+           tfZawodnik3_nazwisko.getText().matches("")||
+           tfZawodnik4_imie.getText().matches("")||
+           tfZawodnik4_nazwisko.getText().matches("")||
+           tfZawodnik5_nazwisko.getText().matches("")||
+           tfZawodnik5_imie.getText().matches("")||
+           tfZawodnik6_imie.getText().matches("")||
+           tfZawodnik6_nazwisko.getText().matches("")){
+            JOptionPane.showMessageDialog(this, "Nie wypełniono wszystkich pól");
+        }
+        else{
         menu.druzyna_dodawana = new Druzyna();
         menu.druzyna_dodawana.dodajZawodnika(new Zawodnik(tfZawodnik1_imie.getText(),tfZawodnik1_nazwisko.getText()));
         menu.druzyna_dodawana.dodajZawodnika(new Zawodnik(tfZawodnik2_imie.getText(),tfZawodnik2_nazwisko.getText()));
@@ -192,9 +210,9 @@ public class DodajDruzyne extends javax.swing.JFrame {
         menu.druzyna_dodawana.dodajZawodnika(new Zawodnik(tfZawodnik5_imie.getText(),tfZawodnik5_nazwisko.getText()));
         menu.druzyna_dodawana.dodajZawodnika(new Zawodnik(tfZawodnik6_imie.getText(),tfZawodnik6_nazwisko.getText()));
         menu.druzyna_dodawana.setNazwa(tfNazwaDruzyny.getText());
-        
         menu.wstawDruzyne();
         this.setVisible(false);
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDodajActionPerformed
 

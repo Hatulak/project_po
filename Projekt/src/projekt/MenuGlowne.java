@@ -1356,7 +1356,7 @@ public class MenuGlowne extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUsunSedziegoDwa_OgnieActionPerformed
 
     private void btnUsunSedziegoPrzeciaganie_LinyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsunSedziegoPrzeciaganie_LinyActionPerformed
-        if(rozgrywki.getTurniejDwa_Ognie().getSedziowie().isEmpty()==true){
+        if(rozgrywki.getTurniejLina().getSedziowie().isEmpty()==true){
             JOptionPane.showMessageDialog(this, "Nie można usuwać sędziów gdy nie ma żadnego na liście");
         }else{
         if(rozgrywki.getTurniejLina().wygenerowanoMecze!=false){
@@ -1384,6 +1384,10 @@ public class MenuGlowne extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Nie można usuwać drużyn po wygenerowaniu którychkolwiek meczy");
         }
         else{
+            if(rozgrywki.getDruzyny().isEmpty()==true){
+                JOptionPane.showMessageDialog(this, "Brak drużyn na liście");
+            }
+            else{
             if(tDruzyny.getSelectedRow() == -1){
                 JOptionPane.showMessageDialog(this, "Nie wybrano drużyny");
             } else {
@@ -1396,10 +1400,18 @@ public class MenuGlowne extends javax.swing.JFrame {
                 druzyny_model.removeRow(tDruzyny.getSelectedRow());
             }
         }
+        }
     }//GEN-LAST:event_btnUsunDruzyneActionPerformed
 
     private void btnWygenerujMeczeSiatkowkaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWygenerujMeczeSiatkowkaActionPerformed
-        if(rozgrywki.turniejSiatkowki.wygenerowanoMecze!=false){
+        if(rozgrywki.getTurniejSiatkowki().getSedziowie().size()<3){
+            JOptionPane.showMessageDialog(this, "Wymagane jest co najmniej 3 sędziów");
+        }else{
+            if(rozgrywki.getDruzyny().size()<4){
+                JOptionPane.showMessageDialog(this, "Wymagane są co najmniej 4 drużyny");
+            }
+            else{
+                if(rozgrywki.turniejSiatkowki.wygenerowanoMecze!=false){
             JOptionPane.showMessageDialog(this,"Mecze zostały już wygenerowane");
         }
         else{
@@ -1415,6 +1427,8 @@ public class MenuGlowne extends javax.swing.JFrame {
                 
             }
         }
+        }
+        }
     }//GEN-LAST:event_btnWygenerujMeczeSiatkowkaActionPerformed
 
     private void tDruzynyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tDruzynyMouseClicked
@@ -1425,18 +1439,32 @@ public class MenuGlowne extends javax.swing.JFrame {
     }//GEN-LAST:event_tDruzynyMouseClicked
 
     private void btnDodajWynikSiatkowkaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajWynikSiatkowkaActionPerformed
-       if(tMeczeSiatkowka.getModel().getValueAt(tMeczeSiatkowka.getSelectedRow(), 2)!=(null)){
+       if(tMeczeSiatkowka.getSelectedRow()==-1){
+           JOptionPane.showMessageDialog(this, "Nie wybrano meczu");
+       }
+       else{
+        if(tMeczeSiatkowka.getModel().getValueAt(tMeczeSiatkowka.getSelectedRow(), 2)!=(null)){
            JOptionPane.showMessageDialog(this,"Zwycięzca został wybrany");
        }    
        else{
        DodajWynik fDodajwynik = new DodajWynik(this, "Siatkowka",(String) tMeczeSiatkowka.getModel().getValueAt(tMeczeSiatkowka.getSelectedRow(), 0 ),(String) tMeczeSiatkowka.getModel().getValueAt(tMeczeSiatkowka.getSelectedRow(), 1 ));
        fDodajwynik.setVisible(true);
        }
+       }
     }//GEN-LAST:event_btnDodajWynikSiatkowkaActionPerformed
 
     private void btnWygenerujMeczeDwa_OgnieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWygenerujMeczeDwa_OgnieActionPerformed
-        if(rozgrywki.turniejDwa_Ognie.wygenerowanoMecze==false)
-        {
+        if(rozgrywki.getTurniejDwa_Ognie().getSedziowie().size()<1){
+            JOptionPane.showMessageDialog(this, "Wymagane jest co najmniej 3 sędziów");
+        }else{
+            if(rozgrywki.getDruzyny().size()<4){
+                JOptionPane.showMessageDialog(this, "Wymagane są co najmniej 4 drużyny");
+            }
+            else{
+                if(rozgrywki.getTurniejDwa_Ognie().wygenerowanoMecze!=false){
+            JOptionPane.showMessageDialog(this,"Mecze zostały już wygenerowane");
+                }
+        else{
             rozgrywki.getTurniejDwa_Ognie().wygenerujMecze(rozgrywki.getDruzyny());
             LinkedList<Mecz> listaDwa_Ognie = rozgrywki.getTurniejDwa_Ognie().getLista_meczy();
         
@@ -1448,23 +1476,37 @@ public class MenuGlowne extends javax.swing.JFrame {
             
             }
         }
-        else{
-            JOptionPane.showMessageDialog(this,"Mecze zostały wygenerowane");
+            }
         }
     }//GEN-LAST:event_btnWygenerujMeczeDwa_OgnieActionPerformed
 
     private void btnDodajWynikDwa_OgnieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajWynikDwa_OgnieActionPerformed
-       if(tMeczeDwa_Ognie.getModel().getValueAt(tMeczeDwa_Ognie.getSelectedRow(), 2)!=(null)){
+      if(tMeczeDwa_Ognie.getSelectedRow()==-1){
+           JOptionPane.showMessageDialog(this, "Nie wybrano meczu");
+       }
+       else{
+        if(tMeczeDwa_Ognie.getModel().getValueAt(tMeczeDwa_Ognie.getSelectedRow(), 2)!=(null)){
            JOptionPane.showMessageDialog(this,"Zwycięzca został wybrany");
-       }    
+       }   
        else{
            DodajWynik fDodajwynik = new DodajWynik(this, "Dwa_Ognie",(String) tMeczeDwa_Ognie.getModel().getValueAt(tMeczeDwa_Ognie.getSelectedRow(), 0 ),(String) tMeczeDwa_Ognie.getModel().getValueAt(tMeczeDwa_Ognie.getSelectedRow(), 1 ));
            fDodajwynik.setVisible(true);
        }
+      }
     }//GEN-LAST:event_btnDodajWynikDwa_OgnieActionPerformed
 
     private void btnWygenerujMeczePrzeciaganie_LinyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWygenerujMeczePrzeciaganie_LinyActionPerformed
-        if(rozgrywki.getTurniejLina().wygenerowanoMecze==false){
+        if(rozgrywki.getTurniejLina().getSedziowie().size()<1){
+            JOptionPane.showMessageDialog(this, "Wymagane jest co najmniej 3 sędziów");
+        }else{
+            if(rozgrywki.getDruzyny().size()<4){
+                JOptionPane.showMessageDialog(this, "Wymagane są co najmniej 4 drużyny");
+            }
+            else{
+        if(rozgrywki.getTurniejLina().wygenerowanoMecze!=false){
+            JOptionPane.showMessageDialog(this,"Mecze zostały wygenerowane");
+        }
+        else{
             rozgrywki.getTurniejLina().wygenerujMecze(rozgrywki.getDruzyny());
             LinkedList<Mecz> listaPrzeciaganie_Liny = rozgrywki.getTurniejLina().getLista_meczy();
         
@@ -1473,21 +1515,24 @@ public class MenuGlowne extends javax.swing.JFrame {
                 String nazwa2 = listaPrzeciaganie_Liny.get(i).getTeam2().getNazwa();
             
                 this.meczePrzeciaganie_Liny_model.addRow(new Object[]{nazwa1,nazwa2});
-            
             }
         }
-        else{
-            JOptionPane.showMessageDialog(this,"Mecze zostały wygenerowane");
+            }
         }
     }//GEN-LAST:event_btnWygenerujMeczePrzeciaganie_LinyActionPerformed
 
     private void btnDodajWynikPrzeciaganie_LinyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajWynikPrzeciaganie_LinyActionPerformed
-       if(tMeczePrzeciaganie_Liny.getModel().getValueAt(tMeczePrzeciaganie_Liny.getSelectedRow(), 2)!=(null)){
+       if(tMeczePrzeciaganie_Liny.getSelectedRow()==-1){
+           JOptionPane.showMessageDialog(this, "Nie wybrano meczu");
+       }
+       else{
+        if(tMeczePrzeciaganie_Liny.getModel().getValueAt(tMeczePrzeciaganie_Liny.getSelectedRow(), 2)!=(null)){
            JOptionPane.showMessageDialog(this,"Zwycięzca został wybrany");
        }    
        else{
            DodajWynik fDodajwynik = new DodajWynik(this, "Przeciaganie_Liny",(String) tMeczePrzeciaganie_Liny.getModel().getValueAt(tMeczePrzeciaganie_Liny.getSelectedRow(), 0 ),(String) tMeczePrzeciaganie_Liny.getModel().getValueAt(tMeczePrzeciaganie_Liny.getSelectedRow(), 1 ));
            fDodajwynik.setVisible(true);
+       }
        }
     }//GEN-LAST:event_btnDodajWynikPrzeciaganie_LinyActionPerformed
 
@@ -1513,23 +1558,43 @@ public class MenuGlowne extends javax.swing.JFrame {
     }//GEN-LAST:event_tMeczePrzeciaganie_LinyMouseClicked
 
     private void btnGenerujPolfinalyDwa_OgnieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerujPolfinalyDwa_OgnieActionPerformed
-        if(rozgrywki.getTurniejDwa_Ognie().wygenerowanoPolfinaly==false){
+        for (Mecz mecz : rozgrywki.getTurniejDwa_Ognie().getLista_meczy()) {
+            if(mecz.getZwyciezca()==null){
+                JOptionPane.showMessageDialog(this, "Nie zostali wybrani wszyscy zwycięzcy meczy");
+                return;
+            }
+        }
+        if(rozgrywki.getTurniejDwa_Ognie().wygenerowanoMecze==false)
+        {
+            JOptionPane.showMessageDialog(this, "Nie można wygenerować bez uprzedniego wygenerowania meczy");
+        }else{
+        if(rozgrywki.getTurniejDwa_Ognie().wygenerowanoPolfinaly!=false){
+            JOptionPane.showMessageDialog(this,"Półfinały zostały już wygenerowane");
+        }
+        else{
             rozgrywki.getTurniejDwa_Ognie().wygenerujPolfinaly();
-        
+            
             
             this.meczeDwa_Ognie_model.addRow(new Object[] {this.rozgrywki.getTurniejDwa_Ognie().getPolfinal_1().getTeam1().getNazwa(),this.rozgrywki.getTurniejDwa_Ognie().getPolfinal_1().getTeam2().getNazwa() });
             this.meczeDwa_Ognie_model.addRow(new Object[]{this.rozgrywki.getTurniejDwa_Ognie().getPolfinal_2().getTeam1().getNazwa(),this.rozgrywki.getTurniejDwa_Ognie().getPolfinal_2().getTeam2().getNazwa()});
             
-        }
-        else{
-            JOptionPane.showMessageDialog(this,"Półfinały zostały już wygenerowane");
         } 
-        
+        }
         
     }//GEN-LAST:event_btnGenerujPolfinalyDwa_OgnieActionPerformed
 
     private void btnGenerujPolfinalySiatkowkaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerujPolfinalySiatkowkaActionPerformed
-       if(rozgrywki.getTurniejSiatkowki().wygenerowanoPolfinaly==false){
+       for (Mecz mecz : rozgrywki.getTurniejSiatkowki().getLista_meczy()) {
+            if(mecz.getZwyciezca()==null){
+                JOptionPane.showMessageDialog(this, "Nie zostali wybrani wszyscy zwycięzcy meczy");
+                return;
+            }
+        }
+        if(rozgrywki.getTurniejSiatkowki().wygenerowanoMecze==false)
+        {
+            JOptionPane.showMessageDialog(this, "Nie można wygenerować bez uprzedniego wygenerowania meczy");
+        }else{
+        if(rozgrywki.getTurniejSiatkowki().wygenerowanoPolfinaly==false){
             rozgrywki.getTurniejSiatkowki().wygenerujPolfinaly();
         
             
@@ -1539,10 +1604,19 @@ public class MenuGlowne extends javax.swing.JFrame {
         }
         else{
             JOptionPane.showMessageDialog(this,"Półfinały zostały już wygenerowane");
-        }       
+        }  
+       }
     }//GEN-LAST:event_btnGenerujPolfinalySiatkowkaActionPerformed
 
     private void btnGenerujFinalySiatkowkaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerujFinalySiatkowkaActionPerformed
+        if(rozgrywki.getTurniejSiatkowki().getPolfinal_1().getZwyciezca()==null||rozgrywki.getTurniejSiatkowki().getPolfinal_2().getZwyciezca()==null){
+                JOptionPane.showMessageDialog(this, "Nie zostali wybrani wszyscy zwycięzcy półfinałów");
+                return;
+            }
+        if((rozgrywki.getTurniejSiatkowki().wygenerowanoMecze==false||rozgrywki.getTurniejSiatkowki().wygenerowanoPolfinaly==false)==true)
+        {
+            JOptionPane.showMessageDialog(this, "Nie można wygenerować bez uprzedniego wygenerowania meczy i polfinałow");
+        }else{
         if(rozgrywki.getTurniejSiatkowki().wygenerowanoFinal==false){
             rozgrywki.getTurniejSiatkowki().wygenerujFinal();
             
@@ -1552,9 +1626,20 @@ public class MenuGlowne extends javax.swing.JFrame {
         else{
             JOptionPane.showMessageDialog(this,"Final został już wygenerowany");
         }      
+        }
     }//GEN-LAST:event_btnGenerujFinalySiatkowkaActionPerformed
 
     private void btnGenerujPolfinalyPrzeciaganie_LinyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerujPolfinalyPrzeciaganie_LinyActionPerformed
+        for (Mecz mecz : rozgrywki.getTurniejLina().getLista_meczy()) {
+            if(mecz.getZwyciezca()==null){
+                JOptionPane.showMessageDialog(this, "Nie zostali wybrani wszyscy zwycięzcy meczy");
+                return;
+            }
+        }
+        if(rozgrywki.getTurniejLina().wygenerowanoMecze==false)
+        {
+            JOptionPane.showMessageDialog(this, "Nie można wygenerować bez uprzedniego wygenerowania meczy");
+        }else{
         if(rozgrywki.getTurniejLina().wygenerowanoPolfinaly==false){
             rozgrywki.getTurniejLina().wygenerujPolfinaly();
                   
@@ -1564,10 +1649,19 @@ public class MenuGlowne extends javax.swing.JFrame {
         }
         else{
             JOptionPane.showMessageDialog(this,"Półfinały zostały już wygenerowane");
-        } 
+        }
+        }
     }//GEN-LAST:event_btnGenerujPolfinalyPrzeciaganie_LinyActionPerformed
 
     private void btnGenerujFinalyDwa_OgnieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerujFinalyDwa_OgnieActionPerformed
+        if(rozgrywki.getTurniejDwa_Ognie().getPolfinal_1().getZwyciezca()==null||rozgrywki.getTurniejDwa_Ognie().getPolfinal_2().getZwyciezca()==null){
+                JOptionPane.showMessageDialog(this, "Nie zostali wybrani wszyscy zwycięzcy półfinałów");
+                return;
+            }
+        if((rozgrywki.getTurniejDwa_Ognie().wygenerowanoMecze==false||rozgrywki.getTurniejDwa_Ognie().wygenerowanoPolfinaly==false)==true)
+        {
+            JOptionPane.showMessageDialog(this, "Nie można wygenerować bez uprzedniego wygenerowania meczy i polfinałow");
+        }else{
         if(rozgrywki.getTurniejDwa_Ognie().wygenerowanoFinal==false){
             rozgrywki.getTurniejDwa_Ognie().wygenerujFinal();
             
@@ -1577,11 +1671,19 @@ public class MenuGlowne extends javax.swing.JFrame {
         else{
             JOptionPane.showMessageDialog(this,"Final został już wygenerowany");
         }  
-        
+        }
         
     }//GEN-LAST:event_btnGenerujFinalyDwa_OgnieActionPerformed
 
     private void btnGenerujFinalyPrzeciaganie_LinyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerujFinalyPrzeciaganie_LinyActionPerformed
+        if(rozgrywki.getTurniejLina().getPolfinal_1().getZwyciezca()==null||rozgrywki.getTurniejLina().getPolfinal_2().getZwyciezca()==null){
+                JOptionPane.showMessageDialog(this, "Nie zostali wybrani wszyscy zwycięzcy półfinałów");
+                return;
+            }
+        if((rozgrywki.getTurniejLina().wygenerowanoMecze==false||rozgrywki.getTurniejLina().wygenerowanoPolfinaly==false)==true)
+        {
+            JOptionPane.showMessageDialog(this, "Nie można wygenerować bez uprzedniego wygenerowania meczy i polfinałow");
+        }else{
         if(rozgrywki.getTurniejLina().wygenerowanoFinal==false){
             rozgrywki.getTurniejLina().wygenerujFinal();
             
@@ -1591,6 +1693,7 @@ public class MenuGlowne extends javax.swing.JFrame {
         else{
             JOptionPane.showMessageDialog(this,"Final został już wygenerowany");
         }  
+        }
     }//GEN-LAST:event_btnGenerujFinalyPrzeciaganie_LinyActionPerformed
 
     

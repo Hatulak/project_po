@@ -2,6 +2,7 @@
 package projekt;
 
 import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 
 /**
  * Interfejs 
@@ -79,6 +80,9 @@ public class DodajSedziego extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_DodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DodajActionPerformed
+        if(tf_Imie.getText().matches("")||tf_Nazwisko.getText().matches("")){
+            JOptionPane.showMessageDialog(this, "Nie wszystkie pola zostały wypełnione");
+        }else{
         menu.sedzia_dodawany = new Sedzia(this.tf_Imie.getText(), this.tf_Nazwisko.getText());
         if(sport.matches("Siatkowka"))
             menu.wstawSedziegoSiatkowka();
@@ -87,6 +91,7 @@ public class DodajSedziego extends javax.swing.JFrame {
         else if(sport.matches("Przeciaganie_Liny"))
             menu.wstawSedziegoPrzeciaganieLiny();
         this.setVisible(false);
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_DodajActionPerformed
 
