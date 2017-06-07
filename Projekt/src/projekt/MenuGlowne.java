@@ -1397,21 +1397,21 @@ public class MenuGlowne extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUsunDruzyneActionPerformed
 
     private void btnWygenerujMeczeSiatkowkaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWygenerujMeczeSiatkowkaActionPerformed
-        if(rozgrywki.turniejSiatkowki.wygenerowanoMecze==false){
+        if(rozgrywki.turniejSiatkowki.wygenerowanoMecze!=false){
+            JOptionPane.showMessageDialog(this,"Mecze zostały już wygenerowane");
+        }
+        else{
             rozgrywki.getTurniejSiatkowki().wygenerujMecze(rozgrywki.getDruzyny());
         
             LinkedList<Mecz> listaSiatkowka = rozgrywki.getTurniejSiatkowki().getLista_meczy();
-        
+            
             for(int i=0; i < listaSiatkowka.size(); i++){
-                    String nazwa1 = listaSiatkowka.get(i).getTeam1().getNazwa();
-                    String nazwa2 = listaSiatkowka.get(i).getTeam2().getNazwa();
-            
-                    this.meczeSiatkowka_model.addRow(new Object[]{nazwa1,nazwa2});
-            
+                String nazwa1 = listaSiatkowka.get(i).getTeam1().getNazwa();
+                String nazwa2 = listaSiatkowka.get(i).getTeam2().getNazwa();
+                
+                this.meczeSiatkowka_model.addRow(new Object[]{nazwa1,nazwa2});
+                
             }
-        }
-        else{
-            JOptionPane.showMessageDialog(this,"Mecze zostały już wygenerowane");
         }
     }//GEN-LAST:event_btnWygenerujMeczeSiatkowkaActionPerformed
 
