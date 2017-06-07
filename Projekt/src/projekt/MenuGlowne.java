@@ -195,6 +195,9 @@ public class MenuGlowne extends javax.swing.JFrame {
             rozgrywki.getTurniejSiatkowki().getPolfinal_1().getTeam1().getNazwa(),
             rozgrywki.getTurniejSiatkowki().getPolfinal_1().getTeam2().getNazwa(),
             rozgrywki.getTurniejSiatkowki().getPolfinal_1().getZwyciezca().getNazwa()});
+        this.lPolfinal1_lewy.setText(rozgrywki.getTurniejSiatkowki().getPolfinal_1().getTeam1().getNazwa());
+        this.lPolfinal1_prawy.setText(rozgrywki.getTurniejSiatkowki().getPolfinal_1().getTeam2().getNazwa());
+        this.lPolfinal1_zwyciezca.setText(rozgrywki.getTurniejSiatkowki().getPolfinal_1().getZwyciezca().getNazwa());
         }
         else
         {
@@ -213,6 +216,9 @@ public class MenuGlowne extends javax.swing.JFrame {
             rozgrywki.getTurniejSiatkowki().getPolfinal_2().getTeam1().getNazwa(),
             rozgrywki.getTurniejSiatkowki().getPolfinal_2().getTeam2().getNazwa(),
             rozgrywki.getTurniejSiatkowki().getPolfinal_2().getZwyciezca().getNazwa()});
+        this.lPolfinal2_lewy.setText(rozgrywki.getTurniejSiatkowki().getPolfinal_2().getTeam1().getNazwa());
+        this.lPolfinal2_prawy.setText(rozgrywki.getTurniejSiatkowki().getPolfinal_2().getTeam2().getNazwa());
+        this.lPolfinal2_zwyciezca.setText(rozgrywki.getTurniejSiatkowki().getPolfinal_2().getZwyciezca().getNazwa());
         }
         else
         {
@@ -231,6 +237,9 @@ public class MenuGlowne extends javax.swing.JFrame {
             rozgrywki.getTurniejDwa_Ognie().getPolfinal_1().getTeam1().getNazwa(),
             rozgrywki.getTurniejDwa_Ognie().getPolfinal_1().getTeam2().getNazwa(),
             rozgrywki.getTurniejDwa_Ognie().getPolfinal_1().getZwyciezca().getNazwa()});
+        this.lPolfinal1_lewy_DO.setText(rozgrywki.getTurniejDwa_Ognie().getPolfinal_1().getTeam1().getNazwa());
+        this.lPolfinal1_prawy_DO.setText(rozgrywki.getTurniejDwa_Ognie().getPolfinal_1().getTeam2().getNazwa());
+        this.lPolfinal1_zwyciezca_DO.setText(rozgrywki.getTurniejDwa_Ognie().getPolfinal_1().getZwyciezca().getNazwa());
         }
         else
         {
@@ -248,6 +257,9 @@ public class MenuGlowne extends javax.swing.JFrame {
             rozgrywki.getTurniejDwa_Ognie().getPolfinal_2().getTeam1().getNazwa(),
             rozgrywki.getTurniejDwa_Ognie().getPolfinal_2().getTeam2().getNazwa(),
             rozgrywki.getTurniejDwa_Ognie().getPolfinal_2().getZwyciezca().getNazwa()});
+        this.lPolfinal2_lewy_DO.setText(rozgrywki.getTurniejDwa_Ognie().getPolfinal_2().getTeam1().getNazwa());
+        this.lPolfinal2_prawy_DO.setText(rozgrywki.getTurniejDwa_Ognie().getPolfinal_2().getTeam2().getNazwa());
+        this.lPolfinal2_zwyciezca_DO.setText(rozgrywki.getTurniejDwa_Ognie().getPolfinal_2().getZwyciezca().getNazwa());
         }
         else
         {
@@ -266,6 +278,9 @@ public class MenuGlowne extends javax.swing.JFrame {
             rozgrywki.getTurniejLina().getPolfinal_1().getTeam1().getNazwa(),
             rozgrywki.getTurniejLina().getPolfinal_1().getTeam2().getNazwa(),
             rozgrywki.getTurniejLina().getPolfinal_1().getZwyciezca().getNazwa()});
+        this.lPolfinal1_lewy_PL.setText(rozgrywki.getTurniejLina().getPolfinal_1().getTeam1().getNazwa());
+        this.lPolfinal1_prawy_PL.setText(rozgrywki.getTurniejLina().getPolfinal_1().getTeam2().getNazwa());
+        this.lPolfinal1_zwyciezca_PL.setText(rozgrywki.getTurniejLina().getPolfinal_1().getZwyciezca().getNazwa());
         }
         else
         {
@@ -283,6 +298,9 @@ public class MenuGlowne extends javax.swing.JFrame {
             rozgrywki.getTurniejLina().getPolfinal_2().getTeam1().getNazwa(),
             rozgrywki.getTurniejLina().getPolfinal_2().getTeam2().getNazwa(),
             rozgrywki.getTurniejLina().getPolfinal_2().getZwyciezca().getNazwa()});
+        this.lPolfinal2_lewy_PL.setText(rozgrywki.getTurniejLina().getPolfinal_2().getTeam1().getNazwa());
+        this.lPolfinal2_prawy_PL.setText(rozgrywki.getTurniejLina().getPolfinal_2().getTeam2().getNazwa());
+        this.lPolfinal2_zwyciezca_PL.setText(rozgrywki.getTurniejLina().getPolfinal_2().getZwyciezca().getNazwa());
         }
         else
         {
@@ -300,6 +318,9 @@ public class MenuGlowne extends javax.swing.JFrame {
             rozgrywki.getTurniejSiatkowki().getFinal().getTeam1().getNazwa(),
             rozgrywki.getTurniejSiatkowki().getFinal().getTeam2().getNazwa(),
             rozgrywki.getTurniejSiatkowki().getFinal().getZwyciezca().getNazwa()});
+        this.lFinal_lewy.setText(rozgrywki.getTurniejSiatkowki().getFinal().getTeam1().getNazwa());
+        this.lFinal_prawy.setText(rozgrywki.getTurniejSiatkowki().getFinal().getTeam2().getNazwa());
+        this.lFinal_zwyciezca.setText(rozgrywki.getTurniejSiatkowki().getFinal().getZwyciezca().getNazwa());
         }
         else
         {
@@ -317,6 +338,9 @@ public class MenuGlowne extends javax.swing.JFrame {
             rozgrywki.getTurniejDwa_Ognie().getFinal().getTeam1().getNazwa(),
             rozgrywki.getTurniejDwa_Ognie().getFinal().getTeam2().getNazwa(),
             rozgrywki.getTurniejDwa_Ognie().getFinal().getZwyciezca().getNazwa()});
+        this.lFinal_lewy_DO.setText(rozgrywki.getTurniejDwa_Ognie().getFinal().getTeam1().getNazwa());
+        this.lFinal_prawy_DO.setText(rozgrywki.getTurniejDwa_Ognie().getFinal().getTeam2().getNazwa());
+        this.lFinal_zwyciezca_DO.setText(rozgrywki.getTurniejDwa_Ognie().getFinal().getZwyciezca().getNazwa());
         }
         else
         {
@@ -334,6 +358,9 @@ public class MenuGlowne extends javax.swing.JFrame {
             rozgrywki.getTurniejLina().getFinal().getTeam1().getNazwa(),
             rozgrywki.getTurniejLina().getFinal().getTeam2().getNazwa(),
             rozgrywki.getTurniejLina().getFinal().getZwyciezca().getNazwa()});
+        this.lFinal_lewy_PL.setText(rozgrywki.getTurniejLina().getFinal().getTeam1().getNazwa());
+        this.lFinal_prawy_PL.setText(rozgrywki.getTurniejLina().getFinal().getTeam2().getNazwa());
+        this.lFinal_zwyciezca_PL.setText(rozgrywki.getTurniejLina().getFinal().getZwyciezca().getNazwa());
         }
         else
         {
