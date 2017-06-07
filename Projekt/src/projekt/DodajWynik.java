@@ -197,12 +197,30 @@ public class DodajWynik extends javax.swing.JFrame {
         int rzad=0;
        
         if(sport.matches("Siatkowka")){
+            if(spotkanie == menu.rozgrywki.getTurniejSiatkowki().getPolfinal_1()){
+                menu.lPolfinal1_lewy.setText(spotkanie.getTeam1().getNazwa());
+                menu.lPolfinal1_prawy.setText(spotkanie.getTeam2().getNazwa());
+                menu.lPolfinal1_zwyciezca.setText(spotkanie.getZwyciezca().getNazwa());
+            }
+            else if(spotkanie == menu.rozgrywki.getTurniejSiatkowki().getPolfinal_2()){
+                menu.lPolfinal2_lewy.setText(spotkanie.getTeam1().getNazwa());
+                menu.lPolfinal2_prawy.setText(spotkanie.getTeam2().getNazwa());
+                menu.lPolfinal2_zwyciezca.setText(spotkanie.getZwyciezca().getNazwa());
+            }
+            else if(spotkanie == menu.rozgrywki.getTurniejSiatkowki().getFinal()){
+                menu.lFinal_lewy.setText(spotkanie.getTeam1().getNazwa());
+                menu.lFinal_prawy.setText(spotkanie.getTeam2().getNazwa());
+                menu.lFinal_zwyciezca.setText(spotkanie.getZwyciezca().getNazwa());
+            }
+            
+            
             for(int i=0;i<menu.rozgrywki.getTurniejSiatkowki().getTabela_wynikow().size();i++){
                 if(spotkanie.getZwyciezca().getNazwa().matches((String)menu.siatkowkaTabela_wynikow_model.getValueAt(i, 0))){
                      rzad=i;
                      break;
                 }
             }
+            
             menu.meczeSiatkowka_model.setValueAt(spotkanie.zwyciezca.getNazwa(), menu.tMeczeSiatkowka.getSelectedRow(), 2);
             menu.rozgrywki.getTurniejSiatkowki().dodajPunkty(spotkanie.getZwyciezca());
             menu.siatkowkaTabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejSiatkowki().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
@@ -237,6 +255,23 @@ public class DodajWynik extends javax.swing.JFrame {
             }
         }
         else if(sport.matches("Dwa_Ognie")){
+            
+            if(spotkanie == menu.rozgrywki.getTurniejDwa_Ognie().getPolfinal_1()){
+                menu.lPolfinal1_lewy_DO.setText(spotkanie.getTeam1().getNazwa());
+                menu.lPolfinal1_prawy_DO.setText(spotkanie.getTeam2().getNazwa());
+                menu.lPolfinal1_zwyciezca_DO.setText(spotkanie.getZwyciezca().getNazwa());
+            }
+            else if(spotkanie == menu.rozgrywki.getTurniejDwa_Ognie().getPolfinal_2()){
+                menu.lPolfinal2_lewy_DO.setText(spotkanie.getTeam1().getNazwa());
+                menu.lPolfinal2_prawy_DO.setText(spotkanie.getTeam2().getNazwa());
+                menu.lPolfinal2_zwyciezca_DO.setText(spotkanie.getZwyciezca().getNazwa());
+            }
+            else if(spotkanie == menu.rozgrywki.getTurniejDwa_Ognie().getFinal()){
+                menu.lFinal_lewy_DO.setText(spotkanie.getTeam1().getNazwa());
+                menu.lFinal_prawy_DO.setText(spotkanie.getTeam2().getNazwa());
+                menu.lFinal_zwyciezca_DO.setText(spotkanie.getZwyciezca().getNazwa());
+            }
+            
             for(int i=0;i<menu.rozgrywki.getTurniejDwa_Ognie().getTabela_wynikow().size();i++){
             if(spotkanie.getZwyciezca().getNazwa().matches((String)menu.dwa_ognie_Tabela_wynikow_model.getValueAt(i, 0))){
                 rzad=i;
@@ -277,6 +312,23 @@ public class DodajWynik extends javax.swing.JFrame {
             }
         }
         else if(sport.matches("Przeciaganie_Liny")){
+            
+            if(spotkanie == menu.rozgrywki.getTurniejLina().getPolfinal_1()){
+                menu.lPolfinal1_lewy_PL.setText(spotkanie.getTeam1().getNazwa());
+                menu.lPolfinal1_prawy_PL.setText(spotkanie.getTeam2().getNazwa());
+                menu.lPolfinal1_zwyciezca_PL.setText(spotkanie.getZwyciezca().getNazwa());
+            }
+            else if(spotkanie == menu.rozgrywki.getTurniejLina().getPolfinal_2()){
+                menu.lPolfinal2_lewy_PL.setText(spotkanie.getTeam1().getNazwa());
+                menu.lPolfinal2_prawy_PL.setText(spotkanie.getTeam2().getNazwa());
+                menu.lPolfinal2_zwyciezca_PL.setText(spotkanie.getZwyciezca().getNazwa());
+            }
+            else if(spotkanie == menu.rozgrywki.getTurniejLina().getFinal()){
+                menu.lFinal_lewy_PL.setText(spotkanie.getTeam1().getNazwa());
+                menu.lFinal_prawy_PL.setText(spotkanie.getTeam2().getNazwa());
+                menu.lFinal_zwyciezca_PL.setText(spotkanie.getZwyciezca().getNazwa());
+            }
+            
             for(int i=0;i<menu.rozgrywki.getTurniejLina().getTabela_wynikow().size();i++){
             if(spotkanie.getZwyciezca().getNazwa().matches((String)menu.przeciaganie_liny_Tabela_wynikow_model.getValueAt(i, 0))){
                 rzad=i;
@@ -330,6 +382,23 @@ public class DodajWynik extends javax.swing.JFrame {
         int rzad=0;
        
         if(sport.matches("Siatkowka")){
+            
+            if(spotkanie == menu.rozgrywki.getTurniejSiatkowki().getPolfinal_1()){
+                menu.lPolfinal1_lewy.setText(spotkanie.getTeam1().getNazwa());
+                menu.lPolfinal1_prawy.setText(spotkanie.getTeam2().getNazwa());
+                menu.lPolfinal1_zwyciezca.setText(spotkanie.getZwyciezca().getNazwa());
+            }
+            else if(spotkanie == menu.rozgrywki.getTurniejSiatkowki().getPolfinal_2()){
+                menu.lPolfinal2_lewy.setText(spotkanie.getTeam1().getNazwa());
+                menu.lPolfinal2_prawy.setText(spotkanie.getTeam2().getNazwa());
+                menu.lPolfinal2_zwyciezca.setText(spotkanie.getZwyciezca().getNazwa());
+            }
+            else if(spotkanie == menu.rozgrywki.getTurniejSiatkowki().getFinal()){
+                menu.lFinal_lewy.setText(spotkanie.getTeam1().getNazwa());
+                menu.lFinal_prawy.setText(spotkanie.getTeam2().getNazwa());
+                menu.lFinal_zwyciezca.setText(spotkanie.getZwyciezca().getNazwa());
+            }
+            
             for(int i=0;i<menu.rozgrywki.getTurniejSiatkowki().getTabela_wynikow().size();i++){
             if(spotkanie.getZwyciezca().getNazwa().matches((String)menu.siatkowkaTabela_wynikow_model.getValueAt(i, 0))){
                 rzad=i;
@@ -370,6 +439,23 @@ public class DodajWynik extends javax.swing.JFrame {
             }
         }
         else if(sport.matches("Dwa_Ognie")){
+            
+            if(spotkanie == menu.rozgrywki.getTurniejDwa_Ognie().getPolfinal_1()){
+                menu.lPolfinal1_lewy_DO.setText(spotkanie.getTeam1().getNazwa());
+                menu.lPolfinal1_prawy_DO.setText(spotkanie.getTeam2().getNazwa());
+                menu.lPolfinal1_zwyciezca_DO.setText(spotkanie.getZwyciezca().getNazwa());
+            }
+            else if(spotkanie == menu.rozgrywki.getTurniejDwa_Ognie().getPolfinal_2()){
+                menu.lPolfinal2_lewy_DO.setText(spotkanie.getTeam1().getNazwa());
+                menu.lPolfinal2_prawy_DO.setText(spotkanie.getTeam2().getNazwa());
+                menu.lPolfinal2_zwyciezca_DO.setText(spotkanie.getZwyciezca().getNazwa());
+            }
+            else if(spotkanie == menu.rozgrywki.getTurniejDwa_Ognie().getFinal()){
+                menu.lFinal_lewy_DO.setText(spotkanie.getTeam1().getNazwa());
+                menu.lFinal_prawy_DO.setText(spotkanie.getTeam2().getNazwa());
+                menu.lFinal_zwyciezca_DO.setText(spotkanie.getZwyciezca().getNazwa());
+            }
+            
             for(int i=0;i<menu.rozgrywki.getTurniejDwa_Ognie().getTabela_wynikow().size();i++){
             if(spotkanie.getZwyciezca().getNazwa().matches((String)menu.dwa_ognie_Tabela_wynikow_model.getValueAt(i, 0))){
                 rzad=i;
@@ -410,6 +496,23 @@ public class DodajWynik extends javax.swing.JFrame {
             }       
         }
         else if(sport.matches("Przeciaganie_Liny")){
+            
+            if(spotkanie == menu.rozgrywki.getTurniejLina().getPolfinal_1()){
+                menu.lPolfinal1_lewy_PL.setText(spotkanie.getTeam1().getNazwa());
+                menu.lPolfinal1_prawy_PL.setText(spotkanie.getTeam2().getNazwa());
+                menu.lPolfinal1_zwyciezca_PL.setText(spotkanie.getZwyciezca().getNazwa());
+            }
+            else if(spotkanie == menu.rozgrywki.getTurniejLina().getPolfinal_2()){
+                menu.lPolfinal2_lewy_PL.setText(spotkanie.getTeam1().getNazwa());
+                menu.lPolfinal2_prawy_PL.setText(spotkanie.getTeam2().getNazwa());
+                menu.lPolfinal2_zwyciezca_PL.setText(spotkanie.getZwyciezca().getNazwa());
+            }
+            else if(spotkanie == menu.rozgrywki.getTurniejLina().getFinal()){
+                menu.lFinal_lewy_PL.setText(spotkanie.getTeam1().getNazwa());
+                menu.lFinal_prawy_PL.setText(spotkanie.getTeam2().getNazwa());
+                menu.lFinal_zwyciezca_PL.setText(spotkanie.getZwyciezca().getNazwa());
+            }
+            
             for(int i=0;i<menu.rozgrywki.getTurniejLina().getTabela_wynikow().size();i++){
             if(spotkanie.getZwyciezca().getNazwa().matches((String)menu.przeciaganie_liny_Tabela_wynikow_model.getValueAt(i, 0))){
                 rzad=i;
