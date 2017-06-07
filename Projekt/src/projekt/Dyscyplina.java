@@ -12,6 +12,10 @@ import java.util.Map.Entry;
 import java.util.Random;
 import java.util.Set;
 
+/**
+ * Klasa wyróżniająca dyscyplinę w którą rozgrywany jest turniej
+ */
+
 public class Dyscyplina {
     private String nazwa;
     private LinkedList<Sedzia> sedziowie;
@@ -24,16 +28,31 @@ public class Dyscyplina {
     boolean wygenerowanoPolfinaly=false;
     boolean wygenerowanoFinal=false;
 
+    
+    /**
+     * Konstruktor 
+     * @param s Napis z nazwą sportu
+     */
     public Dyscyplina(String s){
         nazwa = s;
         sedziowie = new LinkedList<>();
         tabela_wynikow = new HashMap<>();
         lista_meczy = new LinkedList<>();
     }
-
+    
+    /**
+     * metoda dodaje sędziego do listy sędziów 
+     * @param sedzia    dodawany do listy sędzia 
+     */ 
     public void dodajSedziego(Sedzia sedzia){
         sedziowie.add(sedzia);
     }
+    
+    /**
+     * metoda usuwa sędziego o podanym imieniu i nazwisku z listy sędziów
+     * @param imie  imię sędziego, którego chcemy usunąć
+     * @param nazwisko  nazwisko sędziego, którego chcemy usunąć 
+     */ 
     public void usunSedziego(String imie, String nazwisko){
         int index =0;
         for (Sedzia sedzia : sedziowie) {
@@ -44,32 +63,67 @@ public class Dyscyplina {
             index++;
         }
     }
-
+    
+    /**
+     * metoda pobiera listę sędziów
+     * @return zwraca listę sędziów
+     */
     public LinkedList<Sedzia> getSedziowie() {
         return sedziowie;
     }
+    
+    /**
+     * metoda pobiera listę meczy
+     * @return zwraca listę meczy
+     */  
     public LinkedList<Mecz> getLista_meczy() {
         return lista_meczy;
     }
 
-
+    /**
+     * metoda pobiera mapę drużyn z przypisanymi do nich punktami
+     * @return zwraca tabelę wyników
+     */
     public HashMap<Druzyna, Integer> getTabela_wynikow() {
         return tabela_wynikow;
     }
+    
+    /**
+     * metoda dodająca punkt przekazanej w parametrze drużynie
+     * @param druzyna   drużyna, której chcemy dodać punkt 
+     */
     public void dodajPunkty(Druzyna druzyna){
         tabela_wynikow.put( druzyna, tabela_wynikow.get(druzyna) + 1 );
     }
 
-
+    /**
+     * metoda pobiera mecz finałowy
+     * @return zwraca mecz finałowy 
+     */
     public Mecz getFinal() {
         return mecz_final;
     }
+    
+    /**
+     * metoda zwraca pierwszy mecz półfinałowy
+     * @return zwraca pierwszy mecz półfinałowy
+     */
     public Mecz getPolfinal_1() {
         return polfinal_1;
     }
+    
+    /**
+     * metoda zwraca drugi mecz półfinałowy
+     * @return zwraca drugi mecz półfinałowy
+     */
     public Mecz getPolfinal_2() {
         return polfinal_2;
     }
+    
+    /**
+     * metoda generuje listę meczy do rozegrania w fazie grupowiej
+     * @param druzyny   lista drużyn dla których generujemy listę meczy
+     */
     public void wygenerujMecze(LinkedList<Druzyna> druzyny){
     	for (int i = 0; i < druzyny.size() ; i++ ){
             for (int j = i+1;  j< druzyny.size(); j++){
@@ -85,7 +139,13 @@ public class Dyscyplina {
                 }
             }
         wygenerowanoMecze=true;
-        }
+    }
+    
+    /**
+     * metoda generuje półfinały
+     * metoda sortuje tabelę wyników, pobiera 4 drużyny o największej ilości punktów
+     *       z których tworzy mecze półfinałowe
+     */
     public void wygenerujPolfinaly(){ 
         //Sortowanie tabeli wynikow
         List<Entry<Druzyna,Integer>> lista = new LinkedList<Entry<Druzyna,Integer>>(tabela_wynikow.entrySet());
@@ -114,6 +174,11 @@ public class Dyscyplina {
         }
         wygenerowanoPolfinaly=true;
     }
+    
+    /**
+     * metoda tworzy mecz finałowy
+     * metoda pobiera zwycięzców meczy półfinałowych i tworzy z nich finał
+     */
     public void wygenerujFinal(){
     	if (nazwa.matches("Siatkowka"))
             this.mecz_final = new Siatkowka(this.polfinal_1.getZwyciezca(),this.polfinal_2.getZwyciezca(),sedziowie);

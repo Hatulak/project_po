@@ -1,15 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package projekt;
 
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Przemysław
+ * Interfejs 
  */
 public class DodajWynik extends javax.swing.JFrame {
     String sport;
@@ -221,7 +216,7 @@ public class DodajWynik extends javax.swing.JFrame {
                 }
             }
             
-            menu.meczeSiatkowka_model.setValueAt(spotkanie.zwyciezca.getNazwa(), menu.tMeczeSiatkowka.getSelectedRow(), 2);
+            menu.meczeSiatkowka_model.setValueAt(spotkanie.getZwyciezca().getNazwa(), menu.tMeczeSiatkowka.getSelectedRow(), 2);
             menu.rozgrywki.getTurniejSiatkowki().dodajPunkty(spotkanie.getZwyciezca());
             menu.siatkowkaTabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejSiatkowki().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
             
@@ -278,7 +273,7 @@ public class DodajWynik extends javax.swing.JFrame {
                 break;
             }
         }
-            menu.meczeDwa_Ognie_model.setValueAt(spotkanie.zwyciezca.getNazwa(), menu.tMeczeDwa_Ognie.getSelectedRow(), 2);
+            menu.meczeDwa_Ognie_model.setValueAt(spotkanie.getZwyciezca().getNazwa(), menu.tMeczeDwa_Ognie.getSelectedRow(), 2);
             menu.rozgrywki.getTurniejDwa_Ognie().dodajPunkty(spotkanie.getZwyciezca());
             menu.dwa_ognie_Tabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejDwa_Ognie().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
             
@@ -335,7 +330,7 @@ public class DodajWynik extends javax.swing.JFrame {
                 break;
             }
         }
-            menu.meczePrzeciaganie_Liny_model.setValueAt(spotkanie.zwyciezca.getNazwa(), menu.tMeczePrzeciaganie_Liny.getSelectedRow(), 2);
+            menu.meczePrzeciaganie_Liny_model.setValueAt(spotkanie.getZwyciezca().getNazwa(), menu.tMeczePrzeciaganie_Liny.getSelectedRow(), 2);
             menu.rozgrywki.getTurniejLina().dodajPunkty(spotkanie.getZwyciezca());
             menu.przeciaganie_liny_Tabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejLina().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
             
@@ -405,7 +400,7 @@ public class DodajWynik extends javax.swing.JFrame {
                 break;
             }
         }
-            menu.meczeSiatkowka_model.setValueAt(spotkanie.zwyciezca.getNazwa(), menu.tMeczeSiatkowka.getSelectedRow(), 2);
+            menu.meczeSiatkowka_model.setValueAt(spotkanie.getZwyciezca().getNazwa(), menu.tMeczeSiatkowka.getSelectedRow(), 2);
             menu.rozgrywki.getTurniejSiatkowki().dodajPunkty(spotkanie.getZwyciezca());
             menu.siatkowkaTabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejSiatkowki().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
      
@@ -462,7 +457,7 @@ public class DodajWynik extends javax.swing.JFrame {
                 break;
             }
         }
-            menu.meczeDwa_Ognie_model.setValueAt(spotkanie.zwyciezca.getNazwa(), menu.tMeczeDwa_Ognie.getSelectedRow(), 2);
+            menu.meczeDwa_Ognie_model.setValueAt(spotkanie.getZwyciezca().getNazwa(), menu.tMeczeDwa_Ognie.getSelectedRow(), 2);
             menu.rozgrywki.getTurniejDwa_Ognie().dodajPunkty(spotkanie.getZwyciezca());
             menu.dwa_ognie_Tabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejDwa_Ognie().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
             
@@ -519,7 +514,7 @@ public class DodajWynik extends javax.swing.JFrame {
                 break;
             }
         }
-            menu.meczePrzeciaganie_Liny_model.setValueAt(spotkanie.zwyciezca.getNazwa(), menu.tMeczePrzeciaganie_Liny.getSelectedRow(), 2);
+            menu.meczePrzeciaganie_Liny_model.setValueAt(spotkanie.getZwyciezca().getNazwa(), menu.tMeczePrzeciaganie_Liny.getSelectedRow(), 2);
             menu.rozgrywki.getTurniejLina().dodajPunkty(spotkanie.getZwyciezca());
             menu.przeciaganie_liny_Tabela_wynikow_model.setValueAt(menu.rozgrywki.getTurniejLina().getTabela_wynikow().get(spotkanie.getZwyciezca()), rzad, 1);
             

@@ -5,7 +5,9 @@ import javax.swing.table.DefaultTableModel;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
-
+/**
+ * Interfejs 
+ */
 public class MenuGlowne extends javax.swing.JFrame {
     public Rozgrywki rozgrywki = new Rozgrywki();
     

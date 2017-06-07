@@ -1,14 +1,13 @@
 
 package projekt;
+
+
 /**
- *
- * @author Komp
+ * Interfejs 
  */
 public class PrzegladDruzyny extends javax.swing.JFrame {
 
-    /**
-     * Creates new form PrzeglądDruzyny
-     */
+    
     MenuGlowne menu;
     String nazwa, Imie1, Imie2, Imie3, Imie4, Imie5, Imie6, Nazwisko1, Nazwisko2, Nazwisko3, Nazwisko4, Nazwisko5, Nazwisko6;
     public PrzegladDruzyny() {

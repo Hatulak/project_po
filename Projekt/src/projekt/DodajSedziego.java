@@ -3,7 +3,9 @@ package projekt;
 
 import java.awt.event.KeyEvent;
 
-
+/**
+ * Interfejs 
+ */
 public class DodajSedziego extends javax.swing.JFrame {
 
     String sport;
